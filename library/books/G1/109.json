@@ -99,7 +99,7 @@
    "image": "books/G1/109/p04.jpg",
    "w": 1400,
    "h": 856,
-   "text": "Tia was about to have a day she would never forget no matter how hard she tried! Everyone in her family was getting ready for work or school. But not alarm clock had not gone off. Later, the family was enjoying breakfast not Tia. The dog bumped the table. Most of cereal ended up in her lap.",
+   "text": "Tia was about to have a day she would never forget no matter how hard she tried! Everyone in her family was getting ready for work or school. But not Tia-her alarm clock had not gone off. Later, the family was enjoying breakfast -but not Tia. The dog bumped the table. Most of Tia's cereal ended up in her lap.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -112,7 +112,7 @@
    "image": "books/G1/109/p05.jpg",
    "w": 1400,
    "h": 856,
-   "text": "Tia changed her clothes and stepped outside just in time to see the school bus driving away. just whispered Tia. is turning into a real bad-luck Tia started walking. But something was bothering her. Had she forgotten something? When she got to school, Tia opened her backpack. Her lunch and her homework were missing. All the kids turned in their math homework not Tia.",
+   "text": "Tia changed her clothes and stepped outside just in time to see the school bus driving away. \"Great, just great,\" whispered Tia. \"This is turning into a real bad-luck day.\" Tia started walking. But something was bothering her. Had she forgotten something? When she got to school, Tia opened her backpack. Her lunch and her homework were missing. All the kids turned in their math homework -but not Tia.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -125,7 +125,7 @@
    "image": "books/G1/109/p06.jpg",
    "w": 1400,
    "h": 856,
-   "text": "A row of cups sat by the window. The wind blew one cup over. On the side of this cup was the name friend Gracie felt sorry for her. having such a bad-luck day! Here, take my lucky charm. It will bring you good Tia said.",
+   "text": "A row of cups sat by the window. The wind blew one cup over. On the side of this cup was the name \"Tia.\" Tia's friend Gracie felt sorry for her. \"You're having such a bad-luck day! Here, take my lucky charm. It will bring you good luck.\" \"Thanks, Gracie,\" Tia said.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -138,7 +138,7 @@
    "image": "books/G1/109/p07.jpg",
    "w": 1400,
    "h": 856,
-   "text": "Someone from the office came into class with a bag lunch! Tia grinned. think your charm is she whispered to Gracie. On the way to lunch, Tia and Gracie stopped to wash their hands. The charm fell off neck, into the sink. better keep Gracie said nervously. almost went down the",
+   "text": "Someone from the principal's office came into class with a bag -Tia's lunch! Tia grinned. \"I think your charm is working!\" she whispered to Gracie. On the way to lunch, Tia and Gracie stopped to wash their hands. The charm fell off Tia's neck, into the sink. \"I'd better keep it,\" Gracie said nervously. \"It almost went down the drain.\"",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -151,7 +151,7 @@
    "image": "books/G1/109/p08.jpg",
    "w": 1400,
    "h": 856,
-   "text": "In the lunchroom, Tia see the puddle of milk on the floor. She slipped and fell with a crash. Her sandwich fell right into the puddle. Everyone was enjoying lunch not Tia. Gracie offered Tia half of her tuna sandwich. brother Tony surprised me. He made the sandwich. Here, take this Tia started to take a big bite. Then she noticed something.",
+   "text": "In the lunchroom, Tia didn't see the puddle of milk on the floor. She slipped and fell with a crash. Her sandwich fell right into the puddle. Everyone was enjoying lunch -but not Tia. Gracie offered Tia half of her tuna sandwich. \"My brother Tony surprised me. He made the sandwich. Here, take this half.\" Tia started to take a big bite. Then she noticed something.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -164,7 +164,7 @@
    "image": "books/G1/109/p09.jpg",
    "w": 1400,
    "h": 856,
-   "text": "Tia shrieked, dropping the sandwich. Gracie leaned down. just a plastic she said. knew Tony was up to Back in class, everyone else was reading not Tia. Her stomach rumbled. She searched her backpack for something to eat. Tia found an old candy bar. Finally, some good luck! Then a shadow fell across desk.",
+   "text": "Tia shrieked, dropping the sandwich. Gracie leaned down. \"It's just a plastic worm,\" she said. \"I knew Tony was up to something.\" Back in class, everyone else was reading -but not Tia. Her stomach rumbled. She searched her backpack for something to eat. Tia found an old candy bar. Finally, some good luck! Then a shadow fell across Tia's desk.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -177,7 +177,7 @@
    "image": "books/G1/109/p10.jpg",
    "w": 1400,
    "h": 856,
-   "text": "have to take said the teacher. is not allowed in class. You know sure sighed Tia. When Tia got home, she ran to her room and shut the door. just stay here for the rest of the she told the dog. way, nothing bad can Tia called her friend Benny. She told him about all the bad things that had happened.",
+   "text": "have to take that,\" said the teacher. \"Candy is not allowed in class. You know that.\" \"I sure do,\" sighed Tia. When Tia got home, she ran to her room and shut the door. \"I'll just stay here for the rest of the day,\" she told the dog. \"That way, nothing bad can happen.\" Tia called her friend Benny. She told him about all the bad things that had happened.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -190,152 +190,9 @@
    "image": "books/G1/109/p11.jpg",
    "w": 1146,
    "h": 1400,
-   "text": "feel better talking to said Tia. think my bad luck has finally stopped. What do you think, Benny? Hello?",
-   "textBox": [
-    0.1115,
-    0.0923,
-    0.8601,
-    0.2656
-   ],
-   "wordBoxes": {
-    "words": [
-     "feel",
-     "better",
-     "talking",
-     "to",
-     "said",
-     "Tia.",
-     "think",
-     "my",
-     "bad",
-     "luck",
-     "has",
-     "finally",
-     "stopped.",
-     "What",
-     "do",
-     "you",
-     "think,",
-     "Benny?",
-     "Hello?"
-    ],
-    "boxes": [
-     [
-      0.1618,
-      0.0923,
-      0.2182,
-      0.1141
-     ],
-     [
-      0.241,
-      0.0923,
-      0.3396,
-      0.1141
-     ],
-     [
-      0.3621,
-      0.0923,
-      0.4801,
-      0.121
-     ],
-     [
-      0.5031,
-      0.0944,
-      0.5324,
-      0.1141
-     ],
-     [
-      0.6572,
-      0.0923,
-      0.721,
-      0.1141
-     ],
-     [
-      0.7428,
-      0.0927,
-      0.8043,
-      0.1141
-     ],
-     [
-      0.1644,
-      0.1428,
-      0.2532,
-      0.1646
-     ],
-     [
-      0.2758,
-      0.1503,
-      0.3251,
-      0.17
-     ],
-     [
-      0.3471,
-      0.1428,
-      0.4046,
-      0.1646
-     ],
-     [
-      0.4277,
-      0.1428,
-      0.4962,
-      0.1646
-     ],
-     [
-      0.518,
-      0.1428,
-      0.5736,
-      0.1646
-     ],
-     [
-      0.5969,
-      0.1428,
-      0.7049,
-      0.17
-     ],
-     [
-      0.7281,
-      0.1428,
-      0.8601,
-      0.17
-     ],
-     [
-      0.1115,
-      0.1933,
-      0.2004,
-      0.2151
-     ],
-     [
-      0.2229,
-      0.1933,
-      0.2582,
-      0.2151
-     ],
-     [
-      0.281,
-      0.2008,
-      0.3375,
-      0.2205
-     ],
-     [
-      0.3603,
-      0.1933,
-      0.4574,
-      0.22
-     ],
-     [
-      0.4808,
-      0.1933,
-      0.6003,
-      0.2205
-     ],
-     [
-      0.202,
-      0.2438,
-      0.3031,
-      0.2656
-     ]
-    ]
-   },
+   "text": "feel better talking to you,\" said Tia. \"I think my bad luck has finally stopped. What do you think, Benny? Hello? Benny?\"",
+   "textBox": null,
+   "wordBoxes": null,
    "audio": [
     176.29,
     192.63

@@ -106,8 +106,10 @@ function renderGrid() {
 async function openBook(id) {
   const meta = state.manifest.find((b) => b.id === id);
   if (!meta) { toast('找不到这本书'); return; }
+  // 注意：404 会拿到 Response，但断网/请求被拦会 reject —— 两种都要落到"打不开"
   const book = await fetch(`${LIB}books/${meta.series}/${noPad3(meta.no)}.json`)
-    .then((r) => (r.ok ? r.json() : null));
+    .then((r) => (r.ok ? r.json() : null))
+    .catch(() => null);
   if (!book) { toast('这本书打不开'); return; }
 
   state.book = book;

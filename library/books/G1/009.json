@@ -860,12 +860,79 @@
    "image": "books/G1/009/p11.jpg",
    "w": 1400,
    "h": 1185,
-   "text": "oranges carrots grapes potatoes blueberries Where do they grow? pumpkins apples",
-   "textBox": null,
-   "wordBoxes": null,
+   "text": "Where do they grow? apples",
+   "textBox": [
+    0.0746,
+    0.0603,
+    0.8934,
+    0.2752
+   ],
+   "wordBoxes": {
+    "words": [
+     "Where",
+     "do",
+     "they",
+     "grow?",
+     "apples"
+    ],
+    "boxes": [
+     [
+      0.0746,
+      0.0603,
+      0.329,
+      0.1391
+     ],
+     [
+      0.4067,
+      0.0603,
+      0.4984,
+      0.1386
+     ],
+     [
+      0.0769,
+      0.1688,
+      0.2426,
+      0.271
+     ],
+     [
+      0.3192,
+      0.1677,
+      0.5482,
+      0.2707
+     ],
+     [
+      0.7459,
+      0.2128,
+      0.8934,
+      0.2752
+     ]
+    ]
+   },
    "audio": [
     87.06,
     89.88
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.29
+    ],
+    [
+     0.294,
+     0.48
+    ],
+    [
+     0.484,
+     1.42
+    ],
+    [
+     1.424,
+     2.39
+    ],
+    [
+     2.394,
+     2.77
+    ]
    ]
   }
  ],

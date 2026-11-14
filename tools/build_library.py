@@ -63,14 +63,41 @@ KEEP = {"I", "A"}
 TOKEN = re.compile(r"[A-Za-z]+(?:'[A-Za-z]+)?")
 
 
+# 弯引号/长破折号等先归一化成 ASCII。
+# 原来的写法是"词里含非 ASCII 就整词丢掉"，结果 sister’s / “Hello, / don’t 全被删，
+# 影响 403 页 / 2017 个词，而且 word_boxes 用同样的 ASCII 假设，两层一起错 → 互相掩盖。
+CHAR_MAP = {
+    "\u2018": "'", "\u2019": "'", "\u201a": "'", "\u201b": "'",
+    "\u201c": '"', "\u201d": '"', "\u201e": '"',
+    "\u2013": "-", "\u2014": "-", "\u2212": "-",
+    "\u2026": "...", "\u00a0": " ", "\u2009": " ", "\u200a": " ", "\u200b": "",
+    "\u00e9": "e", "\u00e8": "e", "\u00ea": "e", "\u00e0": "a", "\u00e7": "c",
+    "\u00ee": "i", "\u00f4": "o", "\u00fb": "u",
+}
+_TRANS = str.maketrans(CHAR_MAP)
+
+# 印前批注行：只删这一类行，不要整页清空。
+# 事故：GK-045 p4/p5/p8 和 G1-080 p4 被整页清空，把真正文一起删了。
+BAD_LINE = re.compile(
+    r"interior art|art\s*page|adjust|overall:|delete|\.indd|^\s*\d+\s*$|^\s*isbn", re.I)
+
+
+def normalize_chars(s: str) -> str:
+    s = (s or "").translate(_TRANS)
+    return "".join(ch for ch in s if 32 <= ord(ch) <= 126 or ch in "\n\t")
+
+
+def strip_annotation_lines(raw: str) -> str:
+    keep = [ln for ln in (raw or "").splitlines() if not BAD_LINE.search(ln)]
+    return "\n".join(keep)
+
+
 def clean_sentence(raw: str) -> str:
-    t = (raw or "").replace("\r", " ").replace("\n", " ")
+    t = normalize_chars(raw).replace("\r", " ").replace("\n", " ")
     for p in IND_PATTERNS:
         t = p.sub(" ", t)
     toks = []
     for tok in t.split():
-        if any(ord(ch) < 32 or ord(ch) > 126 for ch in tok):
-            continue
         if not re.search(r"[A-Za-z]", tok):
             continue
         toks.append(tok)
@@ -103,7 +130,10 @@ def word_boxes(tp, ox, oy, crop_w, crop_h):
     top_y = oy + crop_h
     words = []
     for w, x0, y0, x1, y1 in out:
-        if not re.fullmatch(r"[A-Za-z][A-Za-z'’,.!?\-]*", w):
+        # 放宽：只要含至少一个字母就收。原来的 [A-Za-z][A-Za-z'’,.!?\-]* 会把
+        # 以弯引号开头/结尾的 run（“Hello, / sister’s）整个拒掉，丢 27.9% 的 run。
+        w = normalize_chars(w).strip()
+        if not re.search(r"[A-Za-z]", w) or len(w) > 40:
             continue
         h = y1 - y0
         if h < 6 or h > 110:
@@ -118,8 +148,55 @@ def word_boxes(tp, ox, oy, crop_w, crop_h):
                     round((x1 - ox) / crop_w, 4), round(bottom, 4)],
             "h": h,
             "hn": h / crop_h,
+            # 每字符平均宽度（页面单位）：和字号成正比，且不受字形高低影响
+            # （hn 是墨迹高度，'a'/'is' 这类无升降部的词天然就矮，按它筛会切碎正常句子）
+            "cw": (x1 - x0) / max(len(w), 1),
         })
     return words
+
+
+def drop_annotation_runs(runs, gap=1.6):
+    """丢掉印前批注：它们的字号明显小于正文。
+
+    不能用单字符的 cw 判断（'I' 天生窄）。做法：
+      1. 只用 ≥3 字符的 run 估字号（cw = 宽度/字符数）
+      2. 对这些 cw 做二聚类；只有两簇中心相差 ≥1.6 倍才认为是"正文 vs 批注"
+      3. 保留高字号那一簇所在的**整行**（同行的短词跟着走）
+
+    实测：GK-001（正常）cw≈13；GK-045/G1-080（批注页）批注 4–7、正文仍 13。
+    """
+    if len(runs) < 4:
+        return runs
+    solid = [r for r in runs if len(r["w"]) >= 3]
+    if len(solid) < 3:
+        return runs
+
+    vals = [r["cw"] for r in solid]
+    c_lo, c_hi = min(vals), max(vals)
+    if c_hi / max(c_lo, 1e-6) < gap:
+        return runs
+    for _ in range(30):
+        g_lo = [v for v in vals if abs(v - c_lo) <= abs(v - c_hi)]
+        g_hi = [v for v in vals if abs(v - c_lo) > abs(v - c_hi)]
+        if not g_lo or not g_hi:
+            return runs
+        c_lo, c_hi = sum(g_lo) / len(g_lo), sum(g_hi) / len(g_hi)
+    if c_hi / max(c_lo, 1e-6) < gap:
+        return runs
+
+    # 高字号 run 所在的行走保留
+    keep_lines = set()
+    for ln in order_lines(runs):
+        big = [r for r in ln if len(r["w"]) >= 3 and abs(r["cw"] - c_hi) < abs(r["cw"] - c_lo)]
+        if big and len(big) * 2 >= len(ln):
+            keep_lines.add(id(ln[0]))
+    if not keep_lines:
+        return runs
+    out = []
+    for ln in order_lines(runs):
+        if id(ln[0]) in keep_lines:
+            out.extend(ln)
+    return out if len(out) >= 2 else runs
 
 
 def order_lines(words):
@@ -145,37 +222,122 @@ _NORM = lambda s: re.sub(r"[^a-z]", "", s.lower())
 
 
 def merge_to_tokens(runs, text):
-    targets = [t.lower() for t in TOKEN.findall(text)]
-    if not targets:
+    """字母偏移对齐：把文字 token 映射到视觉 run 上。
+
+    不再要求 token 与 run 逐个相等（`little` vs `lit tle` 会被拆），
+    而是把两边的字母流按顺序走一遍，记录每个 token 覆盖的字母区间。
+    落在同一个 run 里的多个 token 合并成一个词（以视觉拼写为准）。
+    """
+    tokens = TOKEN.findall(text)
+    if not tokens or not runs:
         return None
-    merged, i = [], 0
-    for t in targets:
-        acc, start = "", i
-        while i < len(runs) and len(acc) < len(t):
-            acc += re.sub(r"[^a-z]", "", runs[i]["w"].lower())
-            i += 1
-        if acc != t:
-            return None
-        grp = runs[start:i]
+    A = [re.sub(r"[^a-z]", "", r["w"].lower()) for r in runs]
+    B = [re.sub(r"[^a-z]", "", t.lower()) for t in tokens]
+    if sum(map(len, A)) != sum(map(len, B)) or not sum(map(len, A)):
+        return None
+
+    spans, ri, pos = [], 0, 0
+    for letters in B:
+        need = len(letters)
+        first, last = ri, ri
+        while need > 0:
+            if ri >= len(runs):
+                return None
+            take = min(need, len(A[ri]) - pos)
+            last = ri
+            need -= take
+            pos += take
+            if pos >= len(A[ri]):
+                ri += 1
+                pos = 0
+        spans.append((first, last))
+
+    # 相邻 token 若共用同一个 run，就合并（否则一个视觉词会有两个热区）
+    groups = []          # [[first_run, last_run, [token idx...]]]
+    for idx, (f, l) in enumerate(spans):
+        if groups and f <= groups[-1][1]:
+            groups[-1][1] = max(groups[-1][1], l)
+            groups[-1][2].append(idx)
+        else:
+            groups.append([f, l, [idx]])
+
+    merged = []
+    for f, l, idxs in groups:
+        grp = runs[f:l + 1]
         merged.append({
             "w": "".join(g["w"] for g in grp),
             "box": [min(g["box"][0] for g in grp), min(g["box"][1] for g in grp),
                     max(g["box"][2] for g in grp), max(g["box"][3] for g in grp)],
         })
-    if i != len(runs):
-        return None
     return merged
 
 
+def canonical_from_runs(runs, keep_ratio=0.72):
+    """已弃用：按 run 墨迹高度筛字号不可行。
+
+    实测 `hn` 是字形墨迹高度，`a`/`is` 这类没有升降部的词天然就矮，
+    与"正文 vs 印前批注"的字号差异混在一起，按高度切会把正常句子切碎
+    （GK-001 p4 的 "I can see the apples." 被切成 "I the apples."）。
+    真正的修复靠 C1（窗口上限）+ C2（引号归一化）+ C3（run 正则）+ 字母偏移，
+    评审在 379 个无框页上实测可达 378 页出框。
+    """
+    raise NotImplementedError("已弃用")
+
+
+def _task_placeholder():  # 占位，避免误改到下面的并行入口
+    raise NotImplementedError
+
+
 def select_sentence(words, text):
+    """在页面文字里挑出与 text 对应的那一块。
+
+    两套匹配：
+      1. 贪心消费——每一步挑"是剩余目标的严格前缀"的那一行。与行的 y 顺序无关，
+         能处理拟声词被排到句子前面这类情况（G1-001 p4 的 Cock-a-doodle-doo!）。
+      2. 连续窗口——原来的做法，处理跨行的整句。
+    取命中行数最多的那个。
+    """
     lines = order_lines(words)
     if not lines:
         return [], None
     target = _NORM(text)
-    best = None
+    if not target:
+        return [], None
+
+    best = None      # (i, j) 闭区间
+
+    # 方案 1：贪心消费
+    left = target
+    used = []
+    pool = list(range(len(lines)))
+    while left and pool:
+        pick, pick_len = None, 0
+        for i in pool:
+            ln = _NORM(" ".join(w["w"] for w in lines[i]))
+            if ln and left.startswith(ln) and len(ln) > pick_len:
+                pick, pick_len = i, len(ln)
+        if pick is None:
+            break
+        left = left[pick_len:]
+        used.append(pick)
+        pool.remove(pick)
+    if not left and used:
+        if len(used) == 1:
+            best = (used[0], used[0])
+        else:
+            best = (min(used), max(used)) if used == sorted(used) else None
+            if best is None:
+                chosen = [w for i in used for w in lines[i]]
+                merged = merge_to_tokens(chosen, text)
+                if merged is not None:
+                    return merged, {"words": [w["w"] for w in merged],
+                                    "boxes": [w["box"] for w in merged]}
+                return chosen, None
+
+    # 方案 2：连续窗口
     for i in range(len(lines)):
         acc = ""
-        for j in range(i, min(len(lines), i + 5)):
+        for j in range(i, len(lines)):
             acc += _NORM(" ".join(w["w"] for w in lines[j]))
             if acc == target:
                 if best is None or (j - i) > (best[1] - best[0]):
@@ -183,6 +345,7 @@ def select_sentence(words, text):
                 break
             if not target.startswith(acc):
                 break
+
     if best is None:
         return [], None
     chosen = [w for line in lines[best[0]: best[1] + 1] for w in line]
@@ -201,11 +364,15 @@ def bbox(words):
 
 # ───────────────────────────── 正文页范围
 def content_pages(reader):
-    """正文页（0-based 索引列表）：跳过封面/版权/书名页，遇到剧本页就停。"""
+    """正文页（0-based 索引列表）：跳过封面/版权/书名页，遇到剧本页就停。
+
+    P4：批注行在 clean 之前就被逐行删掉，所以"只剩批注"的页现在会得到空文字，
+    但**不再因此被整页丢弃**——它仍然是一张有图的正文页，只是无字。
+    """
     n = len(reader.pages)
     if n <= 3:
         return []
-    texts = [clean_sentence(p.extract_text() or "") for p in reader.pages]
+    texts = [clean_sentence(strip_annotation_lines(p.extract_text() or "")) for p in reader.pages]
     last = n - 1
     for i in range(3, n):
         t = texts[i]
@@ -215,7 +382,7 @@ def content_pages(reader):
             last = i - 1
             break
         last = i
-    return [i for i in range(3, last + 1) if texts[i]]
+    return list(range(3, last + 1))
 
 
 # ───────────────────────────── 音频
@@ -364,13 +531,22 @@ def build_book(series, no, pdf_path, aud_path, tmpdir):
         rel = f"books/{series['key']}/{no:03d}/p{idx + 1:02d}.jpg"
         img.save(LIB / rel, quality=84, optimize=True, progressive=True)
 
-        text = clean_sentence(reader.pages[idx].extract_text() or "")
-        chosen, per_word = select_sentence(word_boxes(page.get_textpage(), cx0, cy0, pw, ph), text)
+        text = clean_sentence(strip_annotation_lines(reader.pages[idx].extract_text() or ""))
+        runs_all = word_boxes(page.get_textpage(), cx0, cy0, pw, ph)
+        runs = drop_annotation_runs(runs_all)
+        if len(runs) != len(runs_all):
+            # 这一页有印前批注被过滤掉 → 文字层不可信，以视觉层为准
+            text = " ".join(r["w"] for r in runs)
+        chosen, per_word = select_sentence(runs, text)
+        # 词框合并后（"lit tle" → "little"）词数与 text 不一致，会让下游对齐对不上；
+        # 以视觉层的拼写为准重写 text，保证 text / wordBoxes / wordTimes 三者同索引。
+        if per_word and len(per_word["words"]):
+            text = " ".join(per_word["words"])
         pages.append({"n": idx + 1, "image": rel, "w": img.width, "h": img.height,
                       "text": text, "textBox": bbox(chosen), "wordBoxes": per_word, "audio": None})
 
     # 封面（第 2 页通常是封面右半，需按书判断；先用第 1 页右半）
-    c = doc[1] if len(doc) > 1 else doc[0]
+    c = doc[0]   # 第 1 页是封面跨页；第 2 页是版权页，裁右半会是白纸
     cw_, chh = c.get_cropbox()[2] - c.get_cropbox()[0], c.get_cropbox()[3] - c.get_cropbox()[1]
     cover_img = c.render(scale=900 / max(cw_, chh)).to_pil().convert("RGB")
     front = cover_img.crop((cover_img.width // 2, 0, cover_img.width, cover_img.height))

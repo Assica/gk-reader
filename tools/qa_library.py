@@ -79,5 +79,30 @@ print(f"异常的页音频区间: {len(bad_audio)} {bad_audio[:4]}")
 print(f"缺文件: {len(missing_files)} {missing_files[:4]}")
 print(f"页数过少的书: {len(bad_pages)} {bad_pages[:4]}")
 
+# 封面检查：体积只是弱信号（9 KB 的纯灰图能过 6 KB 线），内容必须看像素。
+# 曾经因为裁了第 2 页（版权页）导致 180 张全是白纸，这条用来兜住同类事故。
+covers = list((LIB / "covers").rglob("*.jpg"))
+if covers:
+    avg_c = sum(c.stat().st_size for c in covers) / len(covers) / 1024
+    tiny = [(c.name, round(c.stat().st_size / 1024, 1)) for c in covers if c.stat().st_size < 6000]
+    print(f"\n封面: {len(covers)} 张，平均 {avg_c:.1f} KB")
+    if tiny:
+        print(f"  ⚠ 体积可疑（<6 KB）: {len(tiny)} 张 {tiny[:5]}")
+    try:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from audit_content import img_stat, SD_MIN_COVER, WHITE_MAX  # noqa: E402
+        blank = []
+        for c in covers:
+            _, sd, white = img_stat(c)
+            if sd < SD_MIN_COVER or white > WHITE_MAX:
+                blank.append((c.name, round(sd, 1), round(white, 2)))
+        if blank:
+            print(f"  ⚠ 真的空白封面（像素标准差 <{SD_MIN_COVER}）: {len(blank)} 张 {blank[:5]}")
+        else:
+            print("  ✅ 无空白封面（体积 + 像素双重检查）")
+    except Exception as e:  # noqa: BLE001
+        print(f"  ⚠ 像素检查不可用: {e}")
+    print("  页图/音频内容级全量检查: python tools/audit_content.py")
+
 size = sum(f.stat().st_size for f in LIB.rglob("*") if f.is_file())
 print(f"\nlibrary 体积: {size/1e6:.1f} MB")

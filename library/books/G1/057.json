@@ -83,9 +83,110 @@
    "image": "books/G1/057/p04.jpg",
    "w": 1400,
    "h": 573,
-   "text": "Froggy went to house to play. Duck was looking at some pictures.",
-   "textBox": null,
-   "wordBoxes": null,
+   "text": "Froggy went to Duck's house to play. Duck was looking at some pictures.",
+   "textBox": [
+    0.0566,
+    0.1119,
+    0.3157,
+    0.3848
+   ],
+   "wordBoxes": {
+    "words": [
+     "Froggy",
+     "went",
+     "to",
+     "Duck's",
+     "house",
+     "to",
+     "play.",
+     "Duck",
+     "was",
+     "looking",
+     "at",
+     "some",
+     "pictures."
+    ],
+    "boxes": [
+     [
+      0.0585,
+      0.1119,
+      0.1208,
+      0.1627
+     ],
+     [
+      0.1379,
+      0.1122,
+      0.1822,
+      0.1513
+     ],
+     [
+      0.0566,
+      0.1862,
+      0.0746,
+      0.2243
+     ],
+     [
+      0.094,
+      0.184,
+      0.149,
+      0.2243
+     ],
+     [
+      0.1683,
+      0.1859,
+      0.2187,
+      0.2243
+     ],
+     [
+      0.2365,
+      0.1862,
+      0.2546,
+      0.2243
+     ],
+     [
+      0.2738,
+      0.1859,
+      0.3157,
+      0.2367
+     ],
+     [
+      0.0585,
+      0.26,
+      0.1013,
+      0.2984
+     ],
+     [
+      0.1185,
+      0.2724,
+      0.1534,
+      0.2993
+     ],
+     [
+      0.1727,
+      0.26,
+      0.2359,
+      0.3106
+     ],
+     [
+      0.2553,
+      0.2602,
+      0.2735,
+      0.2984
+     ],
+     [
+      0.0566,
+      0.3476,
+      0.1017,
+      0.3724
+     ],
+     [
+      0.1207,
+      0.3343,
+      0.1968,
+      0.3848
+     ]
+    ]
+   },
    "audio": [
     0.9,
     19.22
@@ -96,7 +197,7 @@
    "image": "books/G1/057/p05.jpg",
    "w": 1400,
    "h": 573,
-   "text": "is my baby said Duck. was a very cute baby you were a cute said Froggy.",
+   "text": "\"This is my baby picture,\" said Duck. \"I was a very cute baby duck.\" \"Yes, you were a cute baby,\" said Froggy.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -109,7 +210,7 @@
    "image": "books/G1/057/p06.jpg",
    "w": 1400,
    "h": 573,
-   "text": "Froggy and Duck went to house. we see your baby said Duck. I said Otter. was a very cute baby you said Froggy.",
+   "text": "Froggy and Duck went to Otter's house. \"Can we see your baby pictures?\" said Duck. \"Here I am,\" said Otter. \"I was a very cute baby otter.\" \"Yes, you were,\" said Froggy.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -122,7 +223,7 @@
    "image": "books/G1/057/p07.jpg",
    "w": 1400,
    "h": 573,
-   "text": "Then Froggy and Duck and Otter went to house. we see your baby said Duck. I said Turtle. was a cute, cute baby you said Froggy.",
+   "text": "Then Froggy and Duck and Otter went to Turtle's house. \"Can we see your baby pictures?\" said Duck. \"Here I am,\" said Turtle. \"I was a cute, cute baby turtle.\" \"Yes, you were,\" said Froggy.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -135,12 +236,288 @@
    "image": "books/G1/057/p08.jpg",
    "w": 1400,
    "h": 573,
-   "text": "All friends had cute baby pictures. Froggy wanted to know what his baby pictures looked like. So he went to ask his mom.",
-   "textBox": null,
-   "wordBoxes": null,
+   "text": "All Froggy's friends had cute baby pictures. Froggy wanted to know what his baby pictures looked like. So he went to ask his mom.",
+   "textBox": [
+    0.0554,
+    0.11,
+    0.3687,
+    0.5215
+   ],
+   "wordBoxes": {
+    "words": [
+     "All",
+     "Froggy's",
+     "friends",
+     "had",
+     "cute",
+     "baby",
+     "pictures.",
+     "Froggy",
+     "wanted",
+     "to",
+     "know",
+     "what",
+     "his",
+     "baby",
+     "pictures",
+     "looked",
+     "like.",
+     "So",
+     "he",
+     "went",
+     "to",
+     "ask",
+     "his",
+     "mom."
+    ],
+    "boxes": [
+     [
+      0.0554,
+      0.1101,
+      0.0777,
+      0.1497
+     ],
+     [
+      0.0978,
+      0.11,
+      0.1708,
+      0.1627
+     ],
+     [
+      0.1894,
+      0.1112,
+      0.2492,
+      0.1503
+     ],
+     [
+      0.2685,
+      0.1119,
+      0.3001,
+      0.1503
+     ],
+     [
+      0.0562,
+      0.1862,
+      0.0941,
+      0.2243
+     ],
+     [
+      0.1131,
+      0.1859,
+      0.1576,
+      0.2367
+     ],
+     [
+      0.1761,
+      0.1862,
+      0.2522,
+      0.2367
+     ],
+     [
+      0.0585,
+      0.26,
+      0.1208,
+      0.3107
+     ],
+     [
+      0.1379,
+      0.26,
+      0.205,
+      0.2993
+     ],
+     [
+      0.2238,
+      0.2602,
+      0.2418,
+      0.2984
+     ],
+     [
+      0.261,
+      0.26,
+      0.3073,
+      0.2993
+     ],
+     [
+      0.0562,
+      0.334,
+      0.1017,
+      0.3734
+     ],
+     [
+      0.1206,
+      0.334,
+      0.143,
+      0.3724
+     ],
+     [
+      0.1623,
+      0.334,
+      0.2068,
+      0.3848
+     ],
+     [
+      0.2253,
+      0.3343,
+      0.296,
+      0.3848
+     ],
+     [
+      0.0585,
+      0.408,
+      0.116,
+      0.4464
+     ],
+     [
+      0.136,
+      0.408,
+      0.1698,
+      0.4464
+     ],
+     [
+      0.057,
+      0.4815,
+      0.0785,
+      0.5205
+     ],
+     [
+      0.0978,
+      0.4821,
+      0.1172,
+      0.5205
+     ],
+     [
+      0.1348,
+      0.4824,
+      0.1791,
+      0.5215
+     ],
+     [
+      0.1968,
+      0.4824,
+      0.2148,
+      0.5205
+     ],
+     [
+      0.2333,
+      0.4821,
+      0.2623,
+      0.5205
+     ],
+     [
+      0.281,
+      0.4821,
+      0.3033,
+      0.5205
+     ],
+     [
+      0.3227,
+      0.4957,
+      0.3687,
+      0.5205
+     ]
+    ]
+   },
    "audio": [
     60.11,
     70.88
+   ],
+   "wordTimes": [
+    [
+     0.04,
+     0.29
+    ],
+    [
+     0.294,
+     0.81
+    ],
+    [
+     0.814,
+     1.63
+    ],
+    [
+     1.634,
+     2.45
+    ],
+    [
+     2.454,
+     2.86
+    ],
+    [
+     2.864,
+     3.2
+    ],
+    [
+     3.204,
+     4.06
+    ],
+    [
+     4.064,
+     4.85
+    ],
+    [
+     4.854,
+     5.21
+    ],
+    [
+     5.214,
+     5.37
+    ],
+    [
+     5.374,
+     5.68
+    ],
+    [
+     5.684,
+     6.11
+    ],
+    [
+     6.114,
+     6.51
+    ],
+    [
+     6.514,
+     6.84
+    ],
+    [
+     6.844,
+     7.3
+    ],
+    [
+     7.304,
+     7.61
+    ],
+    [
+     7.614,
+     8.37
+    ],
+    [
+     8.374,
+     9.11
+    ],
+    [
+     9.114,
+     9.32
+    ],
+    [
+     9.324,
+     9.72
+    ],
+    [
+     9.724,
+     9.99
+    ],
+    [
+     9.994,
+     10.23
+    ],
+    [
+     10.234,
+     10.44
+    ],
+    [
+     10.444,
+     10.77
+    ]
    ]
   },
   {
@@ -148,7 +525,7 @@
    "image": "books/G1/057/p09.jpg",
    "w": 1400,
    "h": 573,
-   "text": "was I a cute Froggy asked. yes, his mom said. were a cute baby I see my baby Froggy asked.",
+   "text": "\"Mommy, was I a cute baby?\" Froggy asked. \"Yes, yes, yes!\" his mom said. \"You were a cute baby frog.\" \"Can I see my baby pictures?\" Froggy asked.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -161,7 +538,7 @@
    "image": "books/G1/057/p10.jpg",
    "w": 1400,
    "h": 573,
-   "text": "is your baby said mom. Froggy looked at a picture. He saw lots of baby frogs. They looked like little fish. that said Froggy.",
+   "text": "\"Here is your baby book,\" said Froggy's mom. Froggy looked at a picture. He saw lots of baby frogs. They looked like little fish. \"Is that me?\" said Froggy.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -174,18 +551,21 @@
    "image": "books/G1/057/p11.jpg",
    "w": 1400,
    "h": 1146,
-   "text": "is Froggy said. was a cute little tadpole. And now I am a very, very cute",
+   "text": "\"It is me!\" Froggy said. \"I was a cute little tadpole. And now I am a very, very cute frog!\"",
    "textBox": [
-    0.1142,
-    0.6103,
+    0.0983,
+    0.6083,
     0.6987,
     0.8832
    ],
    "wordBoxes": {
     "words": [
+     "\"It",
      "is",
+     "me!\"",
      "Froggy",
      "said.",
+     "\"I",
      "was",
      "a",
      "cute",
@@ -198,14 +578,27 @@
      "a",
      "very,",
      "very",
-     "cute"
+     "cute",
+     "frog!\""
     ],
     "boxes": [
+     [
+      0.0983,
+      0.6083,
+      0.137,
+      0.6481
+     ],
      [
       0.1741,
       0.6127,
       0.1978,
       0.6486
+     ],
+     [
+      0.2355,
+      0.6083,
+      0.3121,
+      0.6487
      ],
      [
       0.3526,
@@ -218,6 +611,12 @@
       0.6103,
       0.5954,
       0.6487
+     ],
+     [
+      0.0983,
+      0.6824,
+      0.1218,
+      0.7221
      ],
      [
       0.1568,
@@ -296,6 +695,12 @@
       0.8327,
       0.4283,
       0.8708
+     ],
+     [
+      0.4651,
+      0.8305,
+      0.5651,
+      0.8831
      ]
     ]
    },

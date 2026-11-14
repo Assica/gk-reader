@@ -49,12 +49,12 @@ python tools/serve.py --port 8787 --dir "E:\apple app"
 python tools/serve.py --port 8787 --dir "E:\apple app"
 # 2) 带调试端口的浏览器
 msedge --headless=new --remote-debugging-port=9223 about:blank
-# 3) 74 项断言（真实指针点击 + 就近吸附，按 iPad 横屏尺度）
+# 3) 108 项断言（真实指针点击 + 就近吸附，按 iPad 横屏尺度）
 node tools/webtest.mjs
 ```
 
-**判定要看 `RESULT pass=74 fail=0` 这一行**，不要只看退出码：
-某个用例中途抛错会让后续断言不执行，总数会从 74 掉到 30 多。
+**判定要看 `RESULT pass=108 fail=0` 这一行**，不要只看退出码：
+某个用例中途抛错会让后续断言不执行，总数会从 108 掉到 30 多。
 
 | 用例 | 覆盖 |
 |---|---|

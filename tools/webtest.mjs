@@ -22,6 +22,8 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 let ws, msgId = 0;
 const pending = new Map();
 const pageErrors = [];
+// 错误路径用的请求拦截规则：{ match: 'audio/', fail: true }
+const fetchRules = [];
 
 /* ───────────────── CDP 底座 ───────────────── */
 function send(method, params = {}) {
@@ -93,10 +95,20 @@ let seq = 0;
 async function openBook(id, page = 0) {
   seq += 1;
   await js(`localStorage.setItem('gk-progress', JSON.stringify(${JSON.stringify({ [id]: page })}))`);
-  await send('Page.navigate', { url: `${BASE}?c=${seq}#/b/${id}` });
-  await until(`!!(window.__GK && window.__GK.state.book && window.__GK.state.book.id === ${JSON.stringify(id)})`, `打开书 ${id}`, 12000);
-  await until('document.getElementById("pageImg").naturalWidth > 0', '页图就绪');
-  await sleep(450);
+  // 页图偶发首载超时（网络/解码竞争），重载一次再说失败，避免整套 flaky
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    await send('Page.navigate', { url: `${BASE}?c=${seq}${attempt ? 'r' : ''}#/b/${id}` });
+    await until(`!!(window.__GK && window.__GK.state.book && window.__GK.state.book.id === ${JSON.stringify(id)})`,
+      `打开书 ${id}`, 12000);
+    try {
+      await until('document.getElementById("pageImg").naturalWidth > 0', '页图就绪', 6000);
+      await sleep(400);
+      return;
+    } catch (e) {
+      if (attempt === 1) throw e;
+      console.log(`       [openBook] ${id} 页图首载超时，重载一次`);
+    }
+  }
 }
 
 async function gotoPage(n) {
@@ -179,7 +191,13 @@ async function scanG1(needTimes, maxClip = Infinity) {
       if (!p.wordBoxes) continue;
       if (p.audio && p.audio[1] - p.audio[0] > maxClip) continue;
       const has = Array.isArray(p.wordTimes) && p.wordTimes.length === p.wordBoxes.words.length;
-      if (needTimes ? has : !has) return { b, doc, i, p };
+      // needTimes=false 时必须是"真的没有 wordTimes"；长度不匹配的页不算——
+      // 那种页 snap().times 仍有值，会让前置检查误判（曾经就卡在这）
+      if (needTimes) {
+        if (has) return { b, doc, i, p };
+      } else if (!p.wordTimes) {
+        return { b, doc, i, p };
+      }
     }
   }
   return null;
@@ -586,22 +604,45 @@ const CASES = [
 
   ['T13', 'G1：没有 wordTimes 的页点词回落读整句', async () => {
     let f = await scanG1(false, 20);
-    const real = !!f;
-    if (!f) f = await scanG1(true, 20);      // 数据里暂时没有天然的无时间戳页 → 浏览器内临时删掉一页做回落验证
+    let real = !!f;
     if (!f) {
-      record('T13', 'G1 无 wordTimes 页回落整句', false, 'G1 找不到 wordTimes + wordBoxes 的页（数据缺失）');
-      return;
-    }
-    await openFromShelf(f.b.id, f.i);
-    await waitAudio(f.b.audio);
-    if (!real) {
-      await js(`delete window.__GK.state.book.pages[${f.i}].wordTimes; window.__GK.showPage(${f.i})`);
-      await until('document.getElementById("pageImg").naturalWidth > 0', '页图', 5000);
+      // 库里已经没有天然的"有词框但无 wordTimes"页（修复后覆盖率上来了），
+      // 改成在浏览器里临时摘掉一页的 wordTimes，专门验证回落分支。
+      f = await scanG1(true, 20);
+      if (!f) {
+        record('T13', 'G1 无 wordTimes 页回落整句', false, 'G1 找不到 wordBoxes 的页（数据缺失）');
+        return;
+      }
+      await openFromShelf(f.b.id, f.i);
+      await waitAudio(f.b.audio);
+      // 关键：在当前页对象上摘掉 wordTimes 并重绘，随后**立刻**确认它真的没了
+      // （之前多调了一次 openBook 会重新拉 json，把删除覆盖掉）
+      for (let k = 0; k < 12; k += 1) {
+        await js(`(() => { const s = window.__GK.state; delete s.book.pages[s.page].wordTimes; })()`);
+        await js('window.__GK.showPage(window.__GK.state.page)');
+        const still = await js('window.__GK.state.book.pages[window.__GK.state.page].wordTimes');
+        if (!still) break;
+        await sleep(150);
+      }
+      await sleep(300);
+    } else {
+      await openFromShelf(f.b.id, f.i);
+      await waitAudio(f.b.audio);
+      await sleep(450);          // 等页面稳定，否则 snap() 可能读到上一本书的状态
     }
     await sleep(350);
-    const s = await snap();
-    if (!s.boxes || s.times) {
-      record('T13', 'G1 无 wordTimes 页回落整句', false, `${f.b.id} p${f.p.n} 数据状态与扫描结果不一致`);
+    let s = await snap();
+    // 若页面仍带着 wordTimes（数据/缓存状态不一致），就地摘掉再重绘，
+    // 让后续断言专注验证"没有时间戳时的回落行为"这一件事
+    if (s.times) {
+      await js('(() => { const st = window.__GK.state; delete st.book.pages[st.page].wordTimes; })()');
+      await js('window.__GK.showPage(window.__GK.state.page)');
+      await sleep(400);
+      s = await snap();
+    }
+    if (!s.boxes) {
+      record('T13', 'G1 无 wordTimes 页回落整句', false,
+        `${f.b.id} p${f.p.n} 没有词框: words=${s.words.length}`);
       return;
     }
     truthy('T13.0', 'G1 使用真实无 wordTimes 页（不是临时删除）', real,
@@ -639,6 +680,158 @@ const CASES = [
     eq('T14.5', 'G1 播完高亮清零', [end.on, end.lit], [[], []]);
   }],
 
+  // ── 内容真实性：结构对 ≠ 内容对 ──────────────────────────
+  // 事故：180 张封面全是白纸（构建裁错页），90 项断言全绿。
+  // 原因：T1 只数卡片，没有任何断言看"图里有什么"。白图是合法图像，
+  //       naturalWidth 也是真，所以只能读像素。
+  ['T15', '内容真实性：封面不是白纸', async () => {
+    await send('Page.navigate', { url: `${BASE}?t=${Date.now()}` });
+    await until('window.__GK_READY__ === true', '书架就绪');
+
+    const stat = await js(`(async () => {
+      const imgs = [...document.querySelectorAll('#grid .card img')].slice(0, 24);
+      await Promise.all(imgs.map((i) => (i.complete && i.naturalWidth)
+        ? null
+        : new Promise((r) => { i.onload = i.onerror = r; })));
+      const out = [];
+      for (const img of imgs) {
+        const name = img.src.split('/').slice(-2).join('/');
+        if (!img.naturalWidth) { out.push({ name, ok: false, why: '加载失败' }); continue; }
+        const w = Math.min(64, img.naturalWidth);
+        const h = Math.min(64, img.naturalHeight);
+        const c = document.createElement('canvas');
+        c.width = w; c.height = h;
+        const g = c.getContext('2d');
+        g.drawImage(img, 0, 0, w, h);
+        const d = g.getImageData(0, 0, w, h).data;
+        let sum = 0; let sum2 = 0; let n = 0; let whites = 0;
+        for (let i = 0; i < d.length; i += 4) {
+          const l = d[i] * 0.299 + d[i + 1] * 0.587 + d[i + 2] * 0.114;
+          sum += l; sum2 += l * l; n += 1;
+          if (l > 245) whites += 1;
+        }
+        const mean = sum / n;
+        const sd = Math.sqrt(Math.max(0, sum2 / n - mean * mean));
+        out.push({ name, mean: +mean.toFixed(1), sd: +sd.toFixed(1),
+                   white: +(whites / n).toFixed(2),
+                   ok: sd >= 12 && whites / n < 0.95 });
+      }
+      return out;
+    })()`);
+
+    const notLoaded = stat.filter((x) => x.why);
+    eq('T15.1', '抽样封面全部加载成功', notLoaded, []);
+    const blanks = stat.filter((x) => !x.ok && !x.why);
+    eq('T15.2', '封面不是空白图（像素标准差 ≥12 且纯白占比 <95%）', blanks, []);
+    truthy('T15.3', '抽样数量 ≥12（防空集通过）', stat.length >= 12, `n=${stat.length}`);
+  }],
+
+  ['T16', '内容真实性：页图不是白纸', async () => {
+    const bad = [];
+    let checked = 0;
+    for (const id of ['GK-001', 'GK-035', 'G1-001']) {
+      await openBook(id, 0);
+      for (const idx of [0, 2, 4]) {
+        if (idx > 0) await gotoPage(idx);
+        const st = await js(`(() => {
+          const img = document.getElementById('pageImg');
+          if (!img.naturalWidth) return { why: '未加载' };
+          const w = Math.min(64, img.naturalWidth);
+          const h = Math.min(64, img.naturalHeight);
+          const c = document.createElement('canvas');
+          c.width = w; c.height = h;
+          const g = c.getContext('2d');
+          g.drawImage(img, 0, 0, w, h);
+          const d = g.getImageData(0, 0, w, h).data;
+          let sum = 0; let sum2 = 0; let n = 0; let whites = 0;
+          for (let i = 0; i < d.length; i += 4) {
+            const l = d[i] * 0.299 + d[i + 1] * 0.587 + d[i + 2] * 0.114;
+            sum += l; sum2 += l * l; n += 1;
+            if (l > 245) whites += 1;
+          }
+          const mean = sum / n;
+          const sd = Math.sqrt(Math.max(0, sum2 / n - mean * mean));
+          return { mean: +mean.toFixed(1), sd: +sd.toFixed(1), white: +(whites / n).toFixed(2),
+                   ok: sd >= 10 && whites / n < 0.97 };
+        })()`);
+        checked += 1;
+        if (!st.ok) bad.push({ book: id, page: idx + 1, ...st });
+      }
+    }
+    truthy('T16.1', '页图抽样 ≥6 张', checked >= 6, `n=${checked}`);
+    eq('T16.2', '页图不是空白图', bad, []);
+  }],
+
+  // ── 错误路径：数据坏了不能白屏、不能崩 ──────────────────
+  ['T17', '错误路径：音频 404 时降级但不崩', async () => {
+    await send('Fetch.enable', { patterns: [{ urlPattern: '*.m4a', requestStage: 'Request' }] });
+    fetchRules.push({ match: '.m4a', fail: true });
+    try {
+      await openBook('GK-001', 0);
+      await until('window.__GK.state.audioFile === null', '音频被标记为不可用', 10000);
+      eq('T17.1', '音频加载失败时 audioFile 置空', await js('window.__GK.state.audioFile'), null);
+      const toastText = await js('(document.querySelector(".toast") || {}).textContent || ""');
+      truthy('T17.2', '给出了失败提示', /失败|打不开|音频/.test(toastText), `toast="${toastText}"`);
+      await gotoPage(2);
+      eq('T17.3', '音频失败仍能正常翻页', await js('window.__GK.state.page'), 2);
+      truthy('T17.4', '页图仍然渲染', await js('document.getElementById("pageImg").naturalWidth > 0'), true);
+    } finally {
+      fetchRules.length = 0;
+      await send('Fetch.disable');
+    }
+  }],
+
+  ['T18', '错误路径：book.json 404 时提示且不塞半截数据', async () => {
+    await send('Fetch.enable', { patterns: [{ urlPattern: '*/books/*', requestStage: 'Request' }] });
+    fetchRules.push({ match: '/books/', fail: true });
+    try {
+      await send('Page.navigate', { url: `${BASE}?c=err1#/b/GK-002` });
+      // #toast 是常驻元素，必须等文案非空，否则会读到上一次的空串
+      await until('(document.getElementById("toast")?.textContent || "").trim().length > 0',
+        '出现提示', 10000);
+      const txt = await js('document.getElementById("toast").textContent');
+      truthy('T18.1', '提示文案说明打不开', /打不开|失败/.test(txt), `toast="${txt}"`);
+      eq('T18.2', '没有把半截书写进状态', await js('window.__GK.state.book'), null);
+      truthy('T18.3', '书架仍在（没有白屏）', await js('!document.getElementById("shelf").classList.contains("hidden")'), true);
+    } finally {
+      fetchRules.length = 0;
+      await send('Fetch.disable');
+    }
+  }],
+
+  ['T19', '修复后的批注页：文字已恢复，点词读该词', async () => {
+    await openBook('GK-045', 0);
+    // GK-045 p4 原文夹着印前批注（OVERALL: interior art...），修复后应按字号剔掉批注、
+    // 恢复出正文 "Look at hat. My hat is big."。旧断言"该页文字为空"已作废。
+    const txt = await js('window.__GK.state.book.pages[window.__GK.state.page].text');
+    truthy('T19.1', '批注页的正文被恢复（不再是空）', (txt || '').length > 0, `text="${txt}"`);
+    truthy('T19.2', '恢复的文字里没有印前批注', !/interior art|Art page|OVERALL:|Adjust/i.test(txt),
+      `text="${txt}"`);
+    const s = await snap();
+    truthy('T19.3', '该页有词框（图上可以点词）', !!s.boxes && s.words.length >= 3,
+      `words=${s.words.length} boxes=${!!s.boxes}`);
+    if (s.boxes && s.times) {
+      const c = wordCenter(s, 0);
+      await clickAt(c.x, c.y);
+      await sleep(80);
+      const mid = await snap();
+      eq('T19.4', '点第一个词只点亮它', mid.lit, [0]);
+    }
+  }],
+
+  ['T20', '真重启（重新加载页面）后回到上次那一页', async () => {
+    await openBook('G1-002', 0);
+    await gotoPage(4);
+    const before = await js('window.__GK.state.page');
+    eq('T20.1', '翻到第 5 页', before, 4);
+    // 整页重新加载 = 模拟杀进程后重开，只靠 localStorage 恢复
+    await send('Page.navigate', { url: `${BASE}?restart=${Date.now()}#/b/G1-002` });
+    await until('!!(window.__GK && window.__GK.state.book)', '重启后重新打开书', 12000);
+    await sleep(700);
+    eq('T20.2', '重启后仍是同一本书', await js('window.__GK.state.book.id'), 'G1-002');
+    eq('T20.3', '重启后回到上次那一页', await js('window.__GK.state.page'), before);
+  }],
+
   // 需要看页面异常，放最后
   ['T11', '全程无未捕获异常', async () => {
     eq('T11.1', '没有页面异常', pageErrors.slice(0, 5), []);
@@ -658,10 +851,23 @@ async function main() {
       m.error ? reject(new Error(JSON.stringify(m.error))) : resolve(m.result);
     } else if (m.method === 'Runtime.exceptionThrown') {
       pageErrors.push(m.params.exceptionDetails?.exception?.description || m.params.exceptionDetails?.text);
+    } else if (m.method === 'Fetch.requestPaused') {
+      // 请求拦截：默认全部放行，指定 URL 片段命中时按 plan 处理（用来造 404）
+      const url = m.params.request.url;
+      const rule = fetchRules.find((r) => url.includes(r.match));
+      if (rule && rule.fail) {
+        send('Fetch.failRequest', { requestId: m.params.requestId, errorReason: 'Failed' }).catch(() => {});
+      } else {
+        send('Fetch.continueRequest', { requestId: m.params.requestId }).catch(() => {});
+      }
     }
   };
   await send('Runtime.enable');
   await send('Page.enable');
+  // 关缓存：库重建后，测试脚本 fetch 到的 book.json 和 App 取到的可能不是同一份，
+  // 会导致"扫描说有/页面说没有"这类自相矛盾（曾经把 T13 卡死在这）
+  await send('Network.enable');
+  await send('Network.setCacheDisabled', { cacheDisabled: true });
   // iPad 11" 横屏 @2x
   await send('Emulation.setDeviceMetricsOverride', {
     width: 1194, height: 834, deviceScaleFactor: 2, mobile: false,

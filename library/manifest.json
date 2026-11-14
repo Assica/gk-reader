@@ -1311,9 +1311,9 @@
    "cover": "covers/G1/024.jpg",
    "audio": "audio/G1/024.m4a",
    "duration": 47.02,
-   "pageCount": 7,
+   "pageCount": 8,
    "aligned": true,
-   "alignMethod": "window",
+   "alignMethod": "exact",
    "hasAudio": true
   },
   {

@@ -75,7 +75,7 @@
    "image": "books/G1/065/p04.jpg",
    "w": 1401,
    "h": 550,
-   "text": "One day the Rabbits went for a ride. said Grandma.",
+   "text": "One day the Rabbits went for a ride. \"Stop!\" said Grandma.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -88,17 +88,18 @@
    "image": "books/G1/065/p05.jpg",
    "w": 1401,
    "h": 550,
-   "text": "Dad said, can go for a hop, little Rabbits. But do not go",
+   "text": "Dad said, \"You can go for a hop, little Rabbits. But do not go far!\"",
    "textBox": [
     0.0529,
-    0.1103,
-    0.3039,
+    0.108,
+    0.3143,
     0.4698
    ],
    "wordBoxes": {
     "words": [
      "Dad",
      "said,",
+     "\"You",
      "can",
      "go",
      "for",
@@ -109,7 +110,8 @@
      "But",
      "do",
      "not",
-     "go"
+     "go",
+     "far!\""
     ],
     "boxes": [
      [
@@ -123,6 +125,12 @@
       0.1103,
       0.1704,
       0.167
+     ],
+     [
+      0.1954,
+      0.108,
+      0.2433,
+      0.158
      ],
      [
       0.2678,
@@ -189,6 +197,12 @@
       0.4239,
       0.2451,
       0.4698
+     ],
+     [
+      0.2687,
+      0.4046,
+      0.3143,
+      0.4546
      ]
     ]
    },
@@ -203,10 +217,14 @@
     ],
     [
      0.214,
-     1.05
+     0.46
     ],
     [
-     1.054,
+     0.464,
+     1.11
+    ],
+    [
+     1.114,
      1.92
     ],
     [
@@ -231,22 +249,26 @@
     ],
     [
      4.104,
-     5.39
+     5.07
     ],
     [
-     5.394,
-     5.662
+     5.074,
+     5.21
     ],
     [
-     5.666,
-     5.788
+     5.214,
+     5.41
     ],
     [
-     5.792,
-     5.914
+     5.414,
+     5.72
     ],
     [
-     5.918,
+     5.724,
+     5.87
+    ],
+    [
+     5.874,
      6.04
     ]
    ]
@@ -256,7 +278,7 @@
    "image": "books/G1/065/p06.jpg",
    "w": 1401,
    "h": 550,
-   "text": "Bunny and Sunny and Jack went for a hop. They hopped under a fence. is said Bunny. a said Sunny. said Jack.",
+   "text": "Bunny and Sunny and Jack went for a hop. They hopped under a fence. \"Who is there?\" said Bunny. \"It's a monster!\" said Sunny. \"Run!\" said Jack.",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -295,7 +317,7 @@
    "image": "books/G1/065/p09.jpg",
    "w": 1401,
    "h": 550,
-   "text": "looked like said Bunny. said Sunny. looked like said Jack. looked like",
+   "text": "\"It looked like this!\" said Bunny. \"No,\" said Sunny. \"It looked like this!\" \"No, no,\" said Jack. \"It looked like this!\"",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -308,12 +330,222 @@
    "image": "books/G1/065/p10.jpg",
    "w": 1401,
    "h": 550,
-   "text": "we see three said Bunny. She looked and looked at the pictures. She made some lines.",
-   "textBox": null,
-   "wordBoxes": null,
+   "text": "\"Did we see three monsters?\" said Bunny. She looked and looked at the pictures. She made some lines.",
+   "textBox": [
+    0.0433,
+    0.1095,
+    0.8251,
+    0.853
+   ],
+   "wordBoxes": {
+    "words": [
+     "\"Did",
+     "we",
+     "see",
+     "three",
+     "monsters?\"",
+     "said",
+     "Bunny.",
+     "She",
+     "looked",
+     "and",
+     "looked",
+     "at",
+     "the",
+     "pictures.",
+     "She",
+     "made",
+     "some",
+     "lines."
+    ],
+    "boxes": [
+     [
+      0.0433,
+      0.3921,
+      0.0874,
+      0.4421
+     ],
+     [
+      0.1111,
+      0.41,
+      0.1415,
+      0.4433
+     ],
+     [
+      0.1648,
+      0.4114,
+      0.1986,
+      0.4421
+     ],
+     [
+      0.0529,
+      0.4934,
+      0.109,
+      0.541
+     ],
+     [
+      0.1333,
+      0.491,
+      0.2479,
+      0.541
+     ],
+     [
+      0.0529,
+      0.5922,
+      0.095,
+      0.6399
+     ],
+     [
+      0.1204,
+      0.5923,
+      0.1891,
+      0.6552
+     ],
+     [
+      0.0538,
+      0.6904,
+      0.0915,
+      0.7387
+     ],
+     [
+      0.1158,
+      0.6911,
+      0.1842,
+      0.7387
+     ],
+     [
+      0.2086,
+      0.6911,
+      0.2471,
+      0.7387
+     ],
+     [
+      0.2725,
+      0.6911,
+      0.3409,
+      0.7387
+     ],
+     [
+      0.0529,
+      0.7903,
+      0.0746,
+      0.8376
+     ],
+     [
+      0.097,
+      0.79,
+      0.1307,
+      0.8376
+     ],
+     [
+      0.1549,
+      0.7903,
+      0.2453,
+      0.853
+     ],
+     [
+      0.553,
+      0.1095,
+      0.5908,
+      0.1579
+     ],
+     [
+      0.6151,
+      0.1102,
+      0.6724,
+      0.1579
+     ],
+     [
+      0.6957,
+      0.1271,
+      0.7493,
+      0.1579
+     ],
+     [
+      0.7735,
+      0.1102,
+      0.8251,
+      0.1579
+     ]
+    ]
+   },
    "audio": [
     69.18,
     78.29
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.3
+    ],
+    [
+     0.304,
+     0.58
+    ],
+    [
+     0.584,
+     0.89
+    ],
+    [
+     0.894,
+     1.11
+    ],
+    [
+     1.114,
+     1.61
+    ],
+    [
+     1.614,
+     2.08
+    ],
+    [
+     2.084,
+     2.86
+    ],
+    [
+     2.864,
+     3.53
+    ],
+    [
+     3.534,
+     3.97
+    ],
+    [
+     3.974,
+     4.16
+    ],
+    [
+     4.164,
+     4.49
+    ],
+    [
+     4.494,
+     4.73
+    ],
+    [
+     4.734,
+     5.03
+    ],
+    [
+     5.034,
+     6.78
+    ],
+    [
+     6.784,
+     7.09
+    ],
+    [
+     7.094,
+     7.9
+    ],
+    [
+     7.904,
+     8.21
+    ],
+    [
+     8.214,
+     9.01
+    ]
    ]
   },
   {
@@ -321,17 +553,19 @@
    "image": "books/G1/065/p11.jpg",
    "w": 1400,
    "h": 1098,
-   "text": "said Bunny. saw the same monster. But it was not a monster at",
+   "text": "\"Look!\" said Bunny. \"We saw the same monster. But it was not a monster at all!\"",
    "textBox": [
-    0.1057,
-    0.1103,
+    0.0865,
+    0.108,
     0.8048,
     0.4546
    ],
    "wordBoxes": {
     "words": [
+     "\"Look!\"",
      "said",
      "Bunny.",
+     "\"We",
      "saw",
      "the",
      "same",
@@ -342,9 +576,16 @@
      "not",
      "a",
      "monster",
-     "at"
+     "at",
+     "all!\""
     ],
     "boxes": [
+     [
+      0.0865,
+      0.108,
+      0.2327,
+      0.158
+     ],
      [
       0.2818,
       0.1103,
@@ -356,6 +597,12 @@
       0.1104,
       0.5538,
       0.1733
+     ],
+     [
+      0.0865,
+      0.2068,
+      0.1806,
+      0.2584
      ],
      [
       0.2272,
@@ -422,6 +669,12 @@
       0.4073,
       0.1489,
       0.4546
+     ],
+     [
+      0.195,
+      0.4046,
+      0.2763,
+      0.4546
      ]
     ]
    },
@@ -432,14 +685,22 @@
    "wordTimes": [
     [
      0.0,
-     0.18
+     0.122
     ],
     [
-     0.184,
-     0.43
+     0.126,
+     0.248
     ],
     [
-     0.434,
+     0.252,
+     0.374
+    ],
+    [
+     0.378,
+     0.5
+    ],
+    [
+     0.504,
      0.75
     ],
     [
@@ -456,30 +717,34 @@
     ],
     [
      2.004,
-     3.18
+     2.68
     ],
     [
-     3.184,
+     2.684,
+     3.21
+    ],
+    [
+     3.214,
      3.79
     ],
     [
      3.794,
-     4.49
+     4.18
     ],
     [
-     4.494,
-     4.84
+     4.184,
+     4.48
     ],
     [
-     4.844,
-     5.12
+     4.484,
+     4.88
     ],
     [
-     5.124,
-     5.574
+     4.884,
+     5.17
     ],
     [
-     5.578,
+     5.174,
      5.7
     ]
    ]
