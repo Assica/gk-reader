@@ -1,4 +1,4 @@
-﻿/* 小书虫 GK —— 阅读器
+/* 小书虫 GK —— 阅读器
  *
  * 设计约束（为了能原样塞进 Capacitor/WKWebView）：
  *   1. 不依赖 HTTP Range  —— 音频取成 Blob 再播，WKWebView 里也能 seek
@@ -475,7 +475,8 @@ window.addEventListener('resize', () => {
 
 /* ───────────────────── 路由 ───────────────────── */
 function route() {
-  const m = (location.hash || '').match(/^#\/b\/([A-Z]{2}-\d{3})$/);
+  // 系列代号可能是 GK/G1/G2 —— 第二位是数字，所以用 [A-Z0-9]{2}
+  const m = (location.hash || '').match(/^#\/b\/([A-Z0-9]{2}-\d{3})$/);
   if (!m) return;
   const id = m[1];
   if (!state.manifest.some((b) => b.id === id)) return;
