@@ -1,0 +1,732 @@
+{
+ "id": "G1-094",
+ "series": "G1",
+ "no": 94,
+ "title": "The Bossy Pig",
+ "level": "G",
+ "cover": "covers/G1/094.jpg",
+ "audio": "audio/G1/094.m4a",
+ "duration": 136.03,
+ "pageCount": 12,
+ "aligned": true,
+ "alignMethod": "group1",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.34,
+   8.24
+  ],
+  [
+   9.52,
+   19.05
+  ],
+  [
+   20.92,
+   30.97
+  ],
+  [
+   32.53,
+   39.97
+  ],
+  [
+   41.55,
+   49.12
+  ],
+  [
+   50.72,
+   53.33
+  ],
+  [
+   54.55,
+   61.02
+  ],
+  [
+   62.22,
+   75.28
+  ],
+  [
+   77.25,
+   92.06
+  ],
+  [
+   93.69,
+   101.14
+  ],
+  [
+   102.9,
+   108.73
+  ],
+  [
+   110.67,
+   125.62
+  ],
+  [
+   126.98,
+   134.11
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/094/p04.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "will have a picnic on Mrs. Pig told her friends. must",
+   "textBox": [
+    0.0513,
+    0.5701,
+    0.3217,
+    0.8515
+   ],
+   "wordBoxes": {
+    "words": [
+     "will",
+     "have",
+     "a",
+     "picnic",
+     "on",
+     "Mrs.",
+     "Pig",
+     "told",
+     "her",
+     "friends.",
+     "must"
+    ],
+    "boxes": [
+     [
+      0.1018,
+      0.5701,
+      0.1312,
+      0.6115
+     ],
+     [
+      0.1515,
+      0.5701,
+      0.1928,
+      0.6114
+     ],
+     [
+      0.2113,
+      0.5844,
+      0.2209,
+      0.6105
+     ],
+     [
+      0.241,
+      0.5727,
+      0.2927,
+      0.6235
+     ],
+     [
+      0.0513,
+      0.6647,
+      0.0715,
+      0.6908
+     ],
+     [
+      0.0532,
+      0.7291,
+      0.0906,
+      0.7712
+     ],
+     [
+      0.1114,
+      0.7308,
+      0.1362,
+      0.7841
+     ],
+     [
+      0.1553,
+      0.7307,
+      0.1897,
+      0.7712
+     ],
+     [
+      0.2099,
+      0.7307,
+      0.2381,
+      0.7712
+     ],
+     [
+      0.2562,
+      0.73,
+      0.3217,
+      0.7712
+     ],
+     [
+      0.1051,
+      0.8114,
+      0.146,
+      0.8515
+     ]
+    ]
+   },
+   "audio": [
+    0.34,
+    8.24
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/094/p05.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Mrs. Pig made a list. want a table and six said Mrs. Pig. want some juice and some She was a very bossy pig.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    9.52,
+    19.05
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/094/p06.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "can bring a said Mrs. Sheep. blanket is not on my said Mrs. Pig. bring the said Mrs. Sheep.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    20.92,
+    30.97
+   ],
+   "wordTimes": [
+    [
+     0.08,
+     0.34
+    ],
+    [
+     0.34,
+     0.68
+    ],
+    [
+     0.68,
+     1.09
+    ],
+    [
+     1.09,
+     1.51
+    ],
+    [
+     1.51,
+     1.85
+    ],
+    [
+     1.85,
+     2.38
+    ],
+    [
+     2.38,
+     3.26
+    ],
+    [
+     3.26,
+     3.53
+    ],
+    [
+     3.53,
+     3.82
+    ],
+    [
+     3.82,
+     4.01
+    ],
+    [
+     4.01,
+     4.31
+    ],
+    [
+     4.31,
+     5.29
+    ],
+    [
+     5.29,
+     5.6
+    ],
+    [
+     5.6,
+     6.19
+    ],
+    [
+     6.19,
+     6.81
+    ],
+    [
+     6.81,
+     8.17
+    ],
+    [
+     8.17,
+     9.32
+    ],
+    [
+     9.32,
+     9.69
+    ],
+    [
+     9.69,
+     10.05
+    ]
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/094/p07.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Mrs. Pig looked at her list. bring six she told Mrs. Goat. said Mrs. Goat.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    32.53,
+    39.97
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.34
+    ],
+    [
+     0.34,
+     0.61
+    ],
+    [
+     0.61,
+     0.91
+    ],
+    [
+     0.91,
+     1.06
+    ],
+    [
+     1.06,
+     1.22
+    ],
+    [
+     1.22,
+     1.77
+    ],
+    [
+     1.77,
+     2.28
+    ],
+    [
+     2.28,
+     2.7
+    ],
+    [
+     2.7,
+     3.12
+    ],
+    [
+     3.12,
+     3.86
+    ],
+    [
+     3.86,
+     4.63
+    ],
+    [
+     4.63,
+     6.13
+    ],
+    [
+     6.13,
+     6.71
+    ],
+    [
+     6.71,
+     7.11
+    ],
+    [
+     7.11,
+     7.41
+    ]
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/094/p08.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "can bring some said Mrs. Cow. is not on my said Mrs. Pig. bring some She was such a bossy pig!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    41.55,
+    49.12
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/094/p09.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Mrs. Pig looked at her list again. need she told Mr. Horse. will bring said Mr. Horse.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    50.72,
+    53.33
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/094/p10.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "know what I can said Mrs. Owl. bring said Mrs. Pig. have everything we I know something else we said Mrs. Owl.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    54.55,
+    61.02
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/094/p11.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "All the animals came to the picnic. They played games. Mrs. Cow flew a kite. said Mrs. Pig. the table under that big said Mrs. Pig to Mrs. Sheep. Owl will help",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    62.22,
+    75.28
+   ]
+  },
+  {
+   "n": 12,
+   "image": "books/G1/094/p12.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "up the said Mrs. Pig to Mrs. Goat. the she told Mrs. Cow and Mr. Horse.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    77.25,
+    92.06
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.22
+    ],
+    [
+     0.22,
+     0.36
+    ],
+    [
+     0.36,
+     0.83
+    ],
+    [
+     0.83,
+     1.41
+    ],
+    [
+     1.41,
+     1.99
+    ],
+    [
+     1.99,
+     2.52
+    ],
+    [
+     2.52,
+     3.62
+    ],
+    [
+     3.62,
+     4.13
+    ],
+    [
+     4.13,
+     4.85
+    ],
+    [
+     4.85,
+     5.63
+    ],
+    [
+     5.63,
+     6.17
+    ],
+    [
+     6.17,
+     7.13
+    ],
+    [
+     7.13,
+     7.98
+    ],
+    [
+     7.98,
+     8.75
+    ],
+    [
+     8.75,
+     9.91
+    ],
+    [
+     9.91,
+     13.61
+    ]
+   ]
+  },
+  {
+   "n": 13,
+   "image": "books/G1/094/p13.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Mrs. Pig looked at her list one last time. she said. please sit",
+   "textBox": [
+    0.0513,
+    0.1693,
+    0.3429,
+    0.4647
+   ],
+   "wordBoxes": {
+    "words": [
+     "Mrs.",
+     "Pig",
+     "looked",
+     "at",
+     "her",
+     "list",
+     "one",
+     "last",
+     "time.",
+     "she",
+     "said.",
+     "please",
+     "sit"
+    ],
+    "boxes": [
+     [
+      0.0532,
+      0.1693,
+      0.0906,
+      0.2114
+     ],
+     [
+      0.1114,
+      0.1711,
+      0.1362,
+      0.2244
+     ],
+     [
+      0.1566,
+      0.171,
+      0.2145,
+      0.2114
+     ],
+     [
+      0.234,
+      0.1713,
+      0.2523,
+      0.2114
+     ],
+     [
+      0.2714,
+      0.171,
+      0.2996,
+      0.2114
+     ],
+     [
+      0.3184,
+      0.171,
+      0.3429,
+      0.2114
+     ],
+     [
+      0.0513,
+      0.2657,
+      0.0834,
+      0.2918
+     ],
+     [
+      0.1027,
+      0.2513,
+      0.1336,
+      0.2918
+     ],
+     [
+      0.1514,
+      0.2516,
+      0.1955,
+      0.2918
+     ],
+     [
+      0.1682,
+      0.3317,
+      0.197,
+      0.3721
+     ],
+     [
+      0.2155,
+      0.3317,
+      0.2572,
+      0.3721
+     ],
+     [
+      0.1209,
+      0.4121,
+      0.1764,
+      0.4647
+     ],
+     [
+      0.1945,
+      0.4123,
+      0.2149,
+      0.4524
+     ]
+    ]
+   },
+   "audio": [
+    93.69,
+    101.14
+   ]
+  },
+  {
+   "n": 14,
+   "image": "books/G1/094/p14.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "is the asked Mrs. Goat. asked Mrs. Pig. dear! I forgot the Mrs. Owl smiled. forgot the she said. I",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    102.9,
+    108.73
+   ]
+  },
+  {
+   "n": 15,
+   "image": "books/G1/094/p15.jpg",
+   "w": 1400,
+   "h": 1097,
+   "text": "are a wise, wise said the bossy, bossy pig.",
+   "textBox": [
+    0.1032,
+    0.653,
+    0.6583,
+    0.7842
+   ],
+   "wordBoxes": {
+    "words": [
+     "are",
+     "a",
+     "wise,",
+     "wise",
+     "said",
+     "the",
+     "bossy,",
+     "bossy",
+     "pig."
+    ],
+    "boxes": [
+     [
+      0.2085,
+      0.6647,
+      0.2675,
+      0.6908
+     ],
+     [
+      0.3044,
+      0.6647,
+      0.3235,
+      0.6908
+     ],
+     [
+      0.3611,
+      0.653,
+      0.4511,
+      0.6985
+     ],
+     [
+      0.4895,
+      0.653,
+      0.5691,
+      0.6919
+     ],
+     [
+      0.1032,
+      0.7307,
+      0.1745,
+      0.7712
+     ],
+     [
+      0.2123,
+      0.7307,
+      0.2693,
+      0.7712
+     ],
+     [
+      0.3078,
+      0.7307,
+      0.4158,
+      0.7842
+     ],
+     [
+      0.457,
+      0.7307,
+      0.5557,
+      0.7842
+     ],
+     [
+      0.593,
+      0.7334,
+      0.6583,
+      0.7842
+     ]
+    ]
+   },
+   "audio": [
+    110.67,
+    125.62
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.74
+    ],
+    [
+     0.74,
+     3.08
+    ],
+    [
+     3.08,
+     6.95
+    ],
+    [
+     6.95,
+     8.95
+    ],
+    [
+     8.95,
+     11.38
+    ],
+    [
+     11.38,
+     12.16
+    ],
+    [
+     12.16,
+     13.1
+    ],
+    [
+     13.1,
+     14.21
+    ],
+    [
+     14.21,
+     14.41
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.603
+}

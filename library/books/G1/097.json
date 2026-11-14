@@ -1,0 +1,250 @@
+{
+ "id": "G1-097",
+ "series": "G1",
+ "no": 97,
+ "title": "The Missing Cat",
+ "level": "I",
+ "cover": "covers/G1/097.jpg",
+ "audio": "audio/G1/097.m4a",
+ "duration": 205.02,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group3",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.83,
+   3.47
+  ],
+  [
+   5.46,
+   11.16
+  ],
+  [
+   12.26,
+   15.6
+  ],
+  [
+   17.62,
+   20.95
+  ],
+  [
+   22.46,
+   28.71
+  ],
+  [
+   30.56,
+   42.92
+  ],
+  [
+   44.3,
+   48.24
+  ],
+  [
+   49.57,
+   60.9
+  ],
+  [
+   62.59,
+   64.7
+  ],
+  [
+   65.97,
+   71.1
+  ],
+  [
+   72.18,
+   75.1
+  ],
+  [
+   76.5,
+   80.94
+  ],
+  [
+   81.98,
+   83.73
+  ],
+  [
+   85.4,
+   90.21
+  ],
+  [
+   92.22,
+   107.21
+  ],
+  [
+   108.5,
+   116.05
+  ],
+  [
+   117.57,
+   131.78
+  ],
+  [
+   133.38,
+   136.04
+  ],
+  [
+   137.23,
+   167.08
+  ],
+  [
+   170.79,
+   178.76
+  ],
+  [
+   179.96,
+   182.89
+  ],
+  [
+   183.94,
+   191.79
+  ],
+  [
+   193.93,
+   197.9
+  ],
+  [
+   200.05,
+   204.15
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/097/p04.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "on, Meg said. time for your She gave Hugs some cat food. Hugs sniffed at the food. Then he turned his head away. want that food, do you, Meg said. you want chicken Meg gave Hugs a new can of cat food. But he still did not eat.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    0.83,
+    15.6
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/097/p05.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Meg said to Gram. eat the chicken or beef. He want the turkey or the turkey with cheese. He even eat the can see said Gram. Hugs loves t o said Meg. He never leaves a bit of food in his must feel said Gram. no! Poor said Meg. Will he be",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    17.62,
+    42.92
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/097/p06.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "call Dr. Jan, the said Gram. will know what to Gram went to call the vet. Meg went with Gram. Then they came back t o the kitchen to get Hugs a nd take him to the vet. But Hugs was gone.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    44.3,
+    64.7
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/097/p07.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "have you seen M eg asked. me said Gramps. read the paper, and he sat on my lap. Then I took the meatballs out of the freezer to thaw, and he watched me. But I seen him since Come here, Meg called. But Hugs did not come to her. look in the s aid Gram.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    65.97,
+    80.94
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/097/p08.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "look under the s aid Meg. help you said Gramps. T hey looked under all the tables and behind all the curtains. They even looked in the basement. But they find Hugs.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    81.98,
+    107.21
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/097/p09.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "is t hat said Meg. just said Gram. he knows you called D r. said Gramps. like to go to the vet. He may hide from us for Gramps went to put the meatballs in the oven. Meg wanted to look around the house one more time. Soon Meg called, Gramps! I found him! I found Then Gramps called out, found something,",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    108.5,
+    136.04
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/097/p10.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "was Gram asked. was in the bathroom, asleep in the Meg said. a s illy what did you find, G ram asked. know why Hugs did not said Gramps. I think he has to go to the vet. Just look at what I said Meg. w hy not",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    137.23,
+    182.89
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/097/p11.jpg",
+   "w": 1146,
+   "h": 1400,
+   "text": "said Gram. ate all o ur",
+   "textBox": [
+    0.0935,
+    0.0925,
+    0.8359,
+    0.1653
+   ],
+   "wordBoxes": null,
+   "audio": [
+    183.94,
+    204.15
+   ],
+   "wordTimes": [
+    [
+     0.24,
+     1.52
+    ],
+    [
+     1.52,
+     3.53
+    ],
+    [
+     3.53,
+     5.62
+    ],
+    [
+     5.62,
+     12.9
+    ],
+    [
+     12.9,
+     18.58
+    ],
+    [
+     18.58,
+     19.55
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.62
+}

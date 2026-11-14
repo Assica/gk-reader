@@ -1,0 +1,21 @@
+{
+  "name": "gk-reader",
+  "version": "0.1.0",
+  "private": true,
+  "description": "小书虫 GK —— 70 本分级绘本的离线点读器",
+  "scripts": {
+    "www": "node scripts/build-www.mjs",
+    "sync": "npm run www && cap sync ios",
+    "assets": "capacitor-assets generate --ios --iconBackgroundColor '#FDF8F2' --splashBackgroundColor '#FDF8F2'"
+  },
+  "dependencies": {
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/ios": "^7.0.0",
+    "@capacitor/screen-orientation": "^7.0.0",
+    "@capacitor/status-bar": "^7.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^7.0.0"
+  }
+}

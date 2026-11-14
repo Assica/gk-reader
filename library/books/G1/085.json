@@ -1,0 +1,301 @@
+{
+ "id": "G1-085",
+ "series": "G1",
+ "no": 85,
+ "title": "Dinner For Maisy",
+ "level": "H",
+ "cover": "covers/G1/085.jpg",
+ "audio": "audio/G1/085.m4a",
+ "duration": 114.56,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group1",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.54,
+   13.25
+  ],
+  [
+   14.61,
+   24.01
+  ],
+  [
+   25.9,
+   40.79
+  ],
+  [
+   42.28,
+   53.73
+  ],
+  [
+   54.74,
+   65.82
+  ],
+  [
+   67.07,
+   74.72
+  ],
+  [
+   76.78,
+   84.2
+  ],
+  [
+   85.45,
+   88.19
+  ],
+  [
+   90.23,
+   102.07
+  ],
+  [
+   103.55,
+   104.38
+  ],
+  [
+   105.96,
+   109.35
+  ],
+  [
+   111.1,
+   113.69
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/085/p04.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Maisy loved to eat. Every day at dinner, she ran to her dish. She ate all her food and begged for more. Every day was the same. Until one day",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    14.61,
+    24.01
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/085/p05.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Dana put food in dish. Maisy just looked at her food. She eat one bite. your Dana said. But Maisy eat.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    25.9,
+    40.79
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/085/p06.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "The next day, Nate put out food for Maisy. Maisy looked at the food in her dish. But she still eat. your dinner, Nate said. Maisy just sniffed the food and walked away.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    42.28,
+    53.73
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/085/p07.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Nate and Dana were upset. Maisy Nate asked. must be said Dana. said Dad. take Maisy to the",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    54.74,
+    65.82
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.43
+    ],
+    [
+     0.43,
+     0.77
+    ],
+    [
+     0.77,
+     1.33
+    ],
+    [
+     1.33,
+     2.21
+    ],
+    [
+     2.21,
+     3.3
+    ],
+    [
+     3.3,
+     3.98
+    ],
+    [
+     3.98,
+     4.7
+    ],
+    [
+     4.7,
+     5.79
+    ],
+    [
+     5.79,
+     6.58
+    ],
+    [
+     6.58,
+     7.0
+    ],
+    [
+     7.0,
+     7.51
+    ],
+    [
+     7.51,
+     8.22
+    ],
+    [
+     8.22,
+     8.92
+    ],
+    [
+     8.92,
+     9.34
+    ],
+    [
+     9.34,
+     10.28
+    ],
+    [
+     10.28,
+     10.62
+    ],
+    [
+     10.62,
+     10.85
+    ],
+    [
+     10.85,
+     11.08
+    ]
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/085/p08.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Maisy wagged her tail when she saw Dr. Grant. the Dr. Grant asked. said Dana. you know Maisy. She loves to Dr. Grant checked Maisy. has gained three said the doctor. must be eating",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    67.07,
+    74.72
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/085/p09.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "They took Maisy home. At dinner, she still eat. this food is too Dad said. are some new bags of dog food in the",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    76.78,
+    84.2
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/085/p10.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Nate and Dana went to get a new bag of dog food. said Nate. at all the dog food that came out of the Dana smiled. know who did she said. said Nate.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    85.45,
+    88.19
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/085/p11.jpg",
+   "w": 1097,
+   "h": 1400,
+   "text": "called Nate and Dana.",
+   "textBox": [
+    0.1075,
+    0.0853,
+    0.6475,
+    0.1792
+   ],
+   "wordBoxes": {
+    "words": [
+     "called",
+     "Nate",
+     "and",
+     "Dana."
+    ],
+    "boxes": [
+     [
+      0.3511,
+      0.0853,
+      0.4899,
+      0.1163
+     ],
+     [
+      0.5324,
+      0.0859,
+      0.6475,
+      0.1163
+     ],
+     [
+      0.1075,
+      0.1482,
+      0.1954,
+      0.1792
+     ],
+     [
+      0.2382,
+      0.1488,
+      0.3784,
+      0.1792
+     ]
+    ]
+   },
+   "audio": [
+    90.23,
+    102.07
+   ],
+   "wordTimes": [
+    [
+     0.5,
+     5.13
+    ],
+    [
+     5.13,
+     8.21
+    ],
+    [
+     8.21,
+     10.46
+    ],
+    [
+     10.46,
+     11.63
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.641
+}

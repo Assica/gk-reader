@@ -1,0 +1,276 @@
+{
+ "id": "G1-001",
+ "series": "G1",
+ "no": 1,
+ "title": "Waking Up",
+ "level": "A",
+ "cover": "covers/G1/001.jpg",
+ "audio": "audio/G1/001.m4a",
+ "duration": 60.05,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   2.22,
+   3.25
+  ],
+  [
+   5.29,
+   7.07
+  ],
+  [
+   8.26,
+   10.47
+  ],
+  [
+   12.24,
+   13.69
+  ],
+  [
+   14.99,
+   17.12
+  ],
+  [
+   19.18,
+   20.67
+  ],
+  [
+   21.7,
+   23.29
+  ],
+  [
+   25.41,
+   26.99
+  ],
+  [
+   28.21,
+   30.19
+  ],
+  [
+   32.4,
+   34.01
+  ],
+  [
+   35.14,
+   37.03
+  ],
+  [
+   39.37,
+   40.92
+  ],
+  [
+   42.12,
+   43.99
+  ],
+  [
+   46.5,
+   48.16
+  ],
+  [
+   49.29,
+   50.69
+  ],
+  [
+   53.39,
+   57.64
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/001/p04.jpg",
+   "w": 1400,
+   "h": 829,
+   "text": "The rooster wakes up. Cock-a-doodle-doo!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    2.22,
+    7.07
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/001/p05.jpg",
+   "w": 1400,
+   "h": 829,
+   "text": "The cow wakes up. Moo, moo!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    8.26,
+    13.69
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/001/p06.jpg",
+   "w": 1400,
+   "h": 829,
+   "text": "The pig wakes up. Oink, oink!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    14.99,
+    20.67
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/001/p07.jpg",
+   "w": 1400,
+   "h": 829,
+   "text": "The horse wakes up. Neigh, neigh!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    21.7,
+    26.99
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/001/p08.jpg",
+   "w": 1400,
+   "h": 829,
+   "text": "The turkey wakes up. Gobble, gobble!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    28.21,
+    34.01
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/001/p09.jpg",
+   "w": 1400,
+   "h": 829,
+   "text": "The sheep wakes up. Baa, baa!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    35.14,
+    40.92
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/001/p10.jpg",
+   "w": 1400,
+   "h": 829,
+   "text": "The duck wakes up. Quack, quack!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    42.12,
+    48.16
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/001/p11.jpg",
+   "w": 1186,
+   "h": 1400,
+   "text": "And the chick wakes up. Peep, peep!",
+   "textBox": [
+    0.0521,
+    0.0786,
+    0.9451,
+    0.3083
+   ],
+   "wordBoxes": {
+    "words": [
+     "And",
+     "the",
+     "chick",
+     "wakes",
+     "up.",
+     "Peep,",
+     "peep!"
+    ],
+    "boxes": [
+     [
+      0.0521,
+      0.0786,
+      0.1693,
+      0.1254
+     ],
+     [
+      0.2377,
+      0.0806,
+      0.3307,
+      0.1254
+     ],
+     [
+      0.3971,
+      0.0806,
+      0.5452,
+      0.1254
+     ],
+     [
+      0.6083,
+      0.0806,
+      0.7906,
+      0.1265
+     ],
+     [
+      0.8606,
+      0.0965,
+      0.9451,
+      0.1398
+     ],
+     [
+      0.3358,
+      0.2492,
+      0.4891,
+      0.3083
+     ],
+     [
+      0.5287,
+      0.2492,
+      0.6879,
+      0.3083
+     ]
+    ]
+   },
+   "audio": [
+    49.29,
+    57.64
+   ],
+   "wordTimes": [
+    [
+     0.1,
+     4.3
+    ],
+    [
+     4.3,
+     4.49
+    ],
+    [
+     4.49,
+     5.14
+    ],
+    [
+     5.14,
+     5.85
+    ],
+    [
+     5.85,
+     6.47
+    ],
+    [
+     6.47,
+     7.6
+    ],
+    [
+     7.6,
+     8.35
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.833
+}

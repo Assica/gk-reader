@@ -1,0 +1,293 @@
+{
+ "id": "G1-092",
+ "series": "G1",
+ "no": 92,
+ "title": "Home Sweet Home",
+ "level": "G",
+ "cover": "covers/G1/092.jpg",
+ "audio": "audio/G1/092.m4a",
+ "duration": 145.44,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.86,
+   12.48
+  ],
+  [
+   14.47,
+   26.5
+  ],
+  [
+   27.95,
+   29.48
+  ],
+  [
+   30.67,
+   39.34
+  ],
+  [
+   40.55,
+   47.93
+  ],
+  [
+   48.99,
+   67.43
+  ],
+  [
+   68.47,
+   79.05
+  ],
+  [
+   80.14,
+   87.27
+  ],
+  [
+   89.14,
+   101.96
+  ],
+  [
+   103.73,
+   112.61
+  ],
+  [
+   113.97,
+   117.74
+  ],
+  [
+   119.43,
+   123.54
+  ],
+  [
+   124.64,
+   128.41
+  ],
+  [
+   129.54,
+   131.02
+  ],
+  [
+   132.41,
+   136.39
+  ],
+  [
+   137.47,
+   144.02
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/092/p04.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Hen had a nice white house. She liked her house. But she wanted a new color for her house. will paint my house thought Hen.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    0.86,
+    26.5
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/092/p05.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "(white) Along came Cow. said Cow. you want to play with said Hen. going to paint my will help said Cow.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    27.95,
+    39.34
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/092/p06.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "(blue) need a said Hen. will go find one. You wait Cow waited and waited. She got tired of waiting. So Cow grabbed a can of paint. paint is as blue as the said Cow. is a good color for a house. I will use this bright blue And she did.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    40.55,
+    67.43
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/092/p07.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "(blue) (yellow) Along came Pig. at all the paint Pig said. must be painting her house. I can help Pig grabbed a can of paint. paint is as yellow as the said Pig. is a nice color for a house. I will use this yellow And he did.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    68.47,
+    87.27
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/092/p08.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "(green) Along came Duck. has lots of said Duck. must be painting her house. I will help Duck grabbed a paint can. paint is as green as the said Duck. is a fine color for a house. I will use this green And he did.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    89.14,
+    112.61
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/092/p09.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Along came Hen with a tall ladder. said Cow. at your bright blue said Pig. at your bright yellow",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    113.97,
+    123.54
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/092/p10.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "(green) (yellow) morning, said Duck. at your bright green said Hen. She looked at her house. Then Hen smiled.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    124.64,
+    131.02
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/092/p11.jpg",
+   "w": 1097,
+   "h": 1400,
+   "text": "(white) (green) (red) house is as bright as a said Hen. it needs a red door. paint this door as red as a And she did!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    132.41,
+    144.02
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.21
+    ],
+    [
+     0.21,
+     0.43
+    ],
+    [
+     0.43,
+     0.93
+    ],
+    [
+     0.93,
+     1.45
+    ],
+    [
+     1.45,
+     1.66
+    ],
+    [
+     1.66,
+     1.94
+    ],
+    [
+     1.94,
+     2.34
+    ],
+    [
+     2.34,
+     2.64
+    ],
+    [
+     2.64,
+     3.14
+    ],
+    [
+     3.14,
+     3.64
+    ],
+    [
+     3.64,
+     4.48
+    ],
+    [
+     4.48,
+     5.36
+    ],
+    [
+     5.36,
+     5.92
+    ],
+    [
+     5.92,
+     6.24
+    ],
+    [
+     6.24,
+     6.6
+    ],
+    [
+     6.6,
+     7.28
+    ],
+    [
+     7.28,
+     7.89
+    ],
+    [
+     7.89,
+     8.1
+    ],
+    [
+     8.1,
+     8.61
+    ],
+    [
+     8.61,
+     8.97
+    ],
+    [
+     8.97,
+     9.33
+    ],
+    [
+     9.33,
+     9.66
+    ],
+    [
+     9.66,
+     10.35
+    ],
+    [
+     10.35,
+     11.0
+    ],
+    [
+     11.0,
+     11.2
+    ],
+    [
+     11.2,
+     11.61
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.554
+}

@@ -1,0 +1,388 @@
+{
+ "id": "G1-090",
+ "series": "G1",
+ "no": 90,
+ "title": "Grandmas Glasses",
+ "level": "F",
+ "cover": "covers/G1/090.jpg",
+ "audio": "audio/G1/090.m4a",
+ "duration": 97.81,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group1",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.27,
+   5.92
+  ],
+  [
+   7.59,
+   12.09
+  ],
+  [
+   13.23,
+   18.83
+  ],
+  [
+   21.29,
+   29.85
+  ],
+  [
+   31.4,
+   39.6
+  ],
+  [
+   41.83,
+   44.38
+  ],
+  [
+   45.74,
+   54.61
+  ],
+  [
+   56.65,
+   65.26
+  ],
+  [
+   66.42,
+   74.89
+  ],
+  [
+   77.1,
+   87.87
+  ],
+  [
+   89.94,
+   96.73
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/090/p04.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "are my Grandma asked. need them to read about the My grandma had l ots of f lower seeds. plant the she said.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    21.29,
+    29.85
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/090/p05.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "are your I said. Grandma put on her glasses. Then she read about the seeds. She read how to plant them.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    31.4,
+    39.6
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/090/p06.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "go to the said Grandma. can help me plant the Grandma got her hat. And I got all the seeds.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    41.83,
+    44.38
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/090/p07.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "plant the sunf lower I said. deep will we plant check the pack of said Grandma. you get my glasses? They must be on the",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    45.74,
+    54.61
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/090/p08.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "I went inside. I looked on the table. I looked on the chairs. I looked for a long time. B ut I f ind glasses.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    56.65,
+    65.26
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/090/p09.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Grandma came back inside. you find my she asked. I said. I look with said Grandma.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    66.42,
+    74.89
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.32
+    ],
+    [
+     0.32,
+     0.57
+    ],
+    [
+     0.57,
+     0.8
+    ],
+    [
+     0.8,
+     2.02
+    ],
+    [
+     2.02,
+     2.19
+    ],
+    [
+     2.19,
+     2.42
+    ],
+    [
+     2.42,
+     3.23
+    ],
+    [
+     3.23,
+     4.09
+    ],
+    [
+     4.09,
+     4.93
+    ],
+    [
+     4.93,
+     5.57
+    ],
+    [
+     5.57,
+     6.33
+    ],
+    [
+     6.33,
+     6.95
+    ],
+    [
+     6.95,
+     7.23
+    ],
+    [
+     7.23,
+     7.66
+    ],
+    [
+     7.66,
+     7.97
+    ],
+    [
+     7.97,
+     8.41
+    ]
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/090/p10.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "We looked on the table. We looked on the chairs. We looked for a long time. But we just could not find glasses anywhere.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    77.1,
+    87.87
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/090/p11.jpg",
+   "w": 1146,
+   "h": 1400,
+   "text": "Then Grandma sat down and took off her hat. I said. found your",
+   "textBox": [
+    0.0923,
+    0.0911,
+    0.7192,
+    0.3653
+   ],
+   "wordBoxes": {
+    "words": [
+     "Then",
+     "Grandma",
+     "sat",
+     "down",
+     "and",
+     "took",
+     "off",
+     "her",
+     "hat.",
+     "I",
+     "said.",
+     "found",
+     "your"
+    ],
+    "boxes": [
+     [
+      0.0923,
+      0.0915,
+      0.1912,
+      0.123
+     ],
+     [
+      0.2383,
+      0.0911,
+      0.4465,
+      0.123
+     ],
+     [
+      0.4936,
+      0.0918,
+      0.5584,
+      0.123
+     ],
+     [
+      0.6027,
+      0.0915,
+      0.7192,
+      0.1238
+     ],
+     [
+      0.0966,
+      0.1521,
+      0.1757,
+      0.1835
+     ],
+     [
+      0.2216,
+      0.1521,
+      0.3196,
+      0.1835
+     ],
+     [
+      0.3632,
+      0.1516,
+      0.4239,
+      0.1835
+     ],
+     [
+      0.4657,
+      0.1521,
+      0.534,
+      0.1835
+     ],
+     [
+      0.5796,
+      0.1521,
+      0.6608,
+      0.1835
+     ],
+     [
+      0.3884,
+      0.2632,
+      0.3985,
+      0.2941
+     ],
+     [
+      0.4429,
+      0.2632,
+      0.544,
+      0.2946
+     ],
+     [
+      0.1509,
+      0.3232,
+      0.2702,
+      0.3552
+     ],
+     [
+      0.3155,
+      0.3349,
+      0.415,
+      0.3653
+     ]
+    ]
+   },
+   "audio": [
+    89.94,
+    96.73
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.17
+    ],
+    [
+     0.17,
+     1.0
+    ],
+    [
+     1.0,
+     1.64
+    ],
+    [
+     1.64,
+     2.11
+    ],
+    [
+     2.11,
+     2.47
+    ],
+    [
+     2.47,
+     2.68
+    ],
+    [
+     2.68,
+     2.87
+    ],
+    [
+     2.87,
+     3.02
+    ],
+    [
+     3.02,
+     4.51
+    ],
+    [
+     4.51,
+     4.67
+    ],
+    [
+     4.67,
+     5.22
+    ],
+    [
+     5.22,
+     5.91
+    ],
+    [
+     5.91,
+     6.11
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.714
+}

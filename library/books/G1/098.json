@@ -1,0 +1,370 @@
+{
+ "id": "G1-098",
+ "series": "G1",
+ "no": 98,
+ "title": "The Lucky Penny",
+ "level": "G",
+ "cover": "covers/G1/098.jpg",
+ "audio": "audio/G1/098.m4a",
+ "duration": 126.37,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.76,
+   1.91
+  ],
+  [
+   4.21,
+   16.29
+  ],
+  [
+   17.74,
+   21.14
+  ],
+  [
+   22.34,
+   27.43
+  ],
+  [
+   28.51,
+   33.55
+  ],
+  [
+   34.82,
+   43.76
+  ],
+  [
+   45.21,
+   46.98
+  ],
+  [
+   48.44,
+   58.04
+  ],
+  [
+   59.27,
+   63.72
+  ],
+  [
+   65.94,
+   76.26
+  ],
+  [
+   78.75,
+   82.4
+  ],
+  [
+   83.57,
+   95.62
+  ],
+  [
+   97.52,
+   100.03
+  ],
+  [
+   101.35,
+   111.95
+  ],
+  [
+   113.8,
+   118.95
+  ],
+  [
+   120.6,
+   125.15
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/098/p04.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Mom gave Max a shiny new penny. lose it, Mom said. is a lucky lose Max said. Max put the penny in his pocket. Then he walked to school.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    0.76,
+    16.29
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/098/p05.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "But Max had a hole in his pocket. The lucky penny fell out. Max looked for his penny. said Max. is my Max find the penny. So he went on to school.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    17.74,
+    27.43
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/098/p06.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Ben was walking to school, too. He saw something shiny on the ground. Ben said, A He picked it up. Ben put the penny in his pocket.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    28.51,
+    43.76
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/098/p07.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "At school, Ben was playing. The penny fell out of his pocket. Ben looked for the penny. said Ben. is my Ben find the penny. So he went into the school.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    45.21,
+    58.04
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/098/p08.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "After school, Deena saw something shiny on the ground. Deena said, A She picked it up. Deena put the penny in her bag.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    59.27,
+    76.26
+   ],
+   "wordTimes": [
+    [
+     6.64,
+     7.0
+    ],
+    [
+     7.0,
+     7.52
+    ],
+    [
+     7.52,
+     8.36
+    ],
+    [
+     8.36,
+     8.86
+    ],
+    [
+     8.86,
+     9.29
+    ],
+    [
+     9.29,
+     9.65
+    ],
+    [
+     9.65,
+     9.81
+    ],
+    [
+     9.81,
+     9.93
+    ],
+    [
+     9.93,
+     10.45
+    ],
+    [
+     10.45,
+     11.04
+    ],
+    [
+     11.04,
+     11.66
+    ],
+    [
+     11.66,
+     12.66
+    ],
+    [
+     12.66,
+     13.48
+    ],
+    [
+     13.48,
+     13.8
+    ],
+    [
+     13.8,
+     13.94
+    ],
+    [
+     13.94,
+     14.4
+    ],
+    [
+     14.4,
+     15.09
+    ],
+    [
+     15.09,
+     15.53
+    ],
+    [
+     15.53,
+     15.75
+    ],
+    [
+     15.75,
+     16.12
+    ],
+    [
+     16.12,
+     16.35
+    ],
+    [
+     16.35,
+     16.59
+    ],
+    [
+     16.59,
+     16.99
+    ]
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/098/p09.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Deena looked for the penny. said Deena. is my Deena find the penny. So she went on home. Deena was walking home. Her bag went up and down. It went round and round. The penny fell out of her bag.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    78.75,
+    95.62
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/098/p10.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Max was walking home, too. He saw something shiny on the ground. He picked it up. it said Max. found my At home, Mom said, was school, Max? Do you still have your shiny new",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    97.52,
+    111.95
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/098/p11.jpg",
+   "w": 1146,
+   "h": 1400,
+   "text": "said Max. still have my lucky, lucky",
+   "textBox": [
+    0.1167,
+    0.0905,
+    0.5325,
+    0.2303
+   ],
+   "wordBoxes": {
+    "words": [
+     "said",
+     "Max.",
+     "still",
+     "have",
+     "my",
+     "lucky,",
+     "lucky"
+    ],
+    "boxes": [
+     [
+      0.2326,
+      0.0914,
+      0.2974,
+      0.115
+     ],
+     [
+      0.3364,
+      0.0905,
+      0.4152,
+      0.115
+     ],
+     [
+      0.1577,
+      0.1453,
+      0.2105,
+      0.1688
+     ],
+     [
+      0.2496,
+      0.1453,
+      0.3248,
+      0.1694
+     ],
+     [
+      0.3622,
+      0.1536,
+      0.4068,
+      0.1765
+     ],
+     [
+      0.4431,
+      0.1453,
+      0.5325,
+      0.1765
+     ],
+     [
+      0.1167,
+      0.1991,
+      0.1977,
+      0.2303
+     ]
+    ]
+   },
+   "audio": [
+    113.8,
+    125.15
+   ],
+   "wordTimes": [
+    [
+     0.68,
+     1.64
+    ],
+    [
+     1.64,
+     2.99
+    ],
+    [
+     2.99,
+     3.71
+    ],
+    [
+     3.71,
+     4.34
+    ],
+    [
+     4.34,
+     7.16
+    ],
+    [
+     7.16,
+     10.0
+    ],
+    [
+     10.0,
+     10.75
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.826
+}

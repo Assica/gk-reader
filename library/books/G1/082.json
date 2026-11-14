@@ -1,0 +1,377 @@
+{
+ "id": "G1-082",
+ "series": "G1",
+ "no": 82,
+ "title": "The Tree House",
+ "level": "F",
+ "cover": "covers/G1/082.jpg",
+ "audio": "audio/G1/082.m4a",
+ "duration": 112.33,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "window",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.03,
+   7.46
+  ],
+  [
+   8.84,
+   10.81
+  ],
+  [
+   11.94,
+   15.45
+  ],
+  [
+   16.6,
+   19.23
+  ],
+  [
+   20.79,
+   30.35
+  ],
+  [
+   31.78,
+   34.48
+  ],
+  [
+   35.83,
+   38.11
+  ],
+  [
+   39.23,
+   42.19
+  ],
+  [
+   43.32,
+   45.59
+  ],
+  [
+   46.64,
+   49.66
+  ],
+  [
+   51.85,
+   58.85
+  ],
+  [
+   60.18,
+   63.74
+  ],
+  [
+   64.76,
+   67.43
+  ],
+  [
+   70.14,
+   71.47
+  ],
+  [
+   72.7,
+   74.97
+  ],
+  [
+   75.97,
+   83.95
+  ],
+  [
+   85.79,
+   90.49
+  ],
+  [
+   92.06,
+   94.08
+  ],
+  [
+   95.83,
+   96.66
+  ],
+  [
+   97.78,
+   102.94
+  ],
+  [
+   105.12,
+   107.01
+  ],
+  [
+   108.52,
+   110.46
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/082/p04.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Bear saw Mouse. am making a tree said Bear. you help me cut the help said Mouse. am too Bear cut the wood all by himself.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    31.78,
+    34.48
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/082/p05.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Bear saw Rabbit. Bear said, you help me carry the help said Rabbit. am too Bear carried the wood all by himself.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    35.83,
+    38.11
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/082/p06.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Bear saw Squirrel. Bear said, you help me lift the Squirrel said, help. I am So, Bear lifted the wood all by himself.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    39.23,
+    42.19
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/082/p07.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Bear saw Raccoon. you help me hammer the nails into the asked Bear. am said Raccoon. help So, Bear hammered the nails all by himself.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    43.32,
+    45.59
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/082/p08.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Bear saw Owl. Bear asked, you help me paint the Owl said, help. I am much too Bear painted the wood all by himself.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    46.64,
+    49.66
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/082/p09.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "At last Bear had his tree house, but he was all by himself. Then Bear heard a noise.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    51.85,
+    58.85
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/082/p10.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Bear looked down. A chair was coming up! have chairs for your tree said Owl.",
+   "textBox": [
+    0.0535,
+    0.084,
+    0.4149,
+    0.4416
+   ],
+   "wordBoxes": {
+    "words": [
+     "Bear",
+     "looked",
+     "down.",
+     "A",
+     "chair",
+     "was",
+     "coming",
+     "up!",
+     "have",
+     "chairs",
+     "for",
+     "your",
+     "tree",
+     "said",
+     "Owl."
+    ],
+    "boxes": [
+     [
+      0.0578,
+      0.0841,
+      0.1149,
+      0.1186
+     ],
+     [
+      0.1411,
+      0.084,
+      0.2218,
+      0.1186
+     ],
+     [
+      0.2489,
+      0.084,
+      0.3243,
+      0.1195
+     ],
+     [
+      0.0535,
+      0.1491,
+      0.073,
+      0.1847
+     ],
+     [
+      0.098,
+      0.1507,
+      0.162,
+      0.1852
+     ],
+     [
+      0.1862,
+      0.1619,
+      0.2351,
+      0.1861
+     ],
+     [
+      0.261,
+      0.1529,
+      0.3501,
+      0.1963
+     ],
+     [
+      0.3783,
+      0.1507,
+      0.4149,
+      0.1964
+     ],
+     [
+      0.1271,
+      0.2728,
+      0.1846,
+      0.3082
+     ],
+     [
+      0.2102,
+      0.2728,
+      0.2849,
+      0.3074
+     ],
+     [
+      0.0564,
+      0.3389,
+      0.0908,
+      0.374
+     ],
+     [
+      0.1148,
+      0.3517,
+      0.172,
+      0.3852
+     ],
+     [
+      0.1963,
+      0.3397,
+      0.2471,
+      0.374
+     ],
+     [
+      0.055,
+      0.4061,
+      0.1047,
+      0.4407
+     ],
+     [
+      0.1318,
+      0.4056,
+      0.1904,
+      0.4416
+     ]
+    ]
+   },
+   "audio": [
+    60.18,
+    63.74
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/082/p11.jpg",
+   "w": 1097,
+   "h": 1400,
+   "text": "were said Bear. were busy helping",
+   "textBox": [
+    0.11,
+    0.0963,
+    0.5452,
+    0.3303
+   ],
+   "wordBoxes": {
+    "words": [
+     "were",
+     "said",
+     "Bear.",
+     "were",
+     "busy",
+     "helping"
+    ],
+    "boxes": [
+     [
+      0.2539,
+      0.0963,
+      0.3774,
+      0.1193
+     ],
+     [
+      0.11,
+      0.1514,
+      0.2093,
+      0.1859
+     ],
+     [
+      0.2656,
+      0.1514,
+      0.3928,
+      0.1859
+     ],
+     [
+      0.2549,
+      0.2292,
+      0.3796,
+      0.2534
+     ],
+     [
+      0.4331,
+      0.218,
+      0.5452,
+      0.2637
+     ],
+     [
+      0.1155,
+      0.2846,
+      0.2944,
+      0.3303
+     ]
+    ]
+   },
+   "audio": [
+    64.76,
+    67.43
+   ]
+  }
+ ]
+}

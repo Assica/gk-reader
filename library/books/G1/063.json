@@ -1,0 +1,297 @@
+{
+ "id": "G1-063",
+ "series": "G1",
+ "no": 63,
+ "title": "The Soccer Game",
+ "level": "F",
+ "cover": "covers/G1/063.jpg",
+ "audio": "audio/G1/063.m4a",
+ "duration": 142.19,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "window",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.9,
+   5.38
+  ],
+  [
+   6.39,
+   13.08
+  ],
+  [
+   14.65,
+   16.7
+  ],
+  [
+   18.03,
+   27.0
+  ],
+  [
+   28.06,
+   30.02
+  ],
+  [
+   31.78,
+   40.77
+  ],
+  [
+   41.99,
+   44.81
+  ],
+  [
+   46.52,
+   48.44
+  ],
+  [
+   49.74,
+   58.96
+  ],
+  [
+   59.99,
+   64.81
+  ],
+  [
+   66.67,
+   75.63
+  ],
+  [
+   77.38,
+   84.0
+  ],
+  [
+   85.51,
+   89.12
+  ],
+  [
+   90.13,
+   98.59
+  ],
+  [
+   99.98,
+   101.2
+  ],
+  [
+   102.57,
+   108.16
+  ],
+  [
+   110.66,
+   112.87
+  ],
+  [
+   114.07,
+   116.73
+  ],
+  [
+   118.33,
+   121.02
+  ],
+  [
+   122.2,
+   124.7
+  ],
+  [
+   126.36,
+   129.6
+  ],
+  [
+   131.82,
+   138.86
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/063/p04.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "play soccer, Sam said. Sam was good at soccer. He liked to run fast. He could jump, and he could kick the ball into the net.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    49.74,
+    58.96
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/063/p05.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "want to play, Jesse said. said Sam. Jesse liked soccer, but he liked bugs more. play, Papa said. if you can kick the ball past",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    59.99,
+    64.81
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/063/p06.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Sam kicked the ball, but Papa stopped it. The ball go in the net. Then Jesse kicked the ball, and Papa stopped it. have to help each other, Papa said.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    66.67,
+    75.63
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/063/p07.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Papa kicked the ball back. Sam had to run to get it. on, Jesse. Come and help Sam said. But Jesse was looking at an ant hill. The ants were red and black. They had six legs.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    77.38,
+    84.0
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/063/p08.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Sam yelled, the ball, Jesse looked up. The ball was coming! It was going to roll over the ants! Jesse put his foot out. He stopped the ball to save the ants. Then he kicked the ball back to Sam.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    85.51,
+    89.12
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/063/p09.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Sam stopped the ball. He gave it a hard kick. It went past Papa. It went into the net. Sam yelled. did Jesse said. did Sam said. I kicked the ball into the net. You were looking at",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    90.13,
+    98.59
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/063/p10.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "kicked the ball to Jesse said. just wanted to save your Sam said. Papa smiled. was a good he said. Sam looked at Jesse. did help me get the ball past Sam said.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    99.98,
+    101.2
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/063/p11.jpg",
+   "w": 1146,
+   "h": 1400,
+   "text": "make a good Sam said. we Jesse said. me, and the",
+   "textBox": [
+    0.0962,
+    0.0914,
+    0.7238,
+    0.3611
+   ],
+   "wordBoxes": {
+    "words": [
+     "make",
+     "a",
+     "good",
+     "Sam",
+     "said.",
+     "we",
+     "Jesse",
+     "said.",
+     "me,",
+     "and",
+     "the"
+    ],
+    "boxes": [
+     [
+      0.2187,
+      0.0914,
+      0.3312,
+      0.1228
+     ],
+     [
+      0.376,
+      0.1025,
+      0.3992,
+      0.1228
+     ],
+     [
+      0.4461,
+      0.0914,
+      0.5558,
+      0.1329
+     ],
+     [
+      0.0962,
+      0.1515,
+      0.186,
+      0.1834
+     ],
+     [
+      0.2333,
+      0.152,
+      0.3344,
+      0.1834
+     ],
+     [
+      0.2301,
+      0.2733,
+      0.2925,
+      0.2953
+     ],
+     [
+      0.4667,
+      0.2631,
+      0.5778,
+      0.2972
+     ],
+     [
+      0.6226,
+      0.2631,
+      0.7238,
+      0.2945
+     ],
+     [
+      0.2422,
+      0.3349,
+      0.3141,
+      0.3611
+     ],
+     [
+      0.3622,
+      0.3237,
+      0.4414,
+      0.3551
+     ],
+     [
+      0.4873,
+      0.3237,
+      0.5564,
+      0.3551
+     ]
+    ]
+   },
+   "audio": [
+    102.57,
+    108.16
+   ]
+  }
+ ]
+}

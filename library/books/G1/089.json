@@ -1,0 +1,210 @@
+{
+ "id": "G1-089",
+ "series": "G1",
+ "no": 89,
+ "title": "The Gecko That Came To School",
+ "level": "H",
+ "cover": "covers/G1/089.jpg",
+ "audio": "audio/G1/089.m4a",
+ "duration": 161.85,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "window",
+ "hasAudio": true,
+ "segments": [
+  [
+   1.06,
+   3.38
+  ],
+  [
+   9.28,
+   11.17
+  ],
+  [
+   12.36,
+   16.0
+  ],
+  [
+   17.0,
+   27.88
+  ],
+  [
+   29.36,
+   36.63
+  ],
+  [
+   38.06,
+   42.3
+  ],
+  [
+   43.62,
+   47.77
+  ],
+  [
+   49.65,
+   57.56
+  ],
+  [
+   58.78,
+   59.36
+  ],
+  [
+   60.46,
+   61.72
+  ],
+  [
+   63.71,
+   76.62
+  ],
+  [
+   78.01,
+   78.85
+  ],
+  [
+   80.05,
+   82.67
+  ],
+  [
+   83.89,
+   91.09
+  ],
+  [
+   93.34,
+   99.31
+  ],
+  [
+   100.43,
+   104.12
+  ],
+  [
+   105.28,
+   126.58
+  ],
+  [
+   128.24,
+   143.76
+  ],
+  [
+   145.06,
+   146.28
+  ],
+  [
+   148.08,
+   150.34
+  ],
+  [
+   151.39,
+   155.56
+  ],
+  [
+   157.65,
+   161.24
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/089/p04.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Annie was peeking into her pocket. is in your asked Tess. and said Annie. Tess looked in pocket. Jen and David looked, too. my new pet Annie said. is said Jen.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    1.06,
+    3.38
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/089/p05.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "is said David. you have a pet in Peck will get said Jen. just had to bring Annie said. is so much fun. He is the best pet ever! And he can run really",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    9.28,
+    11.17
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/089/p06.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Just then, the gecko showed them how fast he could run. He ran down arm. He ran down leg. Then he ran across the floor. that Annie yelled. The kids tried to catch the gecko. But the little gecko was too fast. He ran out of the room. Annie and her friends ran after him.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    12.36,
+    16.0
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/089/p07.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "he said Tess. cried Annie. Tess grabbed for the gecko. David fell over Tess. Jen fell over David. And Annie tripped over all of them.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    17.0,
+    27.88
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/089/p08.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "The gecko raced into the lunchroom. Little kids screamed. Chairs crashed. Milk spilled. And Mrs. Wells dropped her glasses in the mashed potatoes. he yelled Tess.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    29.36,
+    36.63
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/089/p09.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "The gecko ran into the art room. The art teacher screamed. Papers flew. Paint cans crashed. he Tess yelled. The gecko ran down the hall. He ran back into Mrs. room. cried Annie.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    38.06,
+    42.3
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/089/p10.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Mrs. Peck grabbed for the gecko. Tess fell over Mrs. Peck. David fell over Tess. Jen fell over David. And Annie tumbled on top of them all. really Annie said. just wanted to show off my gecko. Now look at",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    43.62,
+    47.77
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/089/p11.jpg",
+   "w": 1097,
+   "h": 1400,
+   "text": "Jen and David could not stop giggling. okay, Tess said. gecko is the best pet Now where did that gecko go?",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    49.65,
+    57.56
+   ]
+  }
+ ]
+}

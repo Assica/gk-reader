@@ -1,0 +1,15 @@
+{
+  "appId": "com.gkreader.app",
+  "appName": "小书虫 GK",
+  "webDir": "www",
+  "ios": {
+    "contentInset": "never",
+    "allowsLinkPreview": false,
+    "scrollEnabled": false,
+    "limitsNavigationsToAppBoundDomains": false,
+    "backgroundColor": "#FDF8F2"
+  },
+  "android": {
+    "backgroundColor": "#FDF8F2"
+  }
+}

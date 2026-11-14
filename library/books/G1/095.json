@@ -1,0 +1,408 @@
+{
+ "id": "G1-095",
+ "series": "G1",
+ "no": 95,
+ "title": "Stone Soup",
+ "level": "I",
+ "cover": "covers/G1/095.jpg",
+ "audio": "audio/G1/095.m4a",
+ "duration": 220.62,
+ "pageCount": 10,
+ "aligned": true,
+ "alignMethod": "window",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.05,
+   11.44
+  ],
+  [
+   12.94,
+   31.6
+  ],
+  [
+   32.91,
+   50.05
+  ],
+  [
+   51.54,
+   56.07
+  ],
+  [
+   57.67,
+   93.24
+  ],
+  [
+   94.46,
+   101.73
+  ],
+  [
+   102.76,
+   105.34
+  ],
+  [
+   106.81,
+   121.06
+  ],
+  [
+   122.67,
+   132.41
+  ],
+  [
+   134.28,
+   136.52
+  ],
+  [
+   137.83,
+   149.56
+  ],
+  [
+   151.74,
+   158.36
+  ],
+  [
+   159.54,
+   164.32
+  ],
+  [
+   167.64,
+   183.7
+  ],
+  [
+   184.73,
+   191.56
+  ],
+  [
+   193.42,
+   206.9
+  ],
+  [
+   208.1,
+   218.95
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/095/p04.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "Long ago, a young man came into a poor little town. All he had was a soup pot and a spoon. The man was very hungry.",
+   "textBox": [
+    0.0408,
+    0.6701,
+    0.3569,
+    0.9028
+   ],
+   "wordBoxes": {
+    "words": [
+     "Long",
+     "ago,",
+     "a",
+     "young",
+     "man",
+     "came",
+     "into",
+     "a",
+     "poor",
+     "little",
+     "town.",
+     "All",
+     "he",
+     "had",
+     "was",
+     "a",
+     "soup",
+     "pot",
+     "and",
+     "a",
+     "spoon.",
+     "The",
+     "man",
+     "was",
+     "very",
+     "hungry."
+    ],
+    "boxes": [
+     [
+      0.0425,
+      0.6701,
+      0.0976,
+      0.7157
+     ],
+     [
+      0.1141,
+      0.6919,
+      0.151,
+      0.7157
+     ],
+     [
+      0.1675,
+      0.6919,
+      0.1775,
+      0.708
+     ],
+     [
+      0.1938,
+      0.6919,
+      0.251,
+      0.7157
+     ],
+     [
+      0.2677,
+      0.6919,
+      0.3089,
+      0.708
+     ],
+     [
+      0.0434,
+      0.7387,
+      0.0909,
+      0.7548
+     ],
+     [
+      0.1076,
+      0.7307,
+      0.1438,
+      0.7548
+     ],
+     [
+      0.1605,
+      0.7387,
+      0.1705,
+      0.7548
+     ],
+     [
+      0.1872,
+      0.7387,
+      0.2279,
+      0.7609
+     ],
+     [
+      0.2441,
+      0.7303,
+      0.2892,
+      0.7548
+     ],
+     [
+      0.3059,
+      0.7326,
+      0.3569,
+      0.7548
+     ],
+     [
+      0.0408,
+      0.777,
+      0.0685,
+      0.8011
+     ],
+     [
+      0.0849,
+      0.777,
+      0.1066,
+      0.8015
+     ],
+     [
+      0.1231,
+      0.777,
+      0.1578,
+      0.8015
+     ],
+     [
+      0.174,
+      0.7855,
+      0.2096,
+      0.8015
+     ],
+     [
+      0.2262,
+      0.7855,
+      0.2363,
+      0.8015
+     ],
+     [
+      0.2534,
+      0.7855,
+      0.2958,
+      0.8077
+     ],
+     [
+      0.3126,
+      0.7794,
+      0.3418,
+      0.8077
+     ],
+     [
+      0.0434,
+      0.8238,
+      0.0778,
+      0.8483
+     ],
+     [
+      0.0943,
+      0.8322,
+      0.1043,
+      0.8483
+     ],
+     [
+      0.1215,
+      0.8322,
+      0.1791,
+      0.8544
+     ],
+     [
+      0.043,
+      0.8706,
+      0.0784,
+      0.8951
+     ],
+     [
+      0.0953,
+      0.879,
+      0.1365,
+      0.8951
+     ],
+     [
+      0.1525,
+      0.879,
+      0.188,
+      0.8951
+     ],
+     [
+      0.2042,
+      0.879,
+      0.2459,
+      0.9012
+     ],
+     [
+      0.2618,
+      0.8706,
+      0.3336,
+      0.9028
+     ]
+    ]
+   },
+   "audio": [
+    106.81,
+    121.06
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/095/p05.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "The young man stopped at a house. He knocked at the door. am cold and he said. I have a bit of is a poor said the woman. have any food. Now, the woman had some beans, but not enough to share.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    122.67,
+    132.41
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/095/p06.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "The young man went on until he came to another house. He knocked at the door. am cold and he said. I have a bit of said an old man. is a poor town. We have any Now, the old man had a bit of meat, but not enough to share.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    134.28,
+    136.52
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/095/p07.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "The young man went on and on from house to house. All the people said they were sorry. But no one gave him any food. is a poor they said. have any Now, all the people had a little food, but not enough to share.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    137.83,
+    149.56
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/095/p08.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "The young man was still very hungry. So he came up with a plan. First, he made a fire right in the middle of town. Then, he filled his pot with water. Next, he set the pot on the fire. Last, he picked up a nice, round stone and put it into his pot. Steam rose from the pot. The young man stirred and stirred with his spoon. stone soup looks he said loudly. it will be ready to",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    151.74,
+    158.36
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/095/p09.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "People came out to see what the young man was doing. are you they asked. making stone he said. give you some when it is ready. There will be plenty for all of do you make stone asked a girl. said the young man. you need is a stone. But it would be so much better with a few",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    159.54,
+    164.32
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/095/p10.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "have a few a woman said. The woman went off and got the beans. She dropped them into the pot. said the young man. you. This stone soup looks good. But it would be so much better with a bit of",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    167.64,
+    183.7
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/095/p11.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "An old man said, have a bit of The old man went off and got the bit of meat. He dropped it into the pot. said the young man. stone soup is getting better and",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    184.73,
+    191.56
+   ]
+  },
+  {
+   "n": 12,
+   "image": "books/G1/095/p12.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "you want some asked a woman. have some you want a asked a boy. have a you want some asked a man. have a little you want some asked the girl. have some yes, yes, said the young man. So they all ran off to get the food.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    193.42,
+    206.9
+   ]
+  },
+  {
+   "n": 13,
+   "image": "books/G1/095/p13.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "said the young man. the soup is ready. Get your bowls, and we can all said the men. said the women. said the children.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    208.1,
+    218.95
+   ]
+  }
+ ]
+}

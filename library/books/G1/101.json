@@ -1,0 +1,199 @@
+{
+ "id": "G1-101",
+ "series": "G1",
+ "no": 101,
+ "title": "Too Tall",
+ "level": "J",
+ "cover": "covers/G1/101.jpg",
+ "audio": "audio/G1/101.m4a",
+ "duration": 193.99,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.5,
+   2.51
+  ],
+  [
+   4.42,
+   16.86
+  ],
+  [
+   17.96,
+   18.5
+  ],
+  [
+   20.07,
+   20.94
+  ],
+  [
+   21.97,
+   29.54
+  ],
+  [
+   31.77,
+   41.87
+  ],
+  [
+   43.27,
+   51.2
+  ],
+  [
+   52.82,
+   55.37
+  ],
+  [
+   56.76,
+   59.43
+  ],
+  [
+   61.01,
+   69.83
+  ],
+  [
+   70.85,
+   78.98
+  ],
+  [
+   80.58,
+   82.22
+  ],
+  [
+   84.66,
+   96.25
+  ],
+  [
+   97.58,
+   124.92
+  ],
+  [
+   126.03,
+   131.53
+  ],
+  [
+   133.52,
+   144.38
+  ],
+  [
+   145.44,
+   152.67
+  ],
+  [
+   154.11,
+   176.21
+  ],
+  [
+   177.36,
+   193.87
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/101/p04.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "Lola wanted to play on a team. On Monday, she went to try out for the volleyball team. the coach said. up there, and the net is down here. just too Lola was sad. pick she told her mother and father. I still want to play on a Lola decided to try out for another team.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    4.42,
+    18.5
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/101/p05.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "On Tuesday, Lola went to try out for the softball team. said the coach. one can pitch the ball to you. just too Lola hung her head. pick me for the softball she told her mother. again, said her mother. find a team right for",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    20.07,
+    29.54
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/101/p06.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "On Wednesday, Lola went to try out for the track team. be said the coach. win every race with those long legs! just too Lola went home. just too she cried. one will ever want me on their again, said her father. give",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    31.77,
+    51.2
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/101/p07.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "On Thursday, Lola went to try out for the swim team. The coach shook his head. he said. pool is only four feet deep. much too Lola like to swim anyway, so she quite so sad. But she still wanted to be on a team.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    52.82,
+    59.43
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/101/p08.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "On Friday, Lola went to try out for the bowling team. Well, she tried to try out. But she even fit through the door of the bowling alley. just too the coach shouted from inside. Lola was sad. When she got home, she said, give up. I be on a team. just too",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    61.01,
+    78.98
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/101/p09.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "On Saturday, friends came over. try out for our said Jill. need one more said Mindy. need said Lola. want to try out for the team. The coach pick me. just too",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    80.58,
+    96.25
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/101/p10.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "friends came back on Sunday. change your they said. come and try out! We know get picked for our Lola thought about it. She still want to try out for another team. But she did want to help her friends. she said.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    97.58,
+    131.53
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/101/p11.jpg",
+   "w": 934,
+   "h": 1400,
+   "text": "So Lola tried out for the basketball team. This time, the coach picked her right away. not too she asked. at said the coach. this team, just",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    133.52,
+    152.67
+   ]
+  }
+ ],
+ "alignQuality": 0.548
+}

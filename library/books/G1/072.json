@@ -1,0 +1,461 @@
+{
+ "id": "G1-072",
+ "series": "G1",
+ "no": 72,
+ "title": "Helping Mom",
+ "level": "E",
+ "cover": "covers/G1/072.jpg",
+ "audio": "audio/G1/072.m4a",
+ "duration": 85.88,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group1",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.51,
+   6.76
+  ],
+  [
+   9.19,
+   14.48
+  ],
+  [
+   15.51,
+   22.6
+  ],
+  [
+   24.38,
+   30.34
+  ],
+  [
+   32.08,
+   39.05
+  ],
+  [
+   41.53,
+   46.09
+  ],
+  [
+   47.23,
+   49.67
+  ],
+  [
+   51.9,
+   62.5
+  ],
+  [
+   64.94,
+   67.15
+  ],
+  [
+   68.38,
+   71.27
+  ],
+  [
+   73.18,
+   78.98
+  ],
+  [
+   80.52,
+   84.7
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/072/p04.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "She said, can help I said, I have to? I know how to plant But Mom said, on. It will be Mom got flowers for a garden.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    0.51,
+    6.76
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/072/p05.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "put the flowers Mom said. So I pushed and Mom pulled. It was hard work!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    9.19,
+    14.48
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/072/p06.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "I said, pots are too But Mom said, can do Next I had to dig some holes.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    15.51,
+    22.6
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/072/p07.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "It was a big job! And it was not much fun. Then we had to put the flowers in the dirt.",
+   "textBox": [
+    0.0505,
+    0.0705,
+    0.9014,
+    0.8527
+   ],
+   "wordBoxes": {
+    "words": [
+     "It",
+     "was",
+     "a",
+     "big",
+     "job!",
+     "And",
+     "it",
+     "was",
+     "not",
+     "much",
+     "fun.",
+     "Then",
+     "we",
+     "had",
+     "to",
+     "put",
+     "the",
+     "flowers",
+     "in",
+     "the",
+     "dirt."
+    ],
+    "boxes": [
+     [
+      0.0528,
+      0.0706,
+      0.0675,
+      0.1176
+     ],
+     [
+      0.0898,
+      0.0861,
+      0.1313,
+      0.1195
+     ],
+     [
+      0.1549,
+      0.0875,
+      0.1662,
+      0.1183
+     ],
+     [
+      0.1916,
+      0.0705,
+      0.2228,
+      0.1336
+     ],
+     [
+      0.2452,
+      0.0705,
+      0.2868,
+      0.1361
+     ],
+     [
+      0.0505,
+      0.1534,
+      0.0927,
+      0.2034
+     ],
+     [
+      0.1181,
+      0.156,
+      0.1313,
+      0.2027
+     ],
+     [
+      0.1536,
+      0.1711,
+      0.1951,
+      0.2046
+     ],
+     [
+      0.0538,
+      0.2411,
+      0.0872,
+      0.2885
+     ],
+     [
+      0.1113,
+      0.2407,
+      0.1641,
+      0.2885
+     ],
+     [
+      0.1887,
+      0.2398,
+      0.226,
+      0.2885
+     ],
+     [
+      0.6,
+      0.7185,
+      0.6483,
+      0.7663
+     ],
+     [
+      0.672,
+      0.7341,
+      0.7025,
+      0.7676
+     ],
+     [
+      0.7268,
+      0.7185,
+      0.7645,
+      0.7663
+     ],
+     [
+      0.7883,
+      0.7189,
+      0.8098,
+      0.7663
+     ],
+     [
+      0.8342,
+      0.7189,
+      0.8681,
+      0.7818
+     ],
+     [
+      0.602,
+      0.8036,
+      0.6357,
+      0.8514
+     ],
+     [
+      0.6591,
+      0.8028,
+      0.7356,
+      0.8527
+     ],
+     [
+      0.7601,
+      0.8068,
+      0.7759,
+      0.8507
+     ],
+     [
+      0.7998,
+      0.8036,
+      0.8335,
+      0.8514
+     ],
+     [
+      0.8569,
+      0.8036,
+      0.9014,
+      0.8514
+     ]
+    ]
+   },
+   "audio": [
+    24.38,
+    30.34
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/072/p08.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "It was hot, but we had to keep working. Next we had to water the flowers. Mom said, can do that. It will be fun! The hose is over",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    32.08,
+    39.05
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/072/p09.jpg",
+   "w": 1400,
+   "h": 546,
+   "text": "I got the hose. I turned it on. Help I said.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    41.53,
+    46.09
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/072/p10.jpg",
+   "w": 1400,
+   "h": 550,
+   "text": "can do Mom said. hold the hose like So I watered the flowers.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    47.23,
+    49.67
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/072/p11.jpg",
+   "w": 1400,
+   "h": 1098,
+   "text": "I watered Mom, too! And that was a lot of fun!",
+   "textBox": [
+    0.2194,
+    0.079,
+    0.9473,
+    0.2151
+   ],
+   "wordBoxes": {
+    "words": [
+     "I",
+     "watered",
+     "Mom,",
+     "too!",
+     "And",
+     "that",
+     "was",
+     "a",
+     "lot",
+     "of",
+     "fun!"
+    ],
+    "boxes": [
+     [
+      0.2241,
+      0.081,
+      0.2339,
+      0.128
+     ],
+     [
+      0.2786,
+      0.081,
+      0.4573,
+      0.13
+     ],
+     [
+      0.508,
+      0.079,
+      0.6231,
+      0.1378
+     ],
+     [
+      0.6718,
+      0.081,
+      0.7557,
+      0.1288
+     ],
+     [
+      0.2194,
+      0.1639,
+      0.304,
+      0.2139
+     ],
+     [
+      0.352,
+      0.1661,
+      0.4408,
+      0.2138
+     ],
+     [
+      0.485,
+      0.1816,
+      0.5681,
+      0.2151
+     ],
+     [
+      0.6154,
+      0.183,
+      0.6379,
+      0.2139
+     ],
+     [
+      0.6887,
+      0.1661,
+      0.7411,
+      0.2139
+     ],
+     [
+      0.7872,
+      0.1652,
+      0.8302,
+      0.2139
+     ],
+     [
+      0.8722,
+      0.1652,
+      0.9473,
+      0.2139
+     ]
+    ]
+   },
+   "audio": [
+    51.9,
+    62.5
+   ],
+   "wordTimes": [
+    [
+     0.16,
+     0.9
+    ],
+    [
+     0.9,
+     4.27
+    ],
+    [
+     4.27,
+     4.71
+    ],
+    [
+     4.71,
+     6.57
+    ],
+    [
+     6.57,
+     7.22
+    ],
+    [
+     7.22,
+     7.79
+    ],
+    [
+     7.79,
+     9.07
+    ],
+    [
+     9.07,
+     9.54
+    ],
+    [
+     9.54,
+     10.0
+    ],
+    [
+     10.0,
+     10.35
+    ],
+    [
+     10.35,
+     10.55
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.643
+}

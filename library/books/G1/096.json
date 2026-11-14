@@ -1,0 +1,363 @@
+{
+ "id": "G1-096",
+ "series": "G1",
+ "no": 96,
+ "title": "Best New Friends",
+ "level": "G",
+ "cover": "covers/G1/096.jpg",
+ "audio": "audio/G1/096.m4a",
+ "duration": 120.04,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group1",
+ "hasAudio": true,
+ "segments": [
+  [
+   1.08,
+   12.46
+  ],
+  [
+   14.03,
+   24.82
+  ],
+  [
+   26.38,
+   38.38
+  ],
+  [
+   39.92,
+   44.87
+  ],
+  [
+   45.89,
+   47.04
+  ],
+  [
+   48.39,
+   52.13
+  ],
+  [
+   53.33,
+   68.74
+  ],
+  [
+   71.43,
+   87.41
+  ],
+  [
+   89.34,
+   92.95
+  ],
+  [
+   94.41,
+   105.57
+  ],
+  [
+   106.67,
+   118.59
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/096/p04.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "They lived next door to each other. They played ball together every day. Brian and Paul were best friends. They went to school together.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    1.08,
+    12.46
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/096/p05.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "One day, Paul told Brian some sad news. family is moving said Paul. move said Brian. my best",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    14.03,
+    24.82
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.21
+    ],
+    [
+     0.21,
+     0.58
+    ],
+    [
+     0.58,
+     1.11
+    ],
+    [
+     1.11,
+     1.42
+    ],
+    [
+     1.42,
+     2.17
+    ],
+    [
+     2.17,
+     2.88
+    ],
+    [
+     2.88,
+     3.16
+    ],
+    [
+     3.16,
+     3.98
+    ],
+    [
+     3.98,
+     4.87
+    ],
+    [
+     4.87,
+     5.01
+    ],
+    [
+     5.01,
+     5.53
+    ],
+    [
+     5.53,
+     5.93
+    ],
+    [
+     5.93,
+     6.85
+    ],
+    [
+     6.85,
+     8.04
+    ],
+    [
+     8.04,
+     8.47
+    ],
+    [
+     8.47,
+     9.26
+    ],
+    [
+     9.26,
+     9.93
+    ],
+    [
+     9.93,
+     10.77
+    ]
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/096/p06.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Brian talked to his dad. Brian said, want Paul to move worry, said his dad. can send letters to Paul. You can call him on the",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    26.38,
+    38.38
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/096/p07.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "But Brian felt sad. He thought, will play ball with me? Who will be my best",
+   "textBox": [
+    0.0564,
+    0.1078,
+    0.3843,
+    0.3147
+   ],
+   "wordBoxes": {
+    "words": [
+     "But",
+     "Brian",
+     "felt",
+     "sad.",
+     "He",
+     "thought,",
+     "will",
+     "play",
+     "ball",
+     "with",
+     "me?",
+     "Who",
+     "will",
+     "be",
+     "my",
+     "best"
+    ],
+    "boxes": [
+     [
+      0.0578,
+      0.1084,
+      0.0963,
+      0.136
+     ],
+     [
+      0.1137,
+      0.1084,
+      0.1733,
+      0.136
+     ],
+     [
+      0.1905,
+      0.1078,
+      0.2251,
+      0.136
+     ],
+     [
+      0.2429,
+      0.1078,
+      0.2825,
+      0.136
+     ],
+     [
+      0.0578,
+      0.1656,
+      0.0865,
+      0.1932
+     ],
+     [
+      0.1041,
+      0.165,
+      0.1936,
+      0.2021
+     ],
+     [
+      0.283,
+      0.165,
+      0.322,
+      0.193
+     ],
+     [
+      0.3396,
+      0.165,
+      0.3843,
+      0.2003
+     ],
+     [
+      0.0582,
+      0.2222,
+      0.0974,
+      0.2504
+     ],
+     [
+      0.1145,
+      0.2222,
+      0.1622,
+      0.2504
+     ],
+     [
+      0.1796,
+      0.2222,
+      0.2202,
+      0.2504
+     ],
+     [
+      0.0564,
+      0.2794,
+      0.1031,
+      0.3076
+     ],
+     [
+      0.1203,
+      0.2794,
+      0.1594,
+      0.3074
+     ],
+     [
+      0.1767,
+      0.2794,
+      0.1996,
+      0.3076
+     ],
+     [
+      0.2173,
+      0.2891,
+      0.2493,
+      0.3147
+     ],
+     [
+      0.266,
+      0.2794,
+      0.3089,
+      0.3076
+     ]
+    ]
+   },
+   "audio": [
+    39.92,
+    44.87
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/096/p08.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Soon a moving van came to house. Brian went next door to say good-bye. have something for said Paul. Paul gave Brian his baseball. want you to keep you said Brian. said Paul. my best",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    45.89,
+    47.04
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/096/p09.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Paul and his family drove away. Then Brian was all alone. He tossed baseball in his hand. dad came outside. you want to play he asked. thanks, Dad. I feel like said Brian.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    48.39,
+    52.13
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/096/p10.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "One day, another moving van came to the house next door. Then a car came along. Two boys jumped out of the car. said one boy. said the other boy. going to live next said Jake and Luke.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    53.33,
+    68.74
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/096/p11.jpg",
+   "w": 1146,
+   "h": 1400,
+   "text": "Brian tossed baseball in his hand. Paul was his best friend, but he could make new friends. he said. to play",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    71.43,
+    87.41
+   ]
+  }
+ ],
+ "alignQuality": 0.454
+}

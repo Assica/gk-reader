@@ -1,0 +1,454 @@
+{
+ "id": "G1-071",
+ "series": "G1",
+ "no": 71,
+ "title": "Goldie and the Three Bears",
+ "level": "G",
+ "cover": "covers/G1/071.jpg",
+ "audio": "audio/G1/071.m4a",
+ "duration": 167.71,
+ "pageCount": 7,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.28,
+   12.66
+  ],
+  [
+   13.74,
+   22.97
+  ],
+  [
+   24.84,
+   31.37
+  ],
+  [
+   32.66,
+   43.99
+  ],
+  [
+   45.57,
+   66.66
+  ],
+  [
+   69.42,
+   87.06
+  ],
+  [
+   88.74,
+   95.87
+  ],
+  [
+   97.03,
+   97.45
+  ],
+  [
+   99.0,
+   103.7
+  ],
+  [
+   104.81,
+   107.24
+  ],
+  [
+   108.52,
+   132.46
+  ],
+  [
+   134.39,
+   141.4
+  ],
+  [
+   142.97,
+   152.86
+  ],
+  [
+   155.25,
+   166.51
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/071/p04.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "One day, Goldie went for a walk in the woods. Soon she came to a little house. The door was open. called Goldie. But no one answered. wonder who lives said Goldie. think go And she did.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    0.28,
+    22.97
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/071/p05.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "Goldie was hungry from her walk. She saw three bowls of soup on the table. She tried them all. soup is too said Goldie. soup is too said Goldie. soup is just said Goldie. So Goldie ate the soup. And soon it was all gone.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    24.84,
+    43.99
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/071/p06.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "Goldie was cold from her walk. She saw three chairs by the fireplace. She tried them all. chair is too said Goldie. chair is too said Goldie. chair is just said Goldie. So Goldie sat on the chair. And she broke it.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    45.57,
+    87.06
+   ],
+   "wordTimes": [
+    [
+     0.28,
+     0.71
+    ],
+    [
+     0.71,
+     0.94
+    ],
+    [
+     0.94,
+     1.36
+    ],
+    [
+     1.36,
+     1.62
+    ],
+    [
+     1.62,
+     1.81
+    ],
+    [
+     1.81,
+     2.87
+    ],
+    [
+     2.87,
+     3.84
+    ],
+    [
+     3.84,
+     4.08
+    ],
+    [
+     4.08,
+     4.42
+    ],
+    [
+     4.42,
+     5.29
+    ],
+    [
+     5.29,
+     5.89
+    ],
+    [
+     5.89,
+     6.01
+    ],
+    [
+     6.01,
+     6.74
+    ],
+    [
+     6.74,
+     7.02
+    ],
+    [
+     7.02,
+     7.31
+    ],
+    [
+     7.31,
+     7.5
+    ],
+    [
+     7.5,
+     8.18
+    ],
+    [
+     8.18,
+     9.17
+    ],
+    [
+     9.17,
+     9.32
+    ],
+    [
+     9.32,
+     10.05
+    ],
+    [
+     10.05,
+     10.41
+    ],
+    [
+     10.41,
+     11.1
+    ],
+    [
+     11.1,
+     11.69
+    ],
+    [
+     11.69,
+     11.9
+    ],
+    [
+     11.9,
+     12.46
+    ],
+    [
+     12.46,
+     13.0
+    ],
+    [
+     13.0,
+     13.75
+    ],
+    [
+     13.75,
+     14.55
+    ],
+    [
+     14.55,
+     14.91
+    ],
+    [
+     14.91,
+     15.6
+    ],
+    [
+     15.6,
+     16.45
+    ],
+    [
+     16.45,
+     17.73
+    ],
+    [
+     17.73,
+     21.94
+    ],
+    [
+     21.94,
+     24.34
+    ],
+    [
+     24.34,
+     25.51
+    ],
+    [
+     25.51,
+     26.5
+    ],
+    [
+     26.5,
+     28.23
+    ],
+    [
+     28.23,
+     31.58
+    ],
+    [
+     31.58,
+     32.72
+    ],
+    [
+     32.72,
+     35.39
+    ],
+    [
+     35.39,
+     37.93
+    ],
+    [
+     37.93,
+     39.69
+    ]
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/071/p07.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "Goldie was sleepy and wanted a nap. She saw three beds in the bedroom. She tried them all. bed is too said Goldie. bed is too said Goldie. bed is just said Goldie. So Goldie lay down on the bed. And she fell asleep.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    88.74,
+    97.45
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/071/p08.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "Just then, the three bears came home. Baby Bear was hungry from his walk. So he got his soup bowl. soup is all cried Baby Bear. ate my said Mama Bear.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    99.0,
+    107.24
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/071/p09.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "Baby Bear was cold from his walk. So he went to his chair by the fireplace. chair is all cried Baby Bear. broke my said Papa Bear. Baby Bear was sleepy and wanted a nap. So he went to his bed. is sleeping in my cried Baby Bear. is",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    108.52,
+    141.4
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/071/p10.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "said Mama Bear. a little said Papa Bear. fast Goldie woke up when she heard the three bears. She jumped out of bed. cried Goldie. cried the three bears.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    142.97,
+    166.51
+   ],
+   "wordTimes": [
+    [
+     0.28,
+     2.16
+    ],
+    [
+     2.16,
+     2.78
+    ],
+    [
+     2.78,
+     3.45
+    ],
+    [
+     3.45,
+     3.75
+    ],
+    [
+     3.75,
+     5.37
+    ],
+    [
+     5.37,
+     6.61
+    ],
+    [
+     6.61,
+     7.49
+    ],
+    [
+     7.49,
+     9.17
+    ],
+    [
+     9.17,
+     11.05
+    ],
+    [
+     11.05,
+     12.67
+    ],
+    [
+     12.67,
+     13.0
+    ],
+    [
+     13.0,
+     13.3
+    ],
+    [
+     13.3,
+     14.1
+    ],
+    [
+     14.1,
+     14.66
+    ],
+    [
+     14.66,
+     15.18
+    ],
+    [
+     15.18,
+     15.41
+    ],
+    [
+     15.41,
+     15.95
+    ],
+    [
+     15.95,
+     16.68
+    ],
+    [
+     16.68,
+     17.41
+    ],
+    [
+     17.41,
+     18.31
+    ],
+    [
+     18.31,
+     18.89
+    ],
+    [
+     18.89,
+     19.25
+    ],
+    [
+     19.25,
+     19.5
+    ],
+    [
+     19.5,
+     20.01
+    ],
+    [
+     20.01,
+     20.95
+    ],
+    [
+     20.95,
+     21.89
+    ],
+    [
+     21.89,
+     22.32
+    ],
+    [
+     22.32,
+     23.33
+    ],
+    [
+     23.33,
+     23.53
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.501
+}

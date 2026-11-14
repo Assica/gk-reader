@@ -1,0 +1,400 @@
+{
+ "id": "G1-108",
+ "series": "G1",
+ "no": 108,
+ "title": "All About Chimps",
+ "level": "H",
+ "cover": "covers/G1/108.jpg",
+ "audio": "audio/G1/108.m4a",
+ "duration": 116.37,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group1",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.64,
+   14.4
+  ],
+  [
+   15.59,
+   31.6
+  ],
+  [
+   32.75,
+   51.2
+  ],
+  [
+   52.37,
+   67.09
+  ],
+  [
+   68.35,
+   70.16
+  ],
+  [
+   71.3,
+   78.92
+  ],
+  [
+   80.46,
+   103.08
+  ],
+  [
+   104.13,
+   107.35
+  ],
+  [
+   108.89,
+   114.54
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/108/p04.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "This is a chimp. Chimps have dark hair. They have big ears and big hands. Most chimps live in the forest. They spend a lot of time in trees. ChimpsChimps",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    0.64,
+    14.4
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/108/p05.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Chimps have long arms. Their arms are very strong. Chimps can swing from tree to tree. This is a foot. Look at the big toe! It helps the chimp climb trees.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    15.59,
+    31.6
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.31
+    ],
+    [
+     0.31,
+     0.57
+    ],
+    [
+     0.57,
+     1.05
+    ],
+    [
+     1.05,
+     2.03
+    ],
+    [
+     2.03,
+     2.92
+    ],
+    [
+     2.92,
+     3.29
+    ],
+    [
+     3.29,
+     3.57
+    ],
+    [
+     3.57,
+     4.05
+    ],
+    [
+     4.05,
+     4.73
+    ],
+    [
+     4.73,
+     5.25
+    ],
+    [
+     5.25,
+     5.44
+    ],
+    [
+     5.44,
+     6.41
+    ],
+    [
+     6.41,
+     7.04
+    ],
+    [
+     7.04,
+     7.55
+    ],
+    [
+     7.55,
+     7.78
+    ],
+    [
+     7.78,
+     8.43
+    ],
+    [
+     8.43,
+     9.0
+    ],
+    [
+     9.0,
+     9.27
+    ],
+    [
+     9.27,
+     9.65
+    ],
+    [
+     9.65,
+     10.3
+    ],
+    [
+     10.3,
+     10.8
+    ],
+    [
+     10.8,
+     10.94
+    ],
+    [
+     10.94,
+     11.21
+    ],
+    [
+     11.21,
+     11.79
+    ],
+    [
+     11.79,
+     12.84
+    ],
+    [
+     12.84,
+     13.53
+    ],
+    [
+     13.53,
+     13.86
+    ],
+    [
+     13.86,
+     14.0
+    ],
+    [
+     14.0,
+     14.33
+    ],
+    [
+     14.33,
+     14.73
+    ],
+    [
+     14.73,
+     15.21
+    ]
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/108/p06.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Chimps live in groups. They make sounds to talk to each other. Chimps help each other find food. Chimps clean each hair with their fingers. This chimp looks for bugs and dirt. If he finds a bug, he eats it! What Chimps DoWhat Chimps Do",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    32.75,
+    51.2
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/108/p07.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Chimps eat fruit, leaves, f lowers, and seeds. They also eat eggs and bugs. Some chimps work as a team to find their food. They share the food they find. What Chimps EatWhat Chimps Eat",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    52.37,
+    67.09
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/108/p08.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Chimps use tools. This chimp uses a stick to catch bugs. The chimp pokes the stick into a hole. Bugs crawl up the stick. The chimp pulls the stick out and eats the bugs.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    68.35,
+    70.16
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/108/p09.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Chimps sleep in the trees. They make nests from branches and leaves. Some chimps make a new nest every night. How Chimps LiveHow Chimps Live",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    71.3,
+    78.92
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/108/p10.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "This is a baby chimp. She is with her mother. The baby chimp rides on her back.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    80.46,
+    103.08
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/108/p11.jpg",
+   "w": 1097,
+   "h": 1400,
+   "text": "Most chimp mothers have one baby at a time. But this chimp mother had twins!",
+   "textBox": [
+    0.1098,
+    0.6472,
+    0.8104,
+    0.867
+   ],
+   "wordBoxes": {
+    "words": [
+     "Most",
+     "chimp",
+     "mothers",
+     "have",
+     "one",
+     "baby",
+     "at",
+     "a",
+     "time.",
+     "But",
+     "this",
+     "chimp",
+     "mother",
+     "had",
+     "twins!"
+    ],
+    "boxes": [
+     [
+      0.1098,
+      0.6478,
+      0.2276,
+      0.6783
+     ],
+     [
+      0.2693,
+      0.6472,
+      0.4152,
+      0.686
+     ],
+     [
+      0.4582,
+      0.6472,
+      0.6548,
+      0.6783
+     ],
+     [
+      0.6968,
+      0.6472,
+      0.8104,
+      0.6783
+     ],
+     [
+      0.1107,
+      0.7208,
+      0.1914,
+      0.7412
+     ],
+     [
+      0.2336,
+      0.7102,
+      0.349,
+      0.7489
+     ],
+     [
+      0.39,
+      0.7131,
+      0.4372,
+      0.7412
+     ],
+     [
+      0.4789,
+      0.7208,
+      0.5045,
+      0.7412
+     ],
+     [
+      0.5469,
+      0.7108,
+      0.6659,
+      0.7412
+     ],
+     [
+      0.1098,
+      0.7737,
+      0.1982,
+      0.8041
+     ],
+     [
+      0.24,
+      0.7731,
+      0.3308,
+      0.8041
+     ],
+     [
+      0.3734,
+      0.7731,
+      0.5193,
+      0.8118
+     ],
+     [
+      0.5623,
+      0.7731,
+      0.7359,
+      0.8041
+     ],
+     [
+      0.1098,
+      0.836,
+      0.1984,
+      0.867
+     ],
+     [
+      0.2406,
+      0.836,
+      0.387,
+      0.867
+     ]
+    ]
+   },
+   "audio": [
+    104.13,
+    107.35
+   ]
+  }
+ ],
+ "alignQuality": 0.438
+}

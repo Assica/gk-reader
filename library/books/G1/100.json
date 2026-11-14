@@ -1,0 +1,308 @@
+{
+ "id": "G1-100",
+ "series": "G1",
+ "no": 100,
+ "title": "A Walk At Night",
+ "level": "G",
+ "cover": "covers/G1/100.jpg",
+ "audio": "audio/G1/100.m4a",
+ "duration": 89.32,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group1",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.57,
+   11.18
+  ],
+  [
+   12.7,
+   15.11
+  ],
+  [
+   16.2,
+   19.5
+  ],
+  [
+   20.67,
+   25.5
+  ],
+  [
+   27.21,
+   37.34
+  ],
+  [
+   39.76,
+   46.96
+  ],
+  [
+   48.49,
+   55.53
+  ],
+  [
+   57.87,
+   64.52
+  ],
+  [
+   65.52,
+   67.32
+  ],
+  [
+   69.35,
+   78.78
+  ],
+  [
+   80.28,
+   88.12
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/100/p04.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "It is night in the woods. Most animals go to sleep at night. But some animals are just waking up.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    20.67,
+    25.5
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/100/p05.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "I go for a walk in the woods with Dad. We look and listen for animals that come out at night. Look at the moon. It is very bright. The moonlight will help us see the animals.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    27.21,
+    37.34
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/100/p06.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Listen to the of an owl. Look! There it is! The owl is up in that tree. The yellow eyes shine in the moonlight.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    39.76,
+    46.96
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/100/p07.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Now look up at the sky. Bats are f lying here and there. They wake up at night and look for bugs to eat.",
+   "textBox": [
+    0.0549,
+    0.0853,
+    0.4072,
+    0.3777
+   ],
+   "wordBoxes": null,
+   "audio": [
+    48.49,
+    55.53
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/100/p08.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Look! A red fox is hiding in the woods. It jumps out of a bush and runs away.",
+   "textBox": [
+    0.0549,
+    0.0853,
+    0.4121,
+    0.3128
+   ],
+   "wordBoxes": {
+    "words": [
+     "Look!",
+     "A",
+     "red",
+     "fox",
+     "is",
+     "hiding",
+     "in",
+     "the",
+     "woods.",
+     "It",
+     "jumps",
+     "out",
+     "of",
+     "a",
+     "bush",
+     "and",
+     "runs",
+     "away."
+    ],
+    "boxes": [
+     [
+      0.0549,
+      0.0853,
+      0.1191,
+      0.1163
+     ],
+     [
+      0.1401,
+      0.0853,
+      0.1593,
+      0.1157
+     ],
+     [
+      0.1795,
+      0.0853,
+      0.2177,
+      0.1163
+     ],
+     [
+      0.2389,
+      0.0853,
+      0.2742,
+      0.1163
+     ],
+     [
+      0.2948,
+      0.0859,
+      0.3134,
+      0.1163
+     ],
+     [
+      0.3344,
+      0.0853,
+      0.4121,
+      0.1261
+     ],
+     [
+      0.0554,
+      0.1488,
+      0.0785,
+      0.1786
+     ],
+     [
+      0.0994,
+      0.1482,
+      0.1374,
+      0.1792
+     ],
+     [
+      0.1582,
+      0.1482,
+      0.2364,
+      0.1792
+     ],
+     [
+      0.0549,
+      0.2117,
+      0.0745,
+      0.2421
+     ],
+     [
+      0.0927,
+      0.2117,
+      0.1689,
+      0.2499
+     ],
+     [
+      0.1902,
+      0.214,
+      0.2285,
+      0.2421
+     ],
+     [
+      0.2494,
+      0.2111,
+      0.2732,
+      0.2421
+     ],
+     [
+      0.2909,
+      0.2218,
+      0.3037,
+      0.2421
+     ],
+     [
+      0.3247,
+      0.2111,
+      0.383,
+      0.2421
+     ],
+     [
+      0.0554,
+      0.274,
+      0.0993,
+      0.305
+     ],
+     [
+      0.1204,
+      0.2847,
+      0.1751,
+      0.305
+     ],
+     [
+      0.1963,
+      0.2847,
+      0.2607,
+      0.3128
+     ]
+    ]
+   },
+   "audio": [
+    57.87,
+    64.52
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/100/p09.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "A big raccoon is in that tree. The raccoon has black fur around its eyes. That fur looks like a mask.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    65.52,
+    67.32
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/100/p10.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "We hear a crunching sound. What animal is hiding from us? Look! There is a deer behind the trees. The deer runs off into the woods.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    69.35,
+    78.78
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/100/p11.jpg",
+   "w": 1097,
+   "h": 1400,
+   "text": "We love to walk in the woods at night. But now it is time to go home. It is time for us to go to sleep!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    80.28,
+    88.12
+   ]
+  }
+ ],
+ "alignQuality": 0.643
+}

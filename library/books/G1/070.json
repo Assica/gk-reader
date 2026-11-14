@@ -1,0 +1,402 @@
+{
+ "id": "G1-070",
+ "series": "G1",
+ "no": 70,
+ "title": "My Five Senses",
+ "level": "D",
+ "cover": "covers/G1/070.jpg",
+ "audio": "audio/G1/070.m4a",
+ "duration": 71.23,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group1",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.58,
+   12.43
+  ],
+  [
+   13.86,
+   16.78
+  ],
+  [
+   17.89,
+   19.45
+  ],
+  [
+   20.57,
+   21.99
+  ],
+  [
+   23.68,
+   26.65
+  ],
+  [
+   27.7,
+   30.93
+  ],
+  [
+   32.77,
+   36.41
+  ],
+  [
+   37.46,
+   41.24
+  ],
+  [
+   43.72,
+   51.29
+  ],
+  [
+   54.41,
+   57.64
+  ],
+  [
+   59.45,
+   61.89
+  ],
+  [
+   64.14,
+   69.91
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/070/p04.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "I see flowers in the park. The flowers look pretty. I have two eyes. I use my eyes to see.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    23.68,
+    26.65
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/070/p05.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "I have two ears. I use my ears to hear. I hear a bird in the park. The bird sings a song.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    27.7,
+    30.93
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/070/p06.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "I have a nose. I use my nose to smell. I smell food in the park. The food smells good.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    32.77,
+    36.41
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/070/p07.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "I have a mouth. I use my mouth to taste. I taste ice cream in the park. The ice cream tastes sweet.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    37.46,
+    41.24
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/070/p08.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "I have two hands. I use my hands to touch. I touch the dog in the park. The dog feels soft.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    43.72,
+    51.29
+   ],
+   "wordTimes": [
+    [
+     0.2,
+     0.37
+    ],
+    [
+     0.37,
+     0.57
+    ],
+    [
+     0.57,
+     0.82
+    ],
+    [
+     0.82,
+     1.41
+    ],
+    [
+     1.41,
+     1.7
+    ],
+    [
+     1.7,
+     1.89
+    ],
+    [
+     1.89,
+     2.06
+    ],
+    [
+     2.06,
+     2.39
+    ],
+    [
+     2.39,
+     2.6
+    ],
+    [
+     2.6,
+     3.52
+    ],
+    [
+     3.52,
+     4.21
+    ],
+    [
+     4.21,
+     4.53
+    ],
+    [
+     4.53,
+     4.68
+    ],
+    [
+     4.68,
+     5.13
+    ],
+    [
+     5.13,
+     5.36
+    ],
+    [
+     5.36,
+     5.49
+    ],
+    [
+     5.49,
+     6.07
+    ],
+    [
+     6.07,
+     6.53
+    ],
+    [
+     6.53,
+     6.83
+    ],
+    [
+     6.83,
+     7.22
+    ],
+    [
+     7.22,
+     7.57
+    ]
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/070/p09.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "see hear taste touch smell",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    54.41,
+    57.64
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/070/p10.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "I can use all my senses at the park!",
+   "textBox": [
+    0.0562,
+    0.6599,
+    0.4548,
+    0.7871
+   ],
+   "wordBoxes": {
+    "words": [
+     "I",
+     "can",
+     "use",
+     "all",
+     "my",
+     "senses",
+     "at",
+     "the",
+     "park!"
+    ],
+    "boxes": [
+     [
+      0.0567,
+      0.6599,
+      0.063,
+      0.6968
+     ],
+     [
+      0.0921,
+      0.6732,
+      0.1383,
+      0.6973
+     ],
+     [
+      0.1705,
+      0.6732,
+      0.2129,
+      0.6973
+     ],
+     [
+      0.2425,
+      0.6599,
+      0.2717,
+      0.6973
+     ],
+     [
+      0.304,
+      0.6732,
+      0.3411,
+      0.7094
+     ],
+     [
+      0.3698,
+      0.6732,
+      0.4548,
+      0.6973
+     ],
+     [
+      0.0562,
+      0.7379,
+      0.0839,
+      0.7751
+     ],
+     [
+      0.1126,
+      0.7376,
+      0.1556,
+      0.7751
+     ],
+     [
+      0.1865,
+      0.7376,
+      0.2548,
+      0.7871
+     ]
+    ]
+   },
+   "audio": [
+    59.45,
+    61.89
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.15
+    ],
+    [
+     0.15,
+     0.37
+    ],
+    [
+     0.37,
+     0.66
+    ],
+    [
+     0.66,
+     0.93
+    ],
+    [
+     0.93,
+     1.11
+    ],
+    [
+     1.11,
+     1.71
+    ],
+    [
+     1.71,
+     2.0
+    ],
+    [
+     2.0,
+     2.19
+    ],
+    [
+     2.19,
+     2.44
+    ]
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/070/p11.jpg",
+   "w": 1097,
+   "h": 1400,
+   "text": "The Five Senses see taste smell hear touch",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    64.14,
+    69.91
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.17
+    ],
+    [
+     0.17,
+     0.52
+    ],
+    [
+     0.52,
+     1.32
+    ],
+    [
+     1.32,
+     2.25
+    ],
+    [
+     2.25,
+     3.17
+    ],
+    [
+     3.17,
+     4.12
+    ],
+    [
+     4.12,
+     4.97
+    ],
+    [
+     4.97,
+     5.75
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.606
+}

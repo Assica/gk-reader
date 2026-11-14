@@ -1,0 +1,187 @@
+{
+ "id": "G1-093",
+ "series": "G1",
+ "no": 93,
+ "title": "Bears Birthday",
+ "level": "I",
+ "cover": "covers/G1/093.jpg",
+ "audio": "audio/G1/093.m4a",
+ "duration": 191.51,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.03,
+   16.68
+  ],
+  [
+   18.16,
+   25.39
+  ],
+  [
+   26.51,
+   37.62
+  ],
+  [
+   39.17,
+   43.48
+  ],
+  [
+   45.46,
+   72.12
+  ],
+  [
+   74.22,
+   84.35
+  ],
+  [
+   85.35,
+   88.45
+  ],
+  [
+   90.08,
+   98.64
+  ],
+  [
+   100.38,
+   103.52
+  ],
+  [
+   104.87,
+   121.12
+  ],
+  [
+   122.25,
+   136.87
+  ],
+  [
+   138.09,
+   148.65
+  ],
+  [
+   150.14,
+   153.92
+  ],
+  [
+   155.01,
+   162.51
+  ],
+  [
+   163.98,
+   174.18
+  ],
+  [
+   175.67,
+   190.67
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/093/p04.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "Bear woke up. He looked outside and smiled. a beautiful day for my he said. will have a party! First I will make a cake. But I have any So Bear went to house.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    0.03,
+    25.39
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/093/p05.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "said Bear. you have any eggs? I want to bake a have some said Rabbit. is the cake my birthday, and having a said Bear. Bear thanked Rabbit and took the eggs. Then he went home. Bear ask me to his Rabbit asked sadly.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    26.51,
+    43.48
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/093/p06.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "When he got home, Bear made the cake. I will make party said Bear. I have any So Bear went to house. said Bear. you have any paper? I want to make some have some said Beaver. are the hats my birthday, and having a said Bear.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    45.46,
+    84.35
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/093/p07.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "Bear thanked Beaver and took the paper. Then he went home. Bear ask me to his Beaver asked sadly. will ask When he got home, Bear made the hats. are good said Bear. I will blow up balloons. But I have any So Bear went to house.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    85.35,
+    98.64
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/093/p08.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "said Bear. you have any have some said Fox. are they my birthday, and having a said Bear. Bear thanked Fox and took the balloons. Then he went home. Bear ask me to his Fox asked sadly. will ask",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    100.38,
+    121.12
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/093/p09.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "When he got home, Bear blew up the balloons. He put the cake and the hats on the table. am Bear said. I will wait for my Bear waited and waited, but no friends came. Bear was sad. It was his birthday. Where were his friends? will go look for he said.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    122.25,
+    148.65
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/093/p10.jpg",
+   "w": 1400,
+   "h": 1051,
+   "text": "Bear went to house. Beaver and Fox were there. Bear told them. made a cake and party hats. I blew up balloons. Why you come to my birthday did not said friends, you did not ask said Bear. planned a party. But I forgot to ask my friends to will come said Fox.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    150.14,
+    162.51
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/093/p11.jpg",
+   "w": 934,
+   "h": 1400,
+   "text": "So they all went to house to have a party. is a good party, said all his friends. said Bear. is a good surprise",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    163.98,
+    190.67
+   ]
+  }
+ ],
+ "alignQuality": 0.639
+}

@@ -1,0 +1,342 @@
+{
+ "id": "G1-055",
+ "series": "G1",
+ "no": 55,
+ "title": "Talent Show",
+ "level": "E",
+ "cover": "covers/G1/055.jpg",
+ "audio": "audio/G1/055.m4a",
+ "duration": 125.98,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "window",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.64,
+   14.77
+  ],
+  [
+   16.02,
+   18.8
+  ],
+  [
+   22.68,
+   27.27
+  ],
+  [
+   28.41,
+   38.34
+  ],
+  [
+   40.04,
+   51.45
+  ],
+  [
+   52.8,
+   54.77
+  ],
+  [
+   56.08,
+   65.89
+  ],
+  [
+   67.3,
+   71.91
+  ],
+  [
+   74.31,
+   79.08
+  ],
+  [
+   80.27,
+   86.6
+  ],
+  [
+   88.64,
+   90.35
+  ],
+  [
+   92.49,
+   101.5
+  ],
+  [
+   104.56,
+   106.06
+  ],
+  [
+   107.24,
+   119.63
+  ],
+  [
+   122.01,
+   124.96
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/055/p04.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Horse went to see Sheep. I going to have a talent said Horse. can be in my said Sheep. I ll sing in your Then Sheep sang a song for Horse.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    22.68,
+    27.27
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/055/p05.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Horse went to see Goat. I going to have a talent Horse said. can be in my said Goat. I ll dance in your Then Goat did a dance for Horse.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    28.41,
+    38.34
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/055/p06.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Horse went to see Dog. I going to have a talent Horse said. you be in my Dog said, I ll play this drum in your Dog played the drum.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    40.04,
+    51.45
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/055/p07.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Rabbit went to see Horse. I be in your talent said Rabbit. said Horse. will you I read a book in your Rabbit said. Then Rabbit read a book.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    52.8,
+    54.77
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/055/p08.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Horse went to see Pig. I going to have a talent said Horse. you be in my said Pig. I ll jump rope in your Pig jumped rope for Horse.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    56.08,
+    65.89
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/055/p09.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "time for the said Horse. will you do in the said Dog. said Horse.",
+   "textBox": [
+    0.048,
+    0.091,
+    0.3366,
+    0.4434
+   ],
+   "wordBoxes": {
+    "words": [
+     "time",
+     "for",
+     "the",
+     "said",
+     "Horse.",
+     "will",
+     "you",
+     "do",
+     "in",
+     "the",
+     "said",
+     "Dog.",
+     "said",
+     "Horse."
+    ],
+    "boxes": [
+     [
+      0.0943,
+      0.0917,
+      0.1376,
+      0.1203
+     ],
+     [
+      0.1583,
+      0.091,
+      0.1856,
+      0.1203
+     ],
+     [
+      0.2051,
+      0.0915,
+      0.2368,
+      0.1203
+     ],
+     [
+      0.048,
+      0.1487,
+      0.0876,
+      0.1775
+     ],
+     [
+      0.1102,
+      0.1487,
+      0.1732,
+      0.1775
+     ],
+     [
+      0.1246,
+      0.253,
+      0.1573,
+      0.2826
+     ],
+     [
+      0.1779,
+      0.2627,
+      0.2131,
+      0.2905
+     ],
+     [
+      0.2343,
+      0.253,
+      0.2588,
+      0.2818
+     ],
+     [
+      0.0497,
+      0.3121,
+      0.0645,
+      0.3386
+     ],
+     [
+      0.0856,
+      0.3102,
+      0.1173,
+      0.339
+     ],
+     [
+      0.2293,
+      0.3102,
+      0.2689,
+      0.339
+     ],
+     [
+      0.2914,
+      0.3103,
+      0.3366,
+      0.3483
+     ],
+     [
+      0.1899,
+      0.4146,
+      0.2296,
+      0.4434
+     ],
+     [
+      0.2521,
+      0.4146,
+      0.3151,
+      0.4434
+     ]
+    ]
+   },
+   "audio": [
+    67.3,
+    71.91
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/055/p10.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "The show began. Horse sang with Sheep. He danced with Goat. He played a drum with Dog. He read a book with Rabbit. He jumped rope with Pig.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    74.31,
+    79.08
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/055/p11.jpg",
+   "w": 1146,
+   "h": 1400,
+   "text": "It was a very good show!",
+   "textBox": [
+    0.0985,
+    0.8503,
+    0.732,
+    0.8883
+   ],
+   "wordBoxes": {
+    "words": [
+     "It",
+     "was",
+     "a",
+     "very",
+     "good",
+     "show!"
+    ],
+    "boxes": [
+     [
+      0.0985,
+      0.8503,
+      0.1248,
+      0.8786
+     ],
+     [
+      0.1639,
+      0.8596,
+      0.242,
+      0.8798
+     ],
+     [
+      0.2836,
+      0.8605,
+      0.3048,
+      0.8791
+     ],
+     [
+      0.3457,
+      0.8599,
+      0.4358,
+      0.8878
+     ],
+     [
+      0.4752,
+      0.8503,
+      0.5758,
+      0.8883
+     ],
+     [
+      0.619,
+      0.8503,
+      0.732,
+      0.8798
+     ]
+    ]
+   },
+   "audio": [
+    80.27,
+    86.6
+   ]
+  }
+ ]
+}

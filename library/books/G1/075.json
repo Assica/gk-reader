@@ -1,0 +1,420 @@
+{
+ "id": "G1-075",
+ "series": "G1",
+ "no": 75,
+ "title": "Baby Bird",
+ "level": "G",
+ "cover": "covers/G1/075.jpg",
+ "audio": "audio/G1/075.m4a",
+ "duration": 116.6,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "window",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.93,
+   1.79
+  ],
+  [
+   3.82,
+   18.35
+  ],
+  [
+   19.86,
+   21.72
+  ],
+  [
+   23.5,
+   31.18
+  ],
+  [
+   32.52,
+   37.49
+  ],
+  [
+   38.78,
+   44.49
+  ],
+  [
+   46.28,
+   62.03
+  ],
+  [
+   63.2,
+   65.37
+  ],
+  [
+   66.8,
+   76.01
+  ],
+  [
+   77.56,
+   85.16
+  ],
+  [
+   86.52,
+   91.82
+  ],
+  [
+   92.89,
+   95.61
+  ],
+  [
+   97.6,
+   106.5
+  ],
+  [
+   107.67,
+   111.74
+  ],
+  [
+   113.49,
+   115.72
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/075/p04.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Once there was a baby bird. The baby bird had a small beak. She had small legs. She had small wings. She was very small, but she was warm and happy. Then something happened.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    23.5,
+    31.18
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/075/p05.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "The baby bird began to grow. said the baby bird. beak is getting stronger. My legs are getting longer. My wings are getting bigger,",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    32.52,
+    37.49
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/075/p06.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "The baby bird grew and grew. said the baby bird. at me! I am getting bigger and bigger. If I grow much more, I will run out of room",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    38.78,
+    44.49
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/075/p07.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "The baby bird grew more and more. The baby bird said, at me! My beak is getting a lot stronger! My legs are getting a lot longer! My wings are getting a lot bigger! This space is just too small for",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    46.28,
+    62.03
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/075/p08.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "said the baby bird. am too big for this space. My legs are too long. My wings are too big. What can I",
+   "textBox": [
+    0.5534,
+    0.0851,
+    0.9119,
+    0.3503
+   ],
+   "wordBoxes": {
+    "words": [
+     "said",
+     "the",
+     "baby",
+     "bird.",
+     "am",
+     "too",
+     "big",
+     "for",
+     "this",
+     "space.",
+     "My",
+     "legs",
+     "are",
+     "too",
+     "long.",
+     "My",
+     "wings",
+     "are",
+     "too",
+     "big.",
+     "What",
+     "can",
+     "I"
+    ],
+    "boxes": [
+     [
+      0.6487,
+      0.0851,
+      0.6928,
+      0.1133
+     ],
+     [
+      0.7119,
+      0.0851,
+      0.7465,
+      0.1133
+     ],
+     [
+      0.7657,
+      0.0851,
+      0.8181,
+      0.1204
+     ],
+     [
+      0.8366,
+      0.0851,
+      0.8865,
+      0.1133
+     ],
+     [
+      0.5821,
+      0.154,
+      0.6152,
+      0.1726
+     ],
+     [
+      0.6343,
+      0.147,
+      0.6659,
+      0.1726
+     ],
+     [
+      0.685,
+      0.1443,
+      0.7192,
+      0.1814
+     ],
+     [
+      0.7384,
+      0.1443,
+      0.7682,
+      0.1726
+     ],
+     [
+      0.787,
+      0.1443,
+      0.8283,
+      0.1726
+     ],
+     [
+      0.8484,
+      0.154,
+      0.9119,
+      0.1796
+     ],
+     [
+      0.5552,
+      0.2041,
+      0.5898,
+      0.2388
+     ],
+     [
+      0.6084,
+      0.2036,
+      0.6511,
+      0.2407
+     ],
+     [
+      0.6705,
+      0.2133,
+      0.7053,
+      0.2318
+     ],
+     [
+      0.7247,
+      0.2062,
+      0.757,
+      0.2318
+     ],
+     [
+      0.7763,
+      0.2036,
+      0.828,
+      0.2407
+     ],
+     [
+      0.5552,
+      0.2634,
+      0.5898,
+      0.2981
+     ],
+     [
+      0.608,
+      0.2634,
+      0.6725,
+      0.2999
+     ],
+     [
+      0.6919,
+      0.2725,
+      0.7267,
+      0.291
+     ],
+     [
+      0.7461,
+      0.2655,
+      0.7784,
+      0.291
+     ],
+     [
+      0.7975,
+      0.2628,
+      0.8373,
+      0.2999
+     ],
+     [
+      0.5534,
+      0.322,
+      0.6142,
+      0.3503
+     ],
+     [
+      0.6332,
+      0.3317,
+      0.6703,
+      0.3503
+     ],
+     [
+      0.6897,
+      0.3226,
+      0.6975,
+      0.3497
+     ]
+    ]
+   },
+   "audio": [
+    63.2,
+    65.37
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/075/p09.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "know what I can said the baby bird. can peck with my beak. My strong, sharp beak will get me out of The baby bird pecked and pecked. She did not stop. Then something happened.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    66.8,
+    76.01
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/075/p10.jpg",
+   "w": 1400,
+   "h": 894,
+   "text": "Crack! Crack! Crack! The baby bird got out of the egg. The baby bird was free! The baby bird said, my long legs can hop. Now my big wings can f lap. Now I have lots of",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    77.56,
+    85.16
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/075/p11.jpg",
+   "w": 1097,
+   "h": 1400,
+   "text": "a said the mother bird.",
+   "textBox": [
+    0.1107,
+    0.7893,
+    0.6426,
+    0.867
+   ],
+   "wordBoxes": {
+    "words": [
+     "a",
+     "said",
+     "the",
+     "mother",
+     "bird."
+    ],
+    "boxes": [
+     [
+      0.2628,
+      0.7893,
+      0.286,
+      0.8078
+     ],
+     [
+      0.1107,
+      0.8388,
+      0.1998,
+      0.867
+     ],
+     [
+      0.2381,
+      0.8388,
+      0.3072,
+      0.867
+     ],
+     [
+      0.3463,
+      0.8388,
+      0.5041,
+      0.867
+     ],
+     [
+      0.5413,
+      0.8388,
+      0.6426,
+      0.867
+     ]
+    ]
+   },
+   "audio": [
+    86.52,
+    91.82
+   ],
+   "wordTimes": [
+    [
+     0.2,
+     1.48
+    ],
+    [
+     1.48,
+     3.11
+    ],
+    [
+     3.11,
+     4.36
+    ],
+    [
+     4.36,
+     4.87
+    ],
+    [
+     4.87,
+     5.07
+    ]
+   ]
+  }
+ ]
+}

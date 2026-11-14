@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>小书虫 GK</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ───────────── 书架 ───────────── -->
+<section id="shelf" class="screen">
+  <header class="bar">
+    <h1>小书虫 <span class="brand">GK</span></h1>
+    <div class="tabs" id="tabs"></div>
+  </header>
+  <div class="grid" id="grid"></div>
+</section>
+
+<!-- ───────────── 阅读器 ───────────── -->
+<section id="reader" class="screen hidden">
+  <header class="bar">
+    <button class="round" id="btnBack" aria-label="返回书架">
+      <svg viewBox="0 0 24 24"><path d="M15 5 L8 12 L15 19" /></svg>
+    </button>
+    <div class="titles">
+      <div class="t" id="rTitle">—</div>
+      <div class="s" id="rSub"></div>
+    </div>
+    <button class="pill" id="btnRate" aria-label="语速">1×</button>
+    <div class="dots" id="dots"></div>
+  </header>
+
+  <div class="stage" id="stage">
+    <img id="pageImg" alt="">
+    <div class="overlay" id="overlay"></div>
+  </div>
+
+  <div class="line">
+    <div class="sentence" id="sentence"></div>
+    <button class="replay" id="btnReplay" aria-label="再读一遍">
+      <svg viewBox="0 0 24 24"><path d="M4 9 h4 l5 -4 v14 l-5 -4 h-4 z" /><path d="M17 9 a4 4 0 0 1 0 6" /></svg>
+    </button>
+  </div>
+
+  <footer class="controls">
+    <button class="round" id="btnPrev" aria-label="上一页"><svg viewBox="0 0 24 24"><path d="M15 5 L8 12 L15 19" /></svg></button>
+    <button class="round primary" id="btnPlay" aria-label="朗读全文">
+      <svg viewBox="0 0 24 24" id="playIcon"><path d="M8 5 L19 12 L8 19 Z" /></svg>
+    </button>
+    <button class="round" id="btnNext" aria-label="下一页"><svg viewBox="0 0 24 24"><path d="M9 5 L16 12 L9 19" /></svg></button>
+    <button class="round spacer" id="btnMic" aria-label="跟读" disabled>
+      <svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="10" rx="3" /><path d="M5 11 a7 7 0 0 0 14 0" /><path d="M12 18 v3" /></svg>
+    </button>
+  </footer>
+</section>
+
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

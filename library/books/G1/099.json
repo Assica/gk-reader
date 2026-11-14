@@ -1,0 +1,644 @@
+{
+ "id": "G1-099",
+ "series": "G1",
+ "no": 99,
+ "title": "All About Honey bees",
+ "level": "I",
+ "cover": "covers/G1/099.jpg",
+ "audio": "audio/G1/099.m4a",
+ "duration": 119.29,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.19,
+   2.59
+  ],
+  [
+   4.59,
+   5.33
+  ],
+  [
+   6.39,
+   12.65
+  ],
+  [
+   14.53,
+   20.12
+  ],
+  [
+   21.21,
+   24.35
+  ],
+  [
+   26.42,
+   31.92
+  ],
+  [
+   33.32,
+   39.52
+  ],
+  [
+   40.84,
+   41.81
+  ],
+  [
+   43.62,
+   48.38
+  ],
+  [
+   49.5,
+   51.43
+  ],
+  [
+   53.3,
+   56.86
+  ],
+  [
+   59.07,
+   69.86
+  ],
+  [
+   71.62,
+   80.74
+  ],
+  [
+   82.48,
+   86.01
+  ],
+  [
+   87.58,
+   99.55
+  ],
+  [
+   100.7,
+   102.2
+  ],
+  [
+   103.26,
+   105.93
+  ],
+  [
+   108.36,
+   108.77
+  ],
+  [
+   110.7,
+   116.01
+  ],
+  [
+   117.16,
+   119.09
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/099/p04.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "In the Garden The flowers bloom on a warm summer day. You can hear the sound of bees in the garden. Buzz, buzz, buzz. L ittle honeybees f ly a round the f lowers. These bees are working!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    6.39,
+    20.12
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/099/p05.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Something sweet is inside t he f lowers. It is called nectar.",
+   "textBox": [
+    0.0513,
+    0.1066,
+    0.2864,
+    0.2762
+   ],
+   "wordBoxes": null,
+   "audio": [
+    21.21,
+    31.92
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/099/p06.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "The worker bees sip the nectar f rom the f lowers. Then they carry the nectar home.",
+   "textBox": [
+    0.0499,
+    0.1072,
+    0.3609,
+    0.2881
+   ],
+   "wordBoxes": null,
+   "audio": [
+    33.32,
+    41.81
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/099/p07.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "In the Hive A home is called a hive. Many, many bees live in a hive. The inside of a hive looks like a lot of little boxes. The boxes are called cells.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    43.62,
+    51.43
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/099/p08.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "The bees put the nectar into the little cells. Then lots of bees flap their wings very fast. This dries out the nectar and turns it into honey.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    53.3,
+    69.86
+   ],
+   "wordTimes": [
+    [
+     1.8,
+     2.51
+    ],
+    [
+     2.51,
+     4.77
+    ],
+    [
+     4.77,
+     6.78
+    ],
+    [
+     6.78,
+     6.97
+    ],
+    [
+     6.97,
+     7.55
+    ],
+    [
+     7.55,
+     8.03
+    ],
+    [
+     8.03,
+     8.17
+    ],
+    [
+     8.17,
+     8.46
+    ],
+    [
+     8.46,
+     9.26
+    ],
+    [
+     9.26,
+     9.99
+    ],
+    [
+     9.99,
+     10.39
+    ],
+    [
+     10.39,
+     10.52
+    ],
+    [
+     10.52,
+     11.02
+    ],
+    [
+     11.02,
+     11.45
+    ],
+    [
+     11.45,
+     11.69
+    ],
+    [
+     11.69,
+     12.11
+    ],
+    [
+     12.11,
+     12.48
+    ],
+    [
+     12.48,
+     13.11
+    ],
+    [
+     13.11,
+     13.66
+    ],
+    [
+     13.66,
+     14.0
+    ],
+    [
+     14.0,
+     14.19
+    ],
+    [
+     14.19,
+     14.36
+    ],
+    [
+     14.36,
+     14.89
+    ],
+    [
+     14.89,
+     15.16
+    ],
+    [
+     15.16,
+     15.49
+    ],
+    [
+     15.49,
+     15.66
+    ],
+    [
+     15.66,
+     16.03
+    ],
+    [
+     16.03,
+     16.49
+    ]
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/099/p09.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Honey is food for bees, but other animals like honey, too. This bear wants to take honey from the hive. The bees sting the bear to save their hive.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    71.62,
+    86.01
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.58
+    ],
+    [
+     0.58,
+     1.12
+    ],
+    [
+     1.12,
+     1.49
+    ],
+    [
+     1.49,
+     1.79
+    ],
+    [
+     1.79,
+     2.37
+    ],
+    [
+     2.37,
+     2.95
+    ],
+    [
+     2.95,
+     3.34
+    ],
+    [
+     3.34,
+     3.92
+    ],
+    [
+     3.92,
+     4.29
+    ],
+    [
+     4.29,
+     4.57
+    ],
+    [
+     4.57,
+     5.16
+    ],
+    [
+     5.16,
+     5.75
+    ],
+    [
+     5.75,
+     6.01
+    ],
+    [
+     6.01,
+     6.28
+    ],
+    [
+     6.28,
+     6.41
+    ],
+    [
+     6.41,
+     6.77
+    ],
+    [
+     6.77,
+     7.32
+    ],
+    [
+     7.32,
+     7.81
+    ],
+    [
+     7.81,
+     8.37
+    ],
+    [
+     8.37,
+     9.92
+    ],
+    [
+     9.92,
+     11.06
+    ],
+    [
+     11.06,
+     11.77
+    ],
+    [
+     11.77,
+     12.57
+    ],
+    [
+     12.57,
+     12.81
+    ],
+    [
+     12.81,
+     13.22
+    ],
+    [
+     13.22,
+     13.52
+    ],
+    [
+     13.52,
+     13.78
+    ],
+    [
+     13.78,
+     13.98
+    ],
+    [
+     13.98,
+     14.39
+    ]
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/099/p10.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Beekeepers People like honey, too. Beekeepers keep bees in hives like these. The bees bring nectar to the hives. Beekeepers take honey from the hives. They cover up so the bees cannot sting them.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    87.58,
+    102.2
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/099/p11.jpg",
+   "w": 1400,
+   "h": 1097,
+   "text": "Then the beekeepers put the honey into bottles and jars. It is a sweet and sticky treat!",
+   "textBox": [
+    0.0998,
+    0.6729,
+    0.7539,
+    0.8538
+   ],
+   "wordBoxes": {
+    "words": [
+     "Then",
+     "the",
+     "beekeepers",
+     "put",
+     "the",
+     "honey",
+     "into",
+     "bottles",
+     "and",
+     "jars.",
+     "It",
+     "is",
+     "a",
+     "sweet",
+     "and",
+     "sticky",
+     "treat!"
+    ],
+    "boxes": [
+     [
+      0.0998,
+      0.6729,
+      0.174,
+      0.7096
+     ],
+     [
+      0.2022,
+      0.6729,
+      0.2541,
+      0.7096
+     ],
+     [
+      0.2828,
+      0.6729,
+      0.4689,
+      0.7215
+     ],
+     [
+      0.498,
+      0.6731,
+      0.5501,
+      0.7215
+     ],
+     [
+      0.5762,
+      0.6729,
+      0.628,
+      0.7096
+     ],
+     [
+      0.6569,
+      0.6729,
+      0.7539,
+      0.7215
+     ],
+     [
+      0.1051,
+      0.7393,
+      0.1661,
+      0.7758
+     ],
+     [
+      0.1951,
+      0.739,
+      0.3068,
+      0.7758
+     ],
+     [
+      0.3345,
+      0.739,
+      0.3939,
+      0.7758
+     ],
+     [
+      0.4196,
+      0.7414,
+      0.4917,
+      0.7894
+     ],
+     [
+      0.1045,
+      0.8052,
+      0.1271,
+      0.8414
+     ],
+     [
+      0.1554,
+      0.8076,
+      0.1764,
+      0.8419
+     ],
+     [
+      0.2041,
+      0.8182,
+      0.2215,
+      0.8419
+     ],
+     [
+      0.2506,
+      0.8055,
+      0.3455,
+      0.8429
+     ],
+     [
+      0.3725,
+      0.8052,
+      0.4319,
+      0.8419
+     ],
+     [
+      0.461,
+      0.8052,
+      0.5537,
+      0.8538
+     ],
+     [
+      0.5791,
+      0.8052,
+      0.6713,
+      0.8419
+     ]
+    ]
+   },
+   "audio": [
+    103.26,
+    108.77
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.22
+    ],
+    [
+     0.22,
+     0.77
+    ],
+    [
+     0.77,
+     1.61
+    ],
+    [
+     1.61,
+     2.07
+    ],
+    [
+     2.07,
+     2.67
+    ],
+    [
+     2.67,
+     2.87
+    ],
+    [
+     2.87,
+     3.07
+    ],
+    [
+     3.07,
+     3.27
+    ],
+    [
+     3.27,
+     3.47
+    ],
+    [
+     3.47,
+     3.67
+    ],
+    [
+     3.67,
+     3.87
+    ],
+    [
+     3.87,
+     4.07
+    ],
+    [
+     4.07,
+     4.27
+    ],
+    [
+     4.27,
+     4.47
+    ],
+    [
+     4.47,
+     4.67
+    ],
+    [
+     4.67,
+     4.87
+    ],
+    [
+     4.87,
+     5.07
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.68
+}

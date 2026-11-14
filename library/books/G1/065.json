@@ -1,0 +1,380 @@
+{
+ "id": "G1-065",
+ "series": "G1",
+ "no": 65,
+ "title": "Bunny And The Monster",
+ "level": "F",
+ "cover": "covers/G1/065.jpg",
+ "audio": "audio/G1/065.m4a",
+ "duration": 98.16,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "window",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.73,
+   2.54
+  ],
+  [
+   4.4,
+   9.53
+  ],
+  [
+   11.44,
+   15.04
+  ],
+  [
+   16.06,
+   17.19
+  ],
+  [
+   22.59,
+   29.36
+  ],
+  [
+   30.36,
+   36.4
+  ],
+  [
+   38.72,
+   50.04
+  ],
+  [
+   52.15,
+   54.82
+  ],
+  [
+   56.19,
+   59.54
+  ],
+  [
+   60.93,
+   67.35
+  ],
+  [
+   69.18,
+   78.29
+  ],
+  [
+   80.91,
+   86.61
+  ],
+  [
+   87.68,
+   88.97
+  ],
+  [
+   90.81,
+   96.63
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/065/p04.jpg",
+   "w": 1401,
+   "h": 550,
+   "text": "One day the Rabbits went for a ride. said Grandma.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    22.59,
+    29.36
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/065/p05.jpg",
+   "w": 1401,
+   "h": 550,
+   "text": "Dad said, can go for a hop, little Rabbits. But do not go",
+   "textBox": [
+    0.0529,
+    0.1103,
+    0.3039,
+    0.4698
+   ],
+   "wordBoxes": {
+    "words": [
+     "Dad",
+     "said,",
+     "can",
+     "go",
+     "for",
+     "a",
+     "hop,",
+     "little",
+     "Rabbits.",
+     "But",
+     "do",
+     "not",
+     "go"
+    ],
+    "boxes": [
+     [
+      0.0555,
+      0.1103,
+      0.0967,
+      0.158
+     ],
+     [
+      0.1211,
+      0.1103,
+      0.1704,
+      0.167
+     ],
+     [
+      0.2678,
+      0.1272,
+      0.3039,
+      0.158
+     ],
+     [
+      0.0529,
+      0.2261,
+      0.0792,
+      0.2721
+     ],
+     [
+      0.1028,
+      0.2084,
+      0.1318,
+      0.2569
+     ],
+     [
+      0.1546,
+      0.2261,
+      0.1659,
+      0.2569
+     ],
+     [
+      0.1912,
+      0.2092,
+      0.2357,
+      0.2722
+     ],
+     [
+      0.0554,
+      0.3081,
+      0.1018,
+      0.3557
+     ],
+     [
+      0.1261,
+      0.3081,
+      0.211,
+      0.3557
+     ],
+     [
+      0.0555,
+      0.407,
+      0.089,
+      0.4546
+     ],
+     [
+      0.112,
+      0.407,
+      0.1381,
+      0.4546
+     ],
+     [
+      0.1626,
+      0.4073,
+      0.1959,
+      0.4546
+     ],
+     [
+      0.2189,
+      0.4239,
+      0.2451,
+      0.4698
+     ]
+    ]
+   },
+   "audio": [
+    30.36,
+    36.4
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/065/p06.jpg",
+   "w": 1401,
+   "h": 550,
+   "text": "Bunny and Sunny and Jack went for a hop. They hopped under a fence. is said Bunny. a said Sunny. said Jack.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    38.72,
+    50.04
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/065/p07.jpg",
+   "w": 1401,
+   "h": 550,
+   "text": "Bunny hopped into a hole. She saw a pink monster. Sunny hopped behind a bush. She saw a black and white monster.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    52.15,
+    54.82
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/065/p08.jpg",
+   "w": 1401,
+   "h": 550,
+   "text": "Jack hopped in the tall grass. He saw a long monster with lots of hair! Bunny, Sunny, and Jack hopped back to the car. At home, they made pictures of the monster.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    56.19,
+    59.54
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/065/p09.jpg",
+   "w": 1401,
+   "h": 550,
+   "text": "looked like said Bunny. said Sunny. looked like said Jack. looked like",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    60.93,
+    67.35
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/065/p10.jpg",
+   "w": 1401,
+   "h": 550,
+   "text": "we see three said Bunny. She looked and looked at the pictures. She made some lines.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    69.18,
+    78.29
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/065/p11.jpg",
+   "w": 1400,
+   "h": 1098,
+   "text": "said Bunny. saw the same monster. But it was not a monster at",
+   "textBox": [
+    0.1057,
+    0.1103,
+    0.8048,
+    0.4546
+   ],
+   "wordBoxes": {
+    "words": [
+     "said",
+     "Bunny.",
+     "saw",
+     "the",
+     "same",
+     "monster.",
+     "But",
+     "it",
+     "was",
+     "not",
+     "a",
+     "monster",
+     "at"
+    ],
+    "boxes": [
+     [
+      0.2818,
+      0.1103,
+      0.3659,
+      0.158
+     ],
+     [
+      0.4166,
+      0.1104,
+      0.5538,
+      0.1733
+     ],
+     [
+      0.2272,
+      0.2247,
+      0.31,
+      0.2581
+     ],
+     [
+      0.3543,
+      0.2092,
+      0.4215,
+      0.2569
+     ],
+     [
+      0.4681,
+      0.2261,
+      0.5758,
+      0.2569
+     ],
+     [
+      0.6243,
+      0.2096,
+      0.8048,
+      0.2569
+     ],
+     [
+      0.1107,
+      0.3082,
+      0.1776,
+      0.3557
+     ],
+     [
+      0.2255,
+      0.3085,
+      0.2518,
+      0.355
+     ],
+     [
+      0.2963,
+      0.3236,
+      0.3791,
+      0.357
+     ],
+     [
+      0.4281,
+      0.3085,
+      0.4948,
+      0.3557
+     ],
+     [
+      0.5409,
+      0.325,
+      0.5634,
+      0.3557
+     ],
+     [
+      0.614,
+      0.3085,
+      0.7836,
+      0.3557
+     ],
+     [
+      0.1057,
+      0.4073,
+      0.1489,
+      0.4546
+     ]
+    ]
+   },
+   "audio": [
+    80.91,
+    86.61
+   ]
+  }
+ ]
+}

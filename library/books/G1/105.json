@@ -1,0 +1,210 @@
+{
+ "id": "G1-105",
+ "series": "G1",
+ "no": 105,
+ "title": "The Lion And The Mouse",
+ "level": "J",
+ "cover": "covers/G1/105.jpg",
+ "audio": "audio/G1/105.m4a",
+ "duration": 186.61,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "window",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.75,
+   2.58
+  ],
+  [
+   4.05,
+   16.49
+  ],
+  [
+   18.92,
+   29.88
+  ],
+  [
+   32.04,
+   36.52
+  ],
+  [
+   37.63,
+   46.04
+  ],
+  [
+   48.98,
+   51.21
+  ],
+  [
+   53.18,
+   55.7
+  ],
+  [
+   56.97,
+   79.36
+  ],
+  [
+   80.48,
+   82.37
+  ],
+  [
+   83.53,
+   86.88
+  ],
+  [
+   88.17,
+   94.71
+  ],
+  [
+   96.18,
+   107.64
+  ],
+  [
+   108.94,
+   120.88
+  ],
+  [
+   122.65,
+   134.19
+  ],
+  [
+   135.54,
+   139.79
+  ],
+  [
+   142.27,
+   144.76
+  ],
+  [
+   145.76,
+   153.68
+  ],
+  [
+   155.04,
+   159.09
+  ],
+  [
+   160.19,
+   163.59
+  ],
+  [
+   165.78,
+   169.04
+  ],
+  [
+   170.07,
+   171.66
+  ],
+  [
+   174.42,
+   184.74
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/105/p04.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "One day, a Lion was taking a nap. Soon, a little Mouse came running by. He was in a hurry to get home. The Mouse did not see the Lion. So he ran right over the nose!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    88.17,
+    94.71
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/105/p05.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "The Lion woke up with a loud roar. He grabbed the little Mouse with his big paw. GOING TO EAT roared the Lion. WOKE ME The Lion opened his big jaws. He was going to eat the little Mouse! Lion, please do not eat said the Mouse. did not mean to wake you up. Please let me",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    96.18,
+    107.64
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/105/p06.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "The little Mouse kept talking and begging. Lion, please, please let me go! If you do, maybe one day I will help The Lion laughed at the little Mouse. He laughed so hard that he could not stop. think you can help he asked. could a little Mouse ever help",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    108.94,
+    120.88
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/105/p07.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "a funny little Mouse you said the Lion. think I will let you go. I am not that hungry, The little Mouse was so happy! He ran off to his home. you, dear he called. But the Lion did not hear him. He was still laughing too hard!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    122.65,
+    134.19
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/105/p08.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "A few days later, the Lion was out walking. Suddenly, a net trapped him. He was caught. The Lion roared and tried to get free. But he was trapped! The little Mouse was close by. He was taking a nap. The Mouse woke up when he heard the Lion roar. Lion needs my he said. So he went to find the Lion.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    135.54,
+    139.79
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/105/p09.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "The little Mouse saw the Lion in the net. will help you, dear he said. not be silly, little said the Lion. can you do? No one can help me can help said the little Mouse. So the Mouse went to work.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    142.27,
+    144.76
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/105/p10.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "It took the little Mouse a long time. But at last, the Lion was free! can I thank asked the Lion. can I do for He bit at the ropes with his little teeth. He bit and he chewed. He chewed and he bit. Then he bit and he chewed some more.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    145.76,
+    153.68
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/105/p11.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "there is one said the Mouse. want to be your And so it was. The Lion and the Mouse became best friends. And the Lion learned this lesson: little friend can be the best friend of",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    155.04,
+    159.09
+   ]
+  }
+ ]
+}

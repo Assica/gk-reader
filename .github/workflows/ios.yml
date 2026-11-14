@@ -1,0 +1,105 @@
+name: build-ios
+
+# 在 GitHub 的 macOS 机器上出一个**未签名**的 IPA，再由 SideStore 在 iPad 上用
+# 你自己的 Apple ID 重签安装。没有 Mac 也能走通这条路。
+#
+# 触发：手动（Actions → build-ios → Run workflow），或打 tag v* 自动跑。
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+jobs:
+  build:
+    runs-on: macos-14
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true            # library/ 走 Git LFS；不用 LFS 见文末备选方案
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: 检查资源是否齐全
+        run: |
+          test -f library/manifest.json || (echo "❌ 缺少 library/，先本地跑 tools/build_library.py 并提交" && exit 1)
+          ls library/books | head -3
+          du -sh library
+
+      - name: 安装依赖
+        working-directory: app
+        run: npm ci || npm install
+
+      - name: 组装 www
+        working-directory: app
+        run: npm run www
+
+      - name: 生成 iOS 工程
+        working-directory: app
+        run: |
+          if [ ! -d ios ]; then
+            npx cap add ios
+          fi
+          npx cap sync ios
+
+      - name: 打原生补丁（横屏 / 状态栏 / 音频会话）
+        working-directory: app
+        run: node scripts/patch-ios.mjs
+
+      - name: CocoaPods
+        working-directory: app/ios/App
+        run: pod install --repo-update
+
+      - name: 未签名构建
+        working-directory: app/ios/App
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -workspace App.xcworkspace \
+            -scheme App \
+            -configuration Release \
+            -sdk iphoneos \
+            -destination 'generic/platform=iOS' \
+            -derivedDataPath build \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            ARCHS=arm64 \
+            ONLY_ACTIVE_ARCH=NO \
+            build | tee xcodebuild.log | tail -40
+
+      - name: 打包 IPA
+        working-directory: app/ios/App
+        run: |
+          APP=$(find build/Build/Products/Release-iphoneos -maxdepth 1 -name '*.app' | head -1)
+          echo "app: $APP"
+          test -n "$APP" || (echo "❌ 没找到 .app" && exit 1)
+          # Capacitor 把 webDir 的内容放到 App.app/public/ 下
+          echo "--- 包内 web 资源 ---"
+          du -sh "$APP/public" || (echo "❌ 包里没有 public/，webDir 配错了" && exit 1)
+          test -f "$APP/public/library/manifest.json" || (echo "❌ 包里没有 library/manifest.json" && exit 1)
+          test -f "$APP/public/app.js" || (echo "❌ 包里没有 app.js" && exit 1)
+          rm -rf Payload && mkdir Payload
+          cp -R "$APP" Payload/
+          zip -qry ../gk-reader-unsigned.ipa Payload
+          ls -lh ../gk-reader-unsigned.ipa
+
+      - name: 上传产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: gk-reader-ipa
+          path: app/ios/gk-reader-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 30
+
+# ── 备选：不用 Git LFS ──────────────────────────────────────────────
+# library/ 约 94 MB，超过 GitHub 单文件 100MB 限制的只有极少数大图，整体可行；
+# 但每次改资源都会让仓库膨胀。若不想用 LFS：
+#   1) 把 library.zip 传到 Releases（或自己的对象存储）
+#   2) 删掉 checkout 的 lfs 选项
+#   3) 加一步 curl -L <url> -o library.zip && unzip -q library.zip

@@ -1,0 +1,270 @@
+{
+ "id": "G1-073",
+ "series": "G1",
+ "no": 73,
+ "title": "Papas Birthday",
+ "level": "G",
+ "cover": "covers/G1/073.jpg",
+ "audio": "audio/G1/073.m4a",
+ "duration": 132.18,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.73,
+   8.32
+  ],
+  [
+   9.54,
+   12.26
+  ],
+  [
+   13.68,
+   15.72
+  ],
+  [
+   17.1,
+   23.17
+  ],
+  [
+   24.82,
+   31.39
+  ],
+  [
+   33.36,
+   40.47
+  ],
+  [
+   41.63,
+   47.6
+  ],
+  [
+   48.98,
+   53.39
+  ],
+  [
+   54.62,
+   57.4
+  ],
+  [
+   60.86,
+   67.55
+  ],
+  [
+   69.46,
+   72.36
+  ],
+  [
+   73.83,
+   79.42
+  ],
+  [
+   81.68,
+   82.61
+  ],
+  [
+   83.94,
+   92.51
+  ],
+  [
+   93.9,
+   102.66
+  ],
+  [
+   106.24,
+   112.75
+  ],
+  [
+   113.82,
+   117.58
+  ],
+  [
+   118.85,
+   120.43
+  ],
+  [
+   122.75,
+   126.93
+  ],
+  [
+   128.56,
+   130.5
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/073/p04.jpg",
+   "w": 1400,
+   "h": 1050,
+   "text": "It was birthday. Sam and Jesse wanted to give Papa a present. give him a present he will Sam said. What can we give Jesse asked.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    0.73,
+    12.26
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/073/p05.jpg",
+   "w": 1400,
+   "h": 1050,
+   "text": "We have to be quiet or he will hear Sam said. S o Sam and Jesse went outside. get him a rocket Jesse said. can all blast off into J esse loved rockets.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    13.68,
+    23.17
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/073/p06.jpg",
+   "w": 1400,
+   "h": 1050,
+   "text": "rocket costs too Sam said. like to get him a race S am loved race cars. much does a race car Jesse asked. A race car costs a said Sam.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    24.82,
+    40.47
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/073/p07.jpg",
+   "w": 1400,
+   "h": 1050,
+   "text": "have two Jesse said. S am had a penny and a quarter. We have very much Sam said.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    41.63,
+    53.39
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/073/p08.jpg",
+   "w": 1400,
+   "h": 1050,
+   "text": "we get him a Jesse asked. A computer costs a lot of said Sam. I can give him my said Sam. too Jesse said. Papa love basketball. You love",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    54.62,
+    67.55
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/073/p09.jpg",
+   "w": 1400,
+   "h": 1050,
+   "text": "loves to read. Can we get him a Jesse said. A book costs too said Sam. a card costs too I know what we can do. We can make him a said Jesse. Yes! We can make him a beautiful card for his Sam said.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    69.46,
+    79.42
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/073/p10.jpg",
+   "w": 1400,
+   "h": 1050,
+   "text": "Sam and Jesse got paper, paint, and crayons. Jesse drew a big, big rocket on the card. Sam painted a red race car on it. I t was a beautiful card!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    81.68,
+    92.51
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/073/p11.jpg",
+   "w": 934,
+   "h": 1400,
+   "text": "And Papa just loved it!",
+   "textBox": [
+    0.1878,
+    0.084,
+    0.8177,
+    0.1215
+   ],
+   "wordBoxes": {
+    "words": [
+     "And",
+     "Papa",
+     "just",
+     "loved",
+     "it!"
+    ],
+    "boxes": [
+     [
+      0.1878,
+      0.084,
+      0.2772,
+      0.1117
+     ],
+     [
+      0.3278,
+      0.0853,
+      0.4364,
+      0.1202
+     ],
+     [
+      0.4803,
+      0.0855,
+      0.5635,
+      0.1215
+     ],
+     [
+      0.6111,
+      0.0853,
+      0.7263,
+      0.1123
+     ],
+     [
+      0.7768,
+      0.0853,
+      0.8177,
+      0.1117
+     ]
+    ]
+   },
+   "audio": [
+    93.9,
+    112.75
+   ],
+   "wordTimes": [
+    [
+     0.38,
+     1.5
+    ],
+    [
+     1.5,
+     2.57
+    ],
+    [
+     2.57,
+     5.43
+    ],
+    [
+     5.43,
+     15.64
+    ],
+    [
+     15.64,
+     18.19
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.766
+}

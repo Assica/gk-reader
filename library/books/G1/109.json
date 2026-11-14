@@ -1,0 +1,576 @@
+{
+ "id": "G1-109",
+ "series": "G1",
+ "no": 109,
+ "title": "BadLuck Day",
+ "level": "I",
+ "cover": "covers/G1/109.jpg",
+ "audio": "audio/G1/109.m4a",
+ "duration": 207.88,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.44,
+   20.56
+  ],
+  [
+   21.96,
+   26.0
+  ],
+  [
+   27.97,
+   33.2
+  ],
+  [
+   34.67,
+   40.24
+  ],
+  [
+   42.04,
+   49.69
+  ],
+  [
+   50.87,
+   57.83
+  ],
+  [
+   59.19,
+   78.49
+  ],
+  [
+   79.75,
+   103.18
+  ],
+  [
+   105.06,
+   133.84
+  ],
+  [
+   135.6,
+   137.94
+  ],
+  [
+   139.52,
+   141.83
+  ],
+  [
+   142.97,
+   158.5
+  ],
+  [
+   159.53,
+   166.02
+  ],
+  [
+   168.53,
+   174.84
+  ],
+  [
+   176.29,
+   185.19
+  ],
+  [
+   186.33,
+   192.63
+  ],
+  [
+   194.81,
+   196.85
+  ],
+  [
+   198.35,
+   200.85
+  ],
+  [
+   202.63,
+   203.74
+  ],
+  [
+   204.86,
+   207.13
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/109/p04.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Tia was about to have a day she would never forget no matter how hard she tried! Everyone in her family was getting ready for work or school. But not alarm clock had not gone off. Later, the family was enjoying breakfast not Tia. The dog bumped the table. Most of cereal ended up in her lap.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    0.44,
+    26.0
+   ],
+   "wordTimes": [
+    [
+     0.04,
+     1.72
+    ],
+    [
+     1.72,
+     2.96
+    ],
+    [
+     2.96,
+     3.35
+    ],
+    [
+     3.35,
+     3.64
+    ],
+    [
+     3.64,
+     4.01
+    ],
+    [
+     4.01,
+     4.19
+    ],
+    [
+     4.19,
+     4.42
+    ],
+    [
+     4.42,
+     4.61
+    ],
+    [
+     4.61,
+     4.82
+    ],
+    [
+     4.82,
+     5.09
+    ],
+    [
+     5.09,
+     5.84
+    ],
+    [
+     5.84,
+     6.34
+    ],
+    [
+     6.34,
+     6.73
+    ],
+    [
+     6.73,
+     7.07
+    ],
+    [
+     7.07,
+     7.36
+    ],
+    [
+     7.36,
+     7.54
+    ],
+    [
+     7.54,
+     8.23
+    ],
+    [
+     8.23,
+     9.1
+    ],
+    [
+     9.1,
+     9.22
+    ],
+    [
+     9.22,
+     9.4
+    ],
+    [
+     9.4,
+     9.8
+    ],
+    [
+     9.8,
+     10.02
+    ],
+    [
+     10.02,
+     10.27
+    ],
+    [
+     10.27,
+     10.49
+    ],
+    [
+     10.49,
+     10.68
+    ],
+    [
+     10.68,
+     11.02
+    ],
+    [
+     11.02,
+     11.25
+    ],
+    [
+     11.25,
+     11.73
+    ],
+    [
+     11.73,
+     12.15
+    ],
+    [
+     12.15,
+     12.74
+    ],
+    [
+     12.74,
+     13.55
+    ],
+    [
+     13.55,
+     13.96
+    ],
+    [
+     13.96,
+     14.25
+    ],
+    [
+     14.25,
+     14.5
+    ],
+    [
+     14.5,
+     14.81
+    ],
+    [
+     14.81,
+     15.42
+    ],
+    [
+     15.42,
+     16.15
+    ],
+    [
+     16.15,
+     16.29
+    ],
+    [
+     16.29,
+     17.41
+    ],
+    [
+     17.41,
+     17.72
+    ],
+    [
+     17.72,
+     18.34
+    ],
+    [
+     18.34,
+     19.23
+    ],
+    [
+     19.23,
+     19.74
+    ],
+    [
+     19.74,
+     20.91
+    ],
+    [
+     20.91,
+     21.95
+    ],
+    [
+     21.95,
+     22.26
+    ],
+    [
+     22.26,
+     22.62
+    ],
+    [
+     22.62,
+     22.76
+    ],
+    [
+     22.76,
+     23.22
+    ],
+    [
+     23.22,
+     23.56
+    ],
+    [
+     23.56,
+     23.82
+    ],
+    [
+     23.82,
+     24.4
+    ],
+    [
+     24.4,
+     24.63
+    ],
+    [
+     24.63,
+     24.81
+    ],
+    [
+     24.81,
+     25.0
+    ],
+    [
+     25.0,
+     25.33
+    ],
+    [
+     25.33,
+     25.53
+    ]
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/109/p05.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Tia changed her clothes and stepped outside just in time to see the school bus driving away. just whispered Tia. is turning into a real bad-luck Tia started walking. But something was bothering her. Had she forgotten something? When she got to school, Tia opened her backpack. Her lunch and her homework were missing. All the kids turned in their math homework not Tia.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    27.97,
+    40.24
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/109/p06.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "A row of cups sat by the window. The wind blew one cup over. On the side of this cup was the name friend Gracie felt sorry for her. having such a bad-luck day! Here, take my lucky charm. It will bring you good Tia said.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    42.04,
+    57.83
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/109/p07.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Someone from the office came into class with a bag lunch! Tia grinned. think your charm is she whispered to Gracie. On the way to lunch, Tia and Gracie stopped to wash their hands. The charm fell off neck, into the sink. better keep Gracie said nervously. almost went down the",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    59.19,
+    103.18
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/109/p08.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "In the lunchroom, Tia see the puddle of milk on the floor. She slipped and fell with a crash. Her sandwich fell right into the puddle. Everyone was enjoying lunch not Tia. Gracie offered Tia half of her tuna sandwich. brother Tony surprised me. He made the sandwich. Here, take this Tia started to take a big bite. Then she noticed something.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    105.06,
+    137.94
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/109/p09.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Tia shrieked, dropping the sandwich. Gracie leaned down. just a plastic she said. knew Tony was up to Back in class, everyone else was reading not Tia. Her stomach rumbled. She searched her backpack for something to eat. Tia found an old candy bar. Finally, some good luck! Then a shadow fell across desk.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    139.52,
+    158.5
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/109/p10.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "have to take said the teacher. is not allowed in class. You know sure sighed Tia. When Tia got home, she ran to her room and shut the door. just stay here for the rest of the she told the dog. way, nothing bad can Tia called her friend Benny. She told him about all the bad things that had happened.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    159.53,
+    174.84
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/109/p11.jpg",
+   "w": 1146,
+   "h": 1400,
+   "text": "feel better talking to said Tia. think my bad luck has finally stopped. What do you think, Benny? Hello?",
+   "textBox": [
+    0.1115,
+    0.0923,
+    0.8601,
+    0.2656
+   ],
+   "wordBoxes": {
+    "words": [
+     "feel",
+     "better",
+     "talking",
+     "to",
+     "said",
+     "Tia.",
+     "think",
+     "my",
+     "bad",
+     "luck",
+     "has",
+     "finally",
+     "stopped.",
+     "What",
+     "do",
+     "you",
+     "think,",
+     "Benny?",
+     "Hello?"
+    ],
+    "boxes": [
+     [
+      0.1618,
+      0.0923,
+      0.2182,
+      0.1141
+     ],
+     [
+      0.241,
+      0.0923,
+      0.3396,
+      0.1141
+     ],
+     [
+      0.3621,
+      0.0923,
+      0.4801,
+      0.121
+     ],
+     [
+      0.5031,
+      0.0944,
+      0.5324,
+      0.1141
+     ],
+     [
+      0.6572,
+      0.0923,
+      0.721,
+      0.1141
+     ],
+     [
+      0.7428,
+      0.0927,
+      0.8043,
+      0.1141
+     ],
+     [
+      0.1644,
+      0.1428,
+      0.2532,
+      0.1646
+     ],
+     [
+      0.2758,
+      0.1503,
+      0.3251,
+      0.17
+     ],
+     [
+      0.3471,
+      0.1428,
+      0.4046,
+      0.1646
+     ],
+     [
+      0.4277,
+      0.1428,
+      0.4962,
+      0.1646
+     ],
+     [
+      0.518,
+      0.1428,
+      0.5736,
+      0.1646
+     ],
+     [
+      0.5969,
+      0.1428,
+      0.7049,
+      0.17
+     ],
+     [
+      0.7281,
+      0.1428,
+      0.8601,
+      0.17
+     ],
+     [
+      0.1115,
+      0.1933,
+      0.2004,
+      0.2151
+     ],
+     [
+      0.2229,
+      0.1933,
+      0.2582,
+      0.2151
+     ],
+     [
+      0.281,
+      0.2008,
+      0.3375,
+      0.2205
+     ],
+     [
+      0.3603,
+      0.1933,
+      0.4574,
+      0.22
+     ],
+     [
+      0.4808,
+      0.1933,
+      0.6003,
+      0.2205
+     ],
+     [
+      0.202,
+      0.2438,
+      0.3031,
+      0.2656
+     ]
+    ]
+   },
+   "audio": [
+    176.29,
+    192.63
+   ]
+  }
+ ],
+ "alignQuality": 0.55
+}

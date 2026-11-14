@@ -1,0 +1,248 @@
+{
+ "id": "G1-052",
+ "series": "G1",
+ "no": 52,
+ "title": "The Puppets",
+ "level": "C",
+ "cover": "covers/G1/052.jpg",
+ "audio": "audio/G1/052.m4a",
+ "duration": 69.57,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "window",
+ "hasAudio": true,
+ "segments": [
+  [
+   1.84,
+   2.51
+  ],
+  [
+   5.7,
+   8.24
+  ],
+  [
+   9.46,
+   10.95
+  ],
+  [
+   14.33,
+   19.03
+  ],
+  [
+   22.01,
+   24.3
+  ],
+  [
+   25.52,
+   26.97
+  ],
+  [
+   30.22,
+   32.61
+  ],
+  [
+   33.74,
+   34.8
+  ],
+  [
+   38.49,
+   42.97
+  ],
+  [
+   46.01,
+   48.45
+  ],
+  [
+   49.54,
+   50.81
+  ],
+  [
+   53.97,
+   56.7
+  ],
+  [
+   57.79,
+   60.81
+  ],
+  [
+   63.13,
+   64.02
+  ],
+  [
+   65.14,
+   66.89
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/052/p04.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Look at me. a little rabbit. I can hop and hop.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    25.52,
+    26.97
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/052/p05.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Look at me. a little frog. I can hop, too!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    30.22,
+    32.61
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/052/p06.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Look at me. a little dog. I can run and run.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    33.74,
+    34.8
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/052/p07.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Look at me. a little cat. I can run, too!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    38.49,
+    42.97
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/052/p08.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Look at me. a little bird. I can fly and fly.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    46.01,
+    48.45
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/052/p09.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Look at me. a little duck. I can fly, too!",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    49.54,
+    50.81
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/052/p10.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "Look at me. a little fish. I can swim and swim and swim.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    53.97,
+    56.7
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/052/p11.jpg",
+   "w": 1400,
+   "h": 1097,
+   "text": "Look at us. Look at our puppet show!",
+   "textBox": [
+    0.176,
+    0.105,
+    0.8389,
+    0.2674
+   ],
+   "wordBoxes": {
+    "words": [
+     "Look",
+     "at",
+     "us.",
+     "Look",
+     "at",
+     "our",
+     "puppet",
+     "show!"
+    ],
+    "boxes": [
+     [
+      0.176,
+      0.105,
+      0.2692,
+      0.1527
+     ],
+     [
+      0.3147,
+      0.1053,
+      0.3581,
+      0.1527
+     ],
+     [
+      0.4059,
+      0.1219,
+      0.4587,
+      0.1527
+     ],
+     [
+      0.176,
+      0.2042,
+      0.2692,
+      0.252
+     ],
+     [
+      0.3147,
+      0.2045,
+      0.3581,
+      0.252
+     ],
+     [
+      0.4042,
+      0.2211,
+      0.4749,
+      0.252
+     ],
+     [
+      0.5221,
+      0.2045,
+      0.6725,
+      0.2674
+     ],
+     [
+      0.7188,
+      0.2042,
+      0.8389,
+      0.2532
+     ]
+    ]
+   },
+   "audio": [
+    57.79,
+    60.81
+   ]
+  }
+ ]
+}

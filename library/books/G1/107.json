@@ -1,0 +1,261 @@
+{
+ "id": "G1-107",
+ "series": "G1",
+ "no": 107,
+ "title": "The Three Billy Goats",
+ "level": "J",
+ "cover": "covers/G1/107.jpg",
+ "audio": "audio/G1/107.m4a",
+ "duration": 266.02,
+ "pageCount": 7,
+ "aligned": true,
+ "alignMethod": "window",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.41,
+   3.78
+  ],
+  [
+   5.49,
+   5.85
+  ],
+  [
+   7.44,
+   23.88
+  ],
+  [
+   24.94,
+   26.91
+  ],
+  [
+   28.51,
+   33.67
+  ],
+  [
+   35.43,
+   38.84
+  ],
+  [
+   40.59,
+   41.88
+  ],
+  [
+   44.84,
+   52.8
+  ],
+  [
+   53.98,
+   55.56
+  ],
+  [
+   57.15,
+   64.0
+  ],
+  [
+   65.02,
+   69.44
+  ],
+  [
+   71.11,
+   72.6
+  ],
+  [
+   75.07,
+   77.82
+  ],
+  [
+   78.94,
+   84.33
+  ],
+  [
+   87.23,
+   91.24
+  ],
+  [
+   92.83,
+   94.7
+  ],
+  [
+   96.19,
+   97.96
+  ],
+  [
+   99.15,
+   111.59
+  ],
+  [
+   112.67,
+   117.32
+  ],
+  [
+   118.39,
+   142.24
+  ],
+  [
+   143.33,
+   143.68
+  ],
+  [
+   144.9,
+   147.25
+  ],
+  [
+   148.31,
+   151.18
+  ],
+  [
+   152.48,
+   158.3
+  ],
+  [
+   159.94,
+   163.19
+  ],
+  [
+   165.21,
+   174.88
+  ],
+  [
+   176.2,
+   181.49
+  ],
+  [
+   182.78,
+   187.45
+  ],
+  [
+   189.0,
+   198.68
+  ],
+  [
+   200.34,
+   204.8
+  ],
+  [
+   205.83,
+   209.05
+  ],
+  [
+   211.61,
+   214.86
+  ],
+  [
+   216.44,
+   229.16
+  ],
+  [
+   231.08,
+   245.35
+  ],
+  [
+   246.61,
+   249.28
+  ],
+  [
+   251.09,
+   252.69
+  ],
+  [
+   254.46,
+   257.19
+  ],
+  [
+   258.37,
+   265.09
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/107/p04.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "Long ago, there were three goats named Big, Middle, and Small. Like all goats, they loved grass, and they were always hungry for more. One day, Small said, over there, across the The goats looked. They saw a big, green hill. hill is so said Middle. must be covered with tasty grass will make a fine said Big. go there",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    152.48,
+    158.3
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/107/p05.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "The goats reached the edge of the river. They saw a sign. It said: Warning! Troll Bridge! Do Not Cross! like said Small. do said Middle. said Big. He pointed under the bridge. We are three smart goats, and I see only one little troll. We can get across that",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    159.94,
+    163.19
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/107/p06.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "Small went first. As he trotted across the bridge, his small feet made a small sound. Trip-trap. Trip-trap. Trip-trap. The troll woke up. is crossing my he yelled. only said Small. want some fresh grass to eat. Please let me go one may cried the troll. you try, I will gobble you The little goat stopped to think.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    165.21,
+    174.88
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/107/p07.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "do said Small. am very small and thin. Wait for my sister. She is bigger. You will find her much more said the troll. right then. Now run away before I change my So Small ran across the bridge. Next came Middle. As she trotted across the bridge, her middle-sized feet made a middle-sized sound. TRIP-trap. TRIP-trap. TRIP-trap. is crossing my yelled the troll. only said the goat. want some fresh grass to eat. Please let me go",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    176.2,
+    181.49
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/107/p08.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "one may cried the troll. you try to cross my bridge, I will gobble you do said Middle. for my brother. He is very big, and he will make a much more tasty said the troll. right then. Now run away before I change my So Middle ran across the bridge. Then came Big. As he trotted across the bridge, his very big feet made a very big sound. TRIP-TRAP. TRIP-TRAP. TRIP-TRAP. is crossing my yelled the troll. only said the goat. want some fresh grass to eat. Please let me go",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    182.78,
+    187.45
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/107/p09.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "The troll climbed up the bridge. He saw Big. This goat was very big, just as Middle had said. you try to cross my bridge, I will gobble you cried the troll. am very hungry, and you will make a very nice",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    189.0,
+    198.68
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/107/p10.jpg",
+   "w": 1400,
+   "h": 887,
+   "text": "I said Big. am bigger than you, and going to throw you into the With that, Big put his head down. Then he began to run. He ran right into the troll and pushed him off the bridge. The troll fell into the river.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    200.34,
+    204.8
+   ]
+  }
+ ]
+}

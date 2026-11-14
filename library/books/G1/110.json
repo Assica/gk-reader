@@ -1,0 +1,391 @@
+{
+ "id": "G1-110",
+ "series": "G1",
+ "no": 110,
+ "title": "A Trip to the Laundramutt",
+ "level": "H",
+ "cover": "covers/G1/110.jpg",
+ "audio": "audio/G1/110.m4a",
+ "duration": 123.1,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   2.39,
+   3.99
+  ],
+  [
+   5.15,
+   15.95
+  ],
+  [
+   19.0,
+   26.01
+  ],
+  [
+   27.62,
+   34.73
+  ],
+  [
+   36.36,
+   40.86
+  ],
+  [
+   41.97,
+   45.7
+  ],
+  [
+   47.68,
+   50.55
+  ],
+  [
+   51.65,
+   63.27
+  ],
+  [
+   64.57,
+   70.83
+  ],
+  [
+   72.51,
+   79.56
+  ],
+  [
+   81.7,
+   88.8
+  ],
+  [
+   92.38,
+   94.18
+  ],
+  [
+   96.04,
+   98.23
+  ],
+  [
+   99.75,
+   107.21
+  ],
+  [
+   108.87,
+   112.24
+  ],
+  [
+   114.15,
+   118.89
+  ],
+  [
+   119.99,
+   122.03
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/110/p04.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Jack looked at Taco. needs a s aid Jack. Mom looked at Orson. really n eeds a s aid Mom. go to the",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    2.39,
+    15.95
+   ],
+   "wordTimes": [
+    [
+     2.68,
+     3.08
+    ],
+    [
+     3.08,
+     3.44
+    ],
+    [
+     3.44,
+     3.59
+    ],
+    [
+     3.59,
+     4.73
+    ],
+    [
+     4.73,
+     5.16
+    ],
+    [
+     5.16,
+     5.56
+    ],
+    [
+     5.56,
+     5.86
+    ],
+    [
+     5.86,
+     5.99
+    ],
+    [
+     5.99,
+     6.7
+    ],
+    [
+     6.7,
+     7.41
+    ],
+    [
+     7.41,
+     7.68
+    ],
+    [
+     7.68,
+     7.84
+    ],
+    [
+     7.84,
+     8.62
+    ],
+    [
+     8.62,
+     9.53
+    ],
+    [
+     9.53,
+     9.73
+    ],
+    [
+     9.73,
+     10.19
+    ],
+    [
+     10.19,
+     10.91
+    ],
+    [
+     10.91,
+     11.36
+    ],
+    [
+     11.36,
+     11.5
+    ],
+    [
+     11.5,
+     12.19
+    ],
+    [
+     12.19,
+     12.79
+    ],
+    [
+     12.79,
+     13.11
+    ],
+    [
+     13.11,
+     13.43
+    ]
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/110/p05.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "The Laundromutt had b ig tubs for the dogs. T aco did not like t he look of those tubs! wash Orson s aid Mom. She pushed and pulled and g ot Orson into a tub.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    19.0,
+    34.73
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/110/p06.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Jack turned on the water. S oon Orson was w et, wet, wet. T he big dog shook, and t hen Jack was wet, too. Mom and Jack gave Orson a b ath.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    36.36,
+    45.7
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/110/p07.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Next, Jack got the hair dryer. F ur blew here and there, a nd fur blew up and down. S oon big Orson looked v ery good. Then it was time t o give Taco a bath. M om put Taco in the tub. J ack turned on the water.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    47.68,
+    63.27
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/110/p08.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Soon Taco was wet, wet, wet. T aco did not like that! T he little dog jumped o ut of the tub. Taco ran around and around, a nd the floor got wet. Taco shook, and the walls got wet.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    64.57,
+    79.56
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/110/p09.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "Jack and Mom got wet, too. Mom and Jack gave Taco a bath.",
+   "textBox": [
+    0.1021,
+    0.0925,
+    0.952,
+    0.8872
+   ],
+   "wordBoxes": {
+    "words": [
+     "Jack",
+     "and",
+     "Mom",
+     "got",
+     "wet,",
+     "too.",
+     "Mom",
+     "and",
+     "Jack",
+     "gave",
+     "Taco",
+     "a",
+     "bath."
+    ],
+    "boxes": [
+     [
+      0.1021,
+      0.0925,
+      0.1457,
+      0.1182
+     ],
+     [
+      0.1588,
+      0.0925,
+      0.1935,
+      0.1182
+     ],
+     [
+      0.2073,
+      0.093,
+      0.2545,
+      0.1182
+     ],
+     [
+      0.268,
+      0.0949,
+      0.2974,
+      0.1262
+     ],
+     [
+      0.3104,
+      0.0949,
+      0.3497,
+      0.1239
+     ],
+     [
+      0.3632,
+      0.0949,
+      0.3955,
+      0.1182
+     ],
+     [
+      0.6024,
+      0.854,
+      0.6496,
+      0.8791
+     ],
+     [
+      0.6631,
+      0.8535,
+      0.6979,
+      0.8791
+     ],
+     [
+      0.7112,
+      0.8535,
+      0.7548,
+      0.8791
+     ],
+     [
+      0.7679,
+      0.8623,
+      0.8112,
+      0.8872
+     ],
+     [
+      0.8242,
+      0.854,
+      0.8665,
+      0.8791
+     ],
+     [
+      0.8802,
+      0.8623,
+      0.8903,
+      0.8791
+     ],
+     [
+      0.9037,
+      0.8535,
+      0.952,
+      0.8791
+     ]
+    ]
+   },
+   "audio": [
+    81.7,
+    94.18
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/110/p10.jpg",
+   "w": 1400,
+   "h": 856,
+   "text": "But at last, little Taco l ooked very good, too. Then Jack got the hair dryer. T aco did not like that hair dryer at all! He barked and barked at it.",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    96.04,
+    107.21
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/110/p11.jpg",
+   "w": 1146,
+   "h": 1400,
+   "text": "Then Mom looked at Jack, and J ack looked at Mom. at Jack said. we n eed a",
+   "textBox": [
+    0.13,
+    0.0925,
+    0.8563,
+    0.2595
+   ],
+   "wordBoxes": null,
+   "audio": [
+    108.87,
+    118.89
+   ]
+  }
+ ],
+ "alignQuality": 0.817
+}

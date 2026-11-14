@@ -1,0 +1,385 @@
+{
+ "id": "G1-087",
+ "series": "G1",
+ "no": 87,
+ "title": "In Winter",
+ "level": "H",
+ "cover": "covers/G1/087.jpg",
+ "audio": "audio/G1/087.m4a",
+ "duration": 134.83,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   0.94,
+   1.79
+  ],
+  [
+   5.15,
+   7.57
+  ],
+  [
+   9.76,
+   19.89
+  ],
+  [
+   22.38,
+   25.56
+  ],
+  [
+   26.81,
+   37.32
+  ],
+  [
+   39.67,
+   42.11
+  ],
+  [
+   43.48,
+   54.23
+  ],
+  [
+   57.13,
+   59.38
+  ],
+  [
+   60.52,
+   69.32
+  ],
+  [
+   71.74,
+   75.28
+  ],
+  [
+   76.32,
+   87.31
+  ],
+  [
+   89.29,
+   98.01
+  ],
+  [
+   99.38,
+   104.01
+  ],
+  [
+   105.08,
+   106.41
+  ],
+  [
+   108.2,
+   111.83
+  ],
+  [
+   113.21,
+   113.57
+  ],
+  [
+   116.29,
+   126.15
+  ],
+  [
+   127.2,
+   129.0
+  ],
+  [
+   130.82,
+   132.66
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/087/p04.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "do you do in asked the girl. The bird said, winter is cold here. I like to be cold! I fly away for the winter. I go to a warm and sunny",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    5.15,
+    19.89
+   ],
+   "wordTimes": [
+    [
+     0.16,
+     0.37
+    ],
+    [
+     0.37,
+     0.52
+    ],
+    [
+     0.52,
+     0.87
+    ],
+    [
+     0.87,
+     1.5
+    ],
+    [
+     1.5,
+     2.02
+    ],
+    [
+     2.02,
+     2.15
+    ],
+    [
+     2.15,
+     3.62
+    ],
+    [
+     3.62,
+     5.02
+    ],
+    [
+     5.02,
+     5.27
+    ],
+    [
+     5.27,
+     5.91
+    ],
+    [
+     5.91,
+     6.67
+    ],
+    [
+     6.67,
+     6.88
+    ],
+    [
+     6.88,
+     7.17
+    ],
+    [
+     7.17,
+     7.79
+    ],
+    [
+     7.79,
+     8.42
+    ],
+    [
+     8.42,
+     8.75
+    ],
+    [
+     8.75,
+     8.9
+    ],
+    [
+     8.9,
+     9.06
+    ],
+    [
+     9.06,
+     9.66
+    ],
+    [
+     9.66,
+     10.08
+    ],
+    [
+     10.08,
+     10.39
+    ],
+    [
+     10.39,
+     10.9
+    ],
+    [
+     10.9,
+     11.15
+    ],
+    [
+     11.15,
+     11.28
+    ],
+    [
+     11.28,
+     12.12
+    ],
+    [
+     12.12,
+     12.72
+    ],
+    [
+     12.72,
+     12.94
+    ],
+    [
+     12.94,
+     13.15
+    ],
+    [
+     13.15,
+     13.27
+    ],
+    [
+     13.27,
+     13.67
+    ],
+    [
+     13.67,
+     13.9
+    ],
+    [
+     13.9,
+     14.37
+    ]
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/087/p05.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "do you do in asked the girl. winter is snowy said the bat. stay out of the snow. I nap in my cave all winter long. My friends nap there,",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    22.38,
+    37.32
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/087/p06.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "do you do in asked the girl. The frog said, winter is icy here. too cold for me! I like the mud under the ice. I sleep in the mud all",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    39.67,
+    54.23
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/087/p07.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "do you do in asked the girl. is a chilly said the squirrel. like to be warm in winter. I snuggle with my friends! We keep each other",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    57.13,
+    69.32
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/087/p08.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "do you do in asked the girl. The beaver said, covers my pond in winter. I mind the ice. I swim under it and go into my den. My den keeps me nice and",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    71.74,
+    87.31
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/087/p09.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "do you do in asked the girl. snow is said the rabbit. grow snowy white fur. It keeps me warm. It lets me hide, too! My big feet help me hop on the",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    89.29,
+    104.01
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/087/p10.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "The animals asked the girl, do you do in The girl said, winter, I put on my coat and hat. I put on my scarf and mittens. They keep me nice and",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    105.08,
+    111.83
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/087/p11.jpg",
+   "w": 1400,
+   "h": 1097,
+   "text": "I go outside and",
+   "textBox": [
+    0.2111,
+    0.1072,
+    0.5427,
+    0.1581
+   ],
+   "wordBoxes": {
+    "words": [
+     "I",
+     "go",
+     "outside",
+     "and"
+    ],
+    "boxes": [
+     [
+      0.2111,
+      0.1072,
+      0.2191,
+      0.1452
+     ],
+     [
+      0.2496,
+      0.1209,
+      0.2921,
+      0.1581
+     ],
+     [
+      0.3234,
+      0.1072,
+      0.4492,
+      0.1458
+     ],
+     [
+      0.4803,
+      0.1072,
+      0.5427,
+      0.1458
+     ]
+    ]
+   },
+   "audio": [
+    113.21,
+    126.15
+   ],
+   "wordTimes": [
+    [
+     3.22,
+     3.96
+    ],
+    [
+     3.96,
+     5.74
+    ],
+    [
+     5.74,
+     9.35
+    ],
+    [
+     9.35,
+     10.63
+    ]
+   ]
+  }
+ ],
+ "alignQuality": 0.798
+}

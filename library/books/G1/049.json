@@ -1,0 +1,199 @@
+{
+ "id": "G1-049",
+ "series": "G1",
+ "no": 49,
+ "title": "What Am I",
+ "level": "D",
+ "cover": "covers/G1/049.jpg",
+ "audio": "audio/G1/049.m4a",
+ "duration": 92.74,
+ "pageCount": 8,
+ "aligned": true,
+ "alignMethod": "group2",
+ "hasAudio": true,
+ "segments": [
+  [
+   1.97,
+   3.01
+  ],
+  [
+   5.8,
+   11.96
+  ],
+  [
+   15.47,
+   19.53
+  ],
+  [
+   20.59,
+   21.58
+  ],
+  [
+   25.24,
+   30.91
+  ],
+  [
+   34.44,
+   38.03
+  ],
+  [
+   39.04,
+   40.01
+  ],
+  [
+   43.3,
+   49.18
+  ],
+  [
+   52.83,
+   54.23
+  ],
+  [
+   55.39,
+   58.89
+  ],
+  [
+   62.33,
+   63.72
+  ],
+  [
+   64.82,
+   68.38
+  ],
+  [
+   71.83,
+   73.7
+  ],
+  [
+   75.02,
+   76.3
+  ],
+  [
+   77.9,
+   79.21
+  ],
+  [
+   80.48,
+   81.68
+  ],
+  [
+   83.21,
+   84.44
+  ],
+  [
+   86.0,
+   87.45
+  ],
+  [
+   88.86,
+   90.23
+  ]
+ ],
+ "pages": [
+  {
+   "n": 4,
+   "image": "books/G1/049/p04.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "I am in a tree. I swing from tree to tree. What am",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    20.59,
+    30.91
+   ]
+  },
+  {
+   "n": 5,
+   "image": "books/G1/049/p05.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "I am in the grass. I can hide in the grass. What am",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    34.44,
+    40.01
+   ]
+  },
+  {
+   "n": 6,
+   "image": "books/G1/049/p06.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "I am in the dirt. My home is under the ground. What am",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    43.3,
+    54.23
+   ]
+  },
+  {
+   "n": 7,
+   "image": "books/G1/049/p07.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "I am in the sea. I can swim fast. What am",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    55.39,
+    63.72
+   ]
+  },
+  {
+   "n": 8,
+   "image": "books/G1/049/p08.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "I am in a cave. I sleep here all day. What am",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    64.82,
+    73.7
+   ]
+  },
+  {
+   "n": 9,
+   "image": "books/G1/049/p09.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "I am in the sand. I come out of the sea. What am",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    75.02,
+    79.21
+   ]
+  },
+  {
+   "n": 10,
+   "image": "books/G1/049/p10.jpg",
+   "w": 1400,
+   "h": 549,
+   "text": "I am in the woods. I am eating the green leaves. What am",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    80.48,
+    84.44
+   ]
+  },
+  {
+   "n": 11,
+   "image": "books/G1/049/p11.jpg",
+   "w": 1400,
+   "h": 1097,
+   "text": "a monkey a snake an ant a shark a bat a crab a deer I am",
+   "textBox": null,
+   "wordBoxes": null,
+   "audio": [
+    86.0,
+    90.23
+   ]
+  }
+ ],
+ "alignQuality": 0.616
+}
