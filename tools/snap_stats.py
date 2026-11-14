@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """就近吸附之后的命中质量复算。
 
 旧模型（矩形命中）的问题：
@@ -73,7 +73,8 @@ def main():
         text_pts = 0
         nearest_gap = []
         for b in books:
-            data = json.loads((LIB / "books" / f"{b['id']:02d}.json").read_text(encoding="utf-8"))
+            jf = LIB / "books" / b["series"] / f'{b["no"]:03d}.json'
+            data = json.loads(jf.read_text(encoding="utf-8"))
             for p in data["pages"]:
                 if not p.get("wordBoxes"):
                     continue

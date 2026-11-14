@@ -59,7 +59,7 @@
    "image": "books/GK/045/p04.jpg",
    "w": 1400,
    "h": 857,
-   "text": "interior art will have a background of blue sky same sky color as on cover and page illustration. Background color should bleed on on all sides. Art: Please enlarge the size of the hat in relation to the hand. Look at my hat. My hat is big.",
+   "text": "",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -72,7 +72,7 @@
    "image": "books/GK/045/p05.jpg",
    "w": 1400,
    "h": 857,
-   "text": "Art page Adjust coat to have longsleeves and make it longer at bottom as well. Look at my coat. My coat is big.",
+   "text": "",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -157,6 +157,40 @@
    "audio": [
     16.44,
     17.94
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.35
+    ],
+    [
+     0.354,
+     0.54
+    ],
+    [
+     0.544,
+     0.81
+    ],
+    [
+     0.814,
+     0.996
+    ],
+    [
+     1.0,
+     1.122
+    ],
+    [
+     1.126,
+     1.248
+    ],
+    [
+     1.252,
+     1.374
+    ],
+    [
+     1.378,
+     1.5
+    ]
    ]
   },
   {
@@ -243,31 +277,31 @@
      0.33
     ],
     [
-     0.33,
+     0.334,
      0.53
     ],
     [
-     0.53,
+     0.534,
      0.74
     ],
     [
-     0.74,
+     0.744,
      1.53
     ],
     [
-     1.53,
+     1.534,
      2.04
     ],
     [
-     2.04,
+     2.044,
      2.64
     ],
     [
-     2.64,
+     2.644,
      2.98
     ],
     [
-     2.98,
+     2.984,
      3.32
     ]
    ]
@@ -277,7 +311,7 @@
    "image": "books/GK/045/p08.jpg",
    "w": 1400,
    "h": 857,
-   "text": "Art page Delete ornate design on spoon area. Make dip in spoon shape more visible. Spoon handle is fine Look at my spoon. My spoon is big.",
+   "text": "",
    "textBox": null,
    "wordBoxes": null,
    "audio": [
@@ -369,32 +403,32 @@
      0.29
     ],
     [
-     0.29,
+     0.294,
      0.48
     ],
     [
-     0.48,
+     0.484,
      0.69
     ],
     [
-     0.69,
+     0.694,
      1.39
     ],
     [
-     1.39,
+     1.394,
      1.97
     ],
     [
-     1.97,
+     1.974,
      2.55
     ],
     [
-     2.55,
+     2.554,
      2.97
     ],
     [
-     2.97,
-     3.21
+     2.974,
+     3.31
     ]
    ]
   },
@@ -482,31 +516,31 @@
      0.27
     ],
     [
-     0.27,
+     0.274,
      0.45
     ],
     [
-     0.45,
+     0.454,
      0.63
     ],
     [
-     0.63,
+     0.634,
      1.29
     ],
     [
-     1.29,
+     1.294,
      1.86
     ],
     [
-     1.86,
+     1.864,
      2.42
     ],
     [
-     2.42,
+     2.424,
      2.86
     ],
     [
-     2.86,
+     2.864,
      3.2
     ]
    ]
@@ -581,6 +615,36 @@
    "audio": [
     53.65,
     57.02
+   ],
+   "wordTimes": [
+    [
+     0.0,
+     0.25
+    ],
+    [
+     0.254,
+     0.46
+    ],
+    [
+     0.464,
+     0.74
+    ],
+    [
+     0.744,
+     1.04
+    ],
+    [
+     1.044,
+     1.98
+    ],
+    [
+     1.984,
+     2.65
+    ],
+    [
+     2.654,
+     3.37
+    ]
    ]
   }
  ],

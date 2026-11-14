@@ -142,6 +142,49 @@ async function waitPaused(ms = 4000) {
   return snap();
 }
 
+/** 从书架点卡片打开书（G1 的书 id 走不了 #/b/ 路由：app.js 的 route 正则只认 [A-Z]{2}，
+ *  "G1-001" 里的 1 不是字母。这里走真实用户路径：书架卡片 → 阅读器。） */
+async function openFromShelf(id, page = 0) {
+  seq += 1;
+  await send('Page.navigate', { url: `${BASE}?s=${seq}` });
+  await until('window.__GK_READY__ === true', '书架就绪', 12000);
+  await until('!document.getElementById("shelf").classList.contains("hidden")', '书架可见', 8000);
+  const r = await js(`(() => { const c = document.querySelector('#grid .card[data-id="${id}"]');
+    if (!c) return null; c.scrollIntoView({block:'center'}); const b = c.getBoundingClientRect();
+    return {x: b.left + b.width/2, y: b.top + b.height/2}; })()`);
+  if (!r) throw new Error(`书架找不到 ${id} 的卡片`);
+  await sleep(150);
+  await clickAt(r.x, r.y);
+  await until(`!!(window.__GK.state.book && window.__GK.state.book.id === ${JSON.stringify(id)})`, `打开书 ${id}`, 12000);
+  await sleep(250);
+  if (page) {
+    await js(`window.__GK.showPage(${page})`);
+    await until('document.getElementById("pageImg").naturalWidth > 0', `第 ${page + 1} 页`, 8000);
+    await sleep(300);
+  }
+}
+
+/** 等当前书的音频可播（G1 新增用例用，避免点词时音频还没加载完） */
+async function waitAudio(expected, ms = 15000) {
+  await until(`window.__GK.state.audioFile === ${JSON.stringify(expected)} && window.__GK.audio.readyState >= 1`, '音频就绪', ms);
+}
+
+/** 运行时扫描 G1，找一页"有/无 wordTimes 且有 wordBoxes"的页（不写死书号，数据变了也不假绿） */
+async function scanG1(needTimes, maxClip = Infinity) {
+  const man = await (await fetch(`${ORIGIN}/library/manifest.json`)).json();
+  for (const b of man.books.filter((x) => x.series === 'G1')) {
+    const doc = await (await fetch(`${ORIGIN}/library/books/G1/${String(b.no).padStart(3, '0')}.json`)).json();
+    for (let i = 0; i < doc.pages.length; i++) {
+      const p = doc.pages[i];
+      if (!p.wordBoxes) continue;
+      if (p.audio && p.audio[1] - p.audio[0] > maxClip) continue;
+      const has = Array.isArray(p.wordTimes) && p.wordTimes.length === p.wordBoxes.words.length;
+      if (needTimes ? has : !has) return { b, doc, i, p };
+    }
+  }
+  return null;
+}
+
 /* ───────────────── 用例 ───────────────── */
 const CASES = [
   ['T1', '书架与视口（iPad 横屏尺度）', async () => {
@@ -496,6 +539,104 @@ const CASES = [
     eq('T10.1', '最终只高亮最后一个词', mid.on, [4]);
     eq('T10.2', '停点属于最后一个词', Math.round(mid.stopAt * 100) / 100, Math.round(absWord(s, 4)[1] * 100) / 100);
     truthy('T10.3', '没有因为连点而串到后面的页', (await snap()).page, 3);
+  }],
+
+  // ── 以下 3 个用例补 G1 覆盖面（74 项只打了 GK 三本书；只增不减）──
+  ['T12', 'G1：真实指针点词只读该词，播完停在词尾', async () => {
+    const f = await scanG1(true, 20);
+    if (!f) {
+      record('T12', 'G1 点词只读该词', false, 'G1 找不到 wordTimes + wordBoxes 的页（数据缺失，不能靠 GK 通过代替）');
+      return;
+    }
+    await openFromShelf(f.b.id, f.i);
+    await waitAudio(f.b.audio);
+    await sleep(350);
+    const s = await snap();
+    if (!s.times || !s.boxes) {
+      record('T12', 'G1 点词只读该词', false, `${f.b.id} p${f.p.n} 打开后没有词框/时间戳`);
+      return;
+    }
+    const dur = s.clip[1] - s.clip[0];
+    // 优先选 0.12–1.2s 的普通词；避免 4s 这种 CTC 离群长词把用例拖慢
+    let k = s.times.findIndex((t) => t[1] - t[0] >= 0.12 && t[1] - t[0] <= 1.2 && t[1] < dur - 0.1);
+    if (k < 0) {
+      let best = Infinity;
+      s.times.forEach((t, i) => {
+        const d = Math.abs(t[1] - t[0] - 0.6);
+        if (t[1] < dur - 0.05 && d < best) { best = d; k = i; }
+      });
+    }
+    if (k < 0) k = 0;
+    const [wa, wb] = absWord(s, k);
+    const c = wordCenter(s, k);
+    await clickAt(c.x, c.y);
+    await sleep(45);
+    const mid = await snap();
+    eq('T12.1', `G1 ${f.b.id} p${f.p.n} 点"${s.words[k]}"→ stopAt 是这个词的终点`,
+      Math.round(mid.stopAt * 100) / 100, Math.round(wb * 100) / 100);
+    truthy('T12.2', 'G1 点词→ 播放已启动', mid.paused === false || (mid.t >= wa - 0.05 && mid.t <= wb + 0.05),
+      `paused=${mid.paused} t=${mid.t}`);
+    eq('T12.3', 'G1 点词→ 只有一个词高亮', mid.on, [k]);
+    eq('T12.4', 'G1 点词→ 只有该词热区点亮', mid.lit, [k]);
+    truthy('T12.5', 'G1 点词的词段 ≥ 60ms（点下去听得到）', s.times[k][1] - s.times[k][0] >= 0.06,
+      `词段=${((s.times[k][1] - s.times[k][0]) * 1000).toFixed(0)}ms`);
+    const end = await waitPaused(Math.max(4000, (wb - wa) * 1000 + 2500));
+    near('T12.6', 'G1 点词播完自动停在词尾', end.t, wb, 0.18);
+  }],
+
+  ['T13', 'G1：没有 wordTimes 的页点词回落读整句', async () => {
+    let f = await scanG1(false, 20);
+    const real = !!f;
+    if (!f) f = await scanG1(true, 20);      // 数据里暂时没有天然的无时间戳页 → 浏览器内临时删掉一页做回落验证
+    if (!f) {
+      record('T13', 'G1 无 wordTimes 页回落整句', false, 'G1 找不到 wordTimes + wordBoxes 的页（数据缺失）');
+      return;
+    }
+    await openFromShelf(f.b.id, f.i);
+    await waitAudio(f.b.audio);
+    if (!real) {
+      await js(`delete window.__GK.state.book.pages[${f.i}].wordTimes; window.__GK.showPage(${f.i})`);
+      await until('document.getElementById("pageImg").naturalWidth > 0', '页图', 5000);
+    }
+    await sleep(350);
+    const s = await snap();
+    if (!s.boxes || s.times) {
+      record('T13', 'G1 无 wordTimes 页回落整句', false, `${f.b.id} p${f.p.n} 数据状态与扫描结果不一致`);
+      return;
+    }
+    truthy('T13.0', 'G1 使用真实无 wordTimes 页（不是临时删除）', real,
+      real ? '' : '当前库所有 G1 有词框的页都有 wordTimes；本轮用浏览器内删除验证回落逻辑');
+    const c = wordCenter(s, 0);
+    await clickAt(c.x, c.y);
+    await sleep(80);
+    const mid = await snap();
+    eq('T13.1', `G1 ${f.b.id} p${f.p.n} 点词→ 整句所有词高亮`, mid.on.length, s.words.length);
+    near('T13.2', '停点声明为句尾', mid.stopAt ?? -1, s.clip[1], 0.02);
+    eq('T13.3', '没有点亮单个词热区', mid.lit, []);
+    truthy('T13.4', '整句播放已启动', mid.paused === false, `paused=${mid.paused}`);
+  }],
+
+  ['T14', 'G1：点"再读一遍"整句播完停在句尾', async () => {
+    const f = await scanG1(true, 10);
+    if (!f) {
+      record('T14', 'G1 整句重播', false, 'G1 找不到 wordTimes + wordBoxes 的页（数据缺失）');
+      return;
+    }
+    await openFromShelf(f.b.id, f.i);
+    await waitAudio(f.b.audio);
+    await sleep(350);
+    const s = await snap();
+    const btn = await js(`(() => { const b = document.getElementById('btnReplay').getBoundingClientRect();
+      return {x: b.left + b.width/2, y: b.top + b.height/2}; })()`);
+    await clickAt(btn.x, btn.y);
+    await sleep(120);
+    const mid = await snap();
+    truthy('T14.1', 'G1 整句播放中', mid.paused === false, `paused=${mid.paused}`);
+    eq('T14.2', 'G1 整句的所有词都高亮', mid.on.length, s.words.length);
+    near('T14.3', 'G1 停点声明为句尾', mid.stopAt ?? -1, s.clip[1], 0.02);
+    const end = await waitPaused(Math.max(8000, (s.clip[1] - s.clip[0]) * 1000 + 2500));
+    near('T14.4', 'G1 停在句尾', end.t, s.clip[1], 0.2);
+    eq('T14.5', 'G1 播完高亮清零', [end.on, end.lit], [[], []]);
   }],
 
   // 需要看页面异常，放最后

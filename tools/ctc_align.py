@@ -9,7 +9,6 @@ import sys
 from pathlib import Path
 
 import numpy as np
-import onnxruntime as ort
 
 MODEL_DIR = Path(r"E:\apple app\.work\models\wav2vec2-960h")
 FRAME_SEC = 0.02          # wav2vec2-base front-end stride: 320 samples @ 16 kHz
@@ -23,6 +22,9 @@ def _init():
     global _sess, _vocab
     if _sess is not None:
         return
+    # imported here so that widen()/words_of() can be used (and self-tested)
+    # on machines without onnxruntime installed
+    import onnxruntime as ort
     so = ort.SessionOptions()
     so.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
     so.intra_op_num_threads = 4
@@ -87,7 +89,16 @@ def _viterbi_states(log_probs, labels):
         back[t] = ch
 
     states = np.zeros(T, dtype=np.int32)
-    i = int(np.argmax(score))
+    # Forced alignment must consume the whole transcript: the backtrace may only
+    # start on the last label state (S-2) or the trailing blank (S-1).  Starting
+    # from argmax(score) over *all* states ends the path wherever the model is
+    # most confident; every word after that point then has zero frames and shows
+    # up as a null in wordTimes even though the audio is fine.
+    if S > 2:
+        tail = score[S - 2:]
+        i = (S - 2 + int(np.argmax(tail))) if np.max(tail) > NEG / 2 else int(np.argmax(score))
+    else:
+        i = int(np.argmax(score))
     for t in range(T - 1, -1, -1):
         states[t] = i
         i = max(0, i - int(back[t, i]))
@@ -139,26 +150,108 @@ def align(audio: np.ndarray, text: str, stretch: bool = True):
     return out
 
 
-def widen(spans, clip_len, pad_head=0.10, pad_tail=0.15, min_dur=0.12):
-    """Stretch each span into the silence around it.
+def widen(spans, clip_len, pad_head=0.10, pad_tail=0.15, min_dur=0.12,
+          gap=0.002, _round_eps=0.001):
+    """Stretch each span into the silence around it, keeping the list ordered.
 
     CTC gives tight boundaries: a short word can end up a couple of frames long,
     and consecutive words leave gaps. Stretching to the midpoint with the
     neighbours makes a tapped word sound complete without dragging in the next.
+
+    The old version pushed ``b`` forward whenever a word was shorter than
+    ``min_dur``; that could push ``b_i`` past ``a_{i+1}`` and the whole page's
+    wordTimes were then thrown away as non-monotonic.  This version can never
+    produce overlapping spans:
+
+    * a word shorter than ``min_dur`` borrows room from *before* it
+      (``a = b - min_dur``), never from the next word;
+    * an entry that CTC failed on (``None``) keeps its slot: its neighbours do
+      not stretch into the gap, which is left for fix_wordtimes.py;
+    * the result is strictly increasing and every kept span is at least
+      ``min_dur`` long whenever the clip is long enough to hold that;
+    * everything lies inside ``[0, clip_len]``.
+
+    ``gap`` is the silence kept between adjacent words and ``_round_eps``
+    compensates for rounding the result to milliseconds, so the guarantees
+    still hold for the values actually written to JSON.
     """
-    idx = [i for i, s in enumerate(spans) if s]
     out = [None] * len(spans)
-    for k, i in enumerate(idx):
-        t0, t1 = spans[i]
-        prev_end = spans[idx[k - 1]][1] if k > 0 else 0.0
-        next_start = spans[idx[k + 1]][0] if k + 1 < len(idx) else clip_len
-        a = (prev_end + t0) / 2 if k > 0 else max(0.0, t0 - pad_head)
-        b = (t1 + next_start) / 2 if k + 1 < len(idx) else min(clip_len, t1 + pad_tail)
-        if b - a < min_dur:
+    idx = [i for i, s in enumerate(spans) if s]
+    m = len(idx)
+    if m == 0 or clip_len is None or clip_len <= 0:
+        return out
+
+    # 1) clamp the tight CTC spans and force them left-to-right
+    tight = []
+    prev_end = 0.0
+    for i in idx:
+        t0 = min(max(float(spans[i][0]), 0.0), clip_len)
+        t1 = min(max(float(spans[i][1]), 0.0), clip_len)
+        t0 = max(t0, prev_end)
+        t1 = max(t1, t0)
+        tight.append((t0, t1))
+        prev_end = t1
+
+    # 2) desired boundaries: midpoint with the neighbouring *kept* word, but if
+    #    a word CTC failed on sits between them, stay on the tight edge so the
+    #    missing word still has a gap to be interpolated into
+    desired = []
+    for k, (t0, t1) in enumerate(tight):
+        pos = idx[k]
+        if k == 0:
+            a = max(0.0, t0 - pad_head) if pos == 0 else t0
+        elif pos == idx[k - 1] + 1:
+            a = (tight[k - 1][1] + t0) / 2
+        else:
+            a = t0
+        if k + 1 == m:
+            b = min(clip_len, t1 + pad_tail) if pos + 1 == len(spans) else t1
+        elif pos + 1 == idx[k + 1]:
+            b = (t1 + tight[k + 1][0]) / 2
+        else:
+            b = t1
+        if b <= a:                      # degenerate (zero-frame) tight span
+            a = max(0.0, min(t0, clip_len - min_dur))
             b = min(clip_len, a + min_dur)
-        if b <= a:
-            a, b = t0, max(t0 + min_dur, t1)
-        out[i] = [round(a, 3), round(b, 3)]
+            if b <= a:
+                a, b = 0.0, clip_len
+        desired.append((a, b))
+
+    # 3) reserve room for the minimum duration and for a strict gap between
+    #    words; shrink the minimum (never the ordering) when the clip is tight
+    min_d = min_dur + 2 * _round_eps
+    gap_d = gap + 2 * _round_eps
+    if m * min_d + (m - 1) * gap_d > clip_len:
+        min_d = (clip_len - (m - 1) * gap_d) / m
+        if min_d <= 2 * _round_eps:
+            gap_d = 0.0
+            min_d = clip_len / m
+
+    # 4) forward pass: a span may not start before the previous one ended
+    vals = []
+    for k, (a, b) in enumerate(desired):
+        a = max(a, 0.0) if k == 0 else max(a, vals[-1] + gap_d)
+        b = max(b, a + min_d)
+        vals.extend((a, b))
+
+    # 5) if the minimum made the page overflow, pull the whole chain back from
+    #    the clip end (this keeps every lower bound)
+    if vals[-1] > clip_len:
+        vals[-1] = float(clip_len)
+        for j in range(len(vals) - 2, -1, -1):
+            lower = min_d if j % 2 == 0 else gap_d
+            vals[j] = min(vals[j], vals[j + 1] - lower)
+        if vals[0] < 0.0:
+            vals = [v - vals[0] for v in vals]
+            if vals[-1] > clip_len:     # pathological: compress into the clip
+                scale = clip_len / vals[-1]
+                vals = [v * scale for v in vals]
+
+    for k, i in enumerate(idx):
+        a, b = round(vals[2 * k], 3), round(vals[2 * k + 1], 3)
+        if b <= a:                      # sub-millisecond clip: keep precision
+            a, b = vals[2 * k], vals[2 * k + 1]
+        out[i] = [a, b]
     return out
 
 
