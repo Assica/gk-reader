@@ -25,7 +25,40 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          lfs: true
+          # 先不拉 LFS：library 有 247 MB，每次 checkout 都拉会吃掉每月 1 GB 的
+          # LFS 流量（约 4 次构建就没了）。改成"缓存命中就不拉"。
+          lfs: false
+
+      - name: 还原 library（缓存优先）
+        uses: actions/cache@v4
+        with:
+          path: library
+          # 缓存键跟着 manifest + 所有 book.json 的 LFS 指针走：
+          # 内容不变就一直命中；资源一变就自动失效。
+          key: library-${{ hashFiles('library/manifest.json', 'library/books/**/*.json') }}
+
+      - name: 必要时从 LFS 拉取 library（会消耗流量）
+        run: |
+          set -e
+          # LFS 指针文件以 "version https://git-lfs" 开头；真 JSON 以 { 开头
+          if head -c 64 library/manifest.json | grep -q '^{'; then
+            echo "✓ 缓存命中，library 已是真实文件"
+          else
+            echo "→ 缓存未命中，从 LFS 拉取 library/（本次会消耗约 247 MB 流量）"
+            rm -rf library
+            git lfs pull --include="library/**"
+          fi
+          head -c 64 library/manifest.json | grep -q '^{' \
+            || { echo "❌ library/manifest.json 仍是 LFS 指针，资源没拉到"; exit 1; }
+          du -sh library
+
+      - name: 拉取图标素材（很小，每次都拉）
+        run: |
+          if head -c 64 app/resources/icon.png | grep -q 'version https://git-lfs'; then
+            git lfs pull --include="app/resources/**"
+          fi
+          file app/resources/icon.png | grep -qi 'PNG' \
+            || { echo "❌ 图标素材不是有效 PNG"; exit 1; }
 
       - uses: actions/setup-node@v4
         with:

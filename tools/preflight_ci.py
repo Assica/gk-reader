@@ -73,7 +73,6 @@ check("不再无条件 pod install", "pod install --repo-update\n            ech
 check("SPM / CocoaPods 分支存在", "if [ -f Podfile ]" in wf and "XCODE_TARGET=" in wf)
 check("构建用 $XCODE_TARGET（不是写死 -workspace）", "-workspace App.xcworkspace \\" not in wf)
 check("node 版本 22", "node-version: '22'" in wf)
-check("checkout 带 lfs", "lfs: true" in wf)
 check("有失败日志上传", "if: failure()" in wf)
 check("产物路径一致", "app/ios/gk-reader-unsigned.ipa" in wf and "../gk-reader-unsigned.ipa" in wf)
 # 所有 run 块里不能出现 Windows 盘符
@@ -92,6 +91,13 @@ check("assets 脚本用 = 形式传颜色",
 check("timeout 不超过 45 分钟", "timeout-minutes: 45" in wf or "timeout-minutes: 40" in wf
       or "timeout-minutes: 35" in wf)
 check("pod install 不再 --repo-update", "--repo-update" not in wf)
+
+print("\n=== 5c. LFS 流量控制（每月 1 GB，约 4 次构建）===")
+check("checkout 不再 lfs: true", "lfs: true" not in wf, "否则每次构建都拉 247 MB")
+check("有 library 缓存", "actions/cache" in wf and "path: library" in wf)
+check("缓存未命中才拉 LFS", "git lfs pull" in wf and "缓存未命中" in wf)
+check("校验 manifest 不是 LFS 指针", "LFS 指针" in wf)
+check("校验图标是真 PNG", "file app/resources/icon.png" in wf)
 
 print("\n=== 6. 脚本里有没有 Windows 硬编码 ===")
 for f in ["scripts/build-www.mjs", "scripts/patch-ios.mjs", "scripts/patch_plist.py"]:
