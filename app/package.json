@@ -6,7 +6,7 @@
   "scripts": {
     "www": "node scripts/build-www.mjs",
     "sync": "npm run www && cap sync ios",
-    "assets": "capacitor-assets generate --ios --iconBackgroundColor '#FDF8F2' --splashBackgroundColor '#FDF8F2'"
+    "assets": "capacitor-assets generate --ios --iconBackgroundColor=#FDF8F2 --splashBackgroundColor=#FDF8F2"
   },
   "dependencies": {
     "@capacitor/core": "^7.0.0",

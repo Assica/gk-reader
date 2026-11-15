@@ -3,13 +3,14 @@ name: build-ios
 # 在 GitHub 的 macOS 机器上出一个**未签名** IPA，再由 SideStore 在 iPad 上用
 # 你自己的 Apple ID 重签安装。没有 Mac 也能走通这条路。
 #
-# 关键约束（都在本地用真实的 Capacitor 模板验证过）：
-#   · Capacitor 7 的 `cap add ios` 默认生成 SPM 工程（App.xcodeproj + CapApp-SPM），
-#     **没有 Podfile / App.xcworkspace**，所以不能无条件 pod install / -workspace
-#   · 模板的 Info.plist 里没有 UIStatusBarHidden / UIRequiresFullScreen，
-#     `plutil -replace` 会报错 —— 补丁脚本改用 python plistlib
+# 事实核对（用 `npx cap add ios` 的真实产物验过，不是猜）：
+#   · Capacitor 7 的 `cap add ios` 默认生成 **CocoaPods** 工程
+#     （有 Podfile + App.xcworkspace；SPM 模板只有手动指定才用）
+#   · 模板的 Info.plist **没有** UIStatusBarHidden / UIRequiresFullScreen，
+#     `plutil -replace` 会报错 —— 补丁改用 python plistlib
 #   · 模板的 AppDelegate 是 `@UIApplicationMain` + `return true`，
-#     没有 `super.application(...)` 这个锚点
+#     **没有** `super.application(...)` 锚点
+#   · 模板不带 .xcscheme，`-scheme App` 可能找不到 —— 见"准备 scheme"步骤
 
 on:
   workflow_dispatch:
@@ -18,8 +19,9 @@ on:
 
 jobs:
   build:
-    runs-on: macos-14          # Xcode 15.x，满足模板要求 swift-tools-version 5.9
-    timeout-minutes: 60
+    # macOS 14 镜像已于 2026-11-02 退役，必须用 15 及以上
+    runs-on: macos-15
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,11 +33,19 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
 
+      - name: 环境留证
+        run: |
+          xcodebuild -version
+          pod --version || true
+          node -v && npm -v
+          sw_vers
+
       - name: 检查素材
         run: |
           set -e
           test -f library/manifest.json || { echo "❌ 缺少 library/manifest.json"; exit 1; }
           test -f app/package-lock.json || { echo "❌ 缺少 package-lock.json"; exit 1; }
+          test -f app/resources/icon.png || { echo "❌ 缺少 app/resources/icon.png"; exit 1; }
           echo "书籍数: $(python3 -c "import json;print(len(json.load(open('library/manifest.json'))['books']))")"
           du -sh library
 
@@ -60,10 +70,15 @@ jobs:
           fi
           npx cap sync ios
           test -d ios/App/App || { echo "❌ ios/App/App 不存在"; exit 1; }
+          ls -la ios/App | head -20
 
       - name: 打原生补丁（横屏 / 状态栏 / 音频会话）
         working-directory: app
         run: node scripts/patch-ios.mjs
+
+      - name: 生成图标与启动图
+        working-directory: app
+        run: npm run assets || echo "⚠ 图标生成失败，继续用模板默认图标"
 
       - name: 解析依赖（SPM 或 CocoaPods，按工程实际形态）
         working-directory: app/ios/App
@@ -71,12 +86,32 @@ jobs:
           set -e
           if [ -f Podfile ]; then
             echo "形态: CocoaPods"
-            pod install --repo-update
+            pod install
             echo "XCODE_TARGET=-workspace App.xcworkspace" >> "$GITHUB_ENV"
           else
             echo "形态: SPM"
             xcodebuild -resolvePackageDependencies -project App.xcodeproj -scheme App
             echo "XCODE_TARGET=-project App.xcodeproj" >> "$GITHUB_ENV"
+          fi
+
+      - name: 准备 scheme（模板不自带，尽量补）
+        working-directory: app/ios/App
+        run: |
+          echo "--- 现有 scheme ---"
+          xcodebuild -list $XCODE_TARGET 2>&1 | tee /tmp/list.txt || true
+          sed -n '/Schemes:/,/^$/p' /tmp/list.txt || true
+          if grep -qE '^\s+App\s*$' /tmp/list.txt; then
+            echo "✓ 已有 App scheme"
+          else
+            echo "→ 未列出 App scheme，尝试生成共享 scheme"
+            ruby -e '
+              require "xcodeproj"
+              p = Xcodeproj::Project.open("App.xcodeproj")
+              p.recreate_user_schemes
+              p.save
+              Xcodeproj::XCScheme.share_scheme(".", "App")
+            ' || echo "⚠ ruby 生成失败（不中断，交给 xcodebuild 自动推断）"
+            xcodebuild -list $XCODE_TARGET 2>&1 | sed -n '/Schemes:/,/^$/p' || true
           fi
 
       - name: 未签名构建

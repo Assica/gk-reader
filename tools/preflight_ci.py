@@ -80,6 +80,19 @@ check("产物路径一致", "app/ios/gk-reader-unsigned.ipa" in wf and "../gk-re
 bad_paths = re.findall(r"[A-Za-z]:\\\\|E:\\\\apple", wf)
 check("workflow 里没有 Windows 绝对路径", not bad_paths, str(bad_paths[:3]))
 
+print("\n=== 5b. CI 平台与步骤（监工抓到的坑）===")
+check("runner 不是已退役的 macos-14", "runs-on: macos-14" not in wf,
+      "macOS 14 镜像 2026-11-02 已退役，job 不会被接走")
+check("runner 是 macos-15 或更新", "runs-on: macos-15" in wf or "runs-on: macos-26" in wf)
+check("有 scheme 兜底步骤", "XCScheme.share_scheme" in wf or "recreate_user_schemes" in wf)
+check("有图标生成步骤", "npm run assets" in wf)
+check("assets 脚本用 = 形式传颜色",
+      "--iconBackgroundColor=#" in (APP / "package.json").read_text(encoding="utf-8"),
+      "带引号会被 Windows cmd 当成值的一部分")
+check("timeout 不超过 45 分钟", "timeout-minutes: 45" in wf or "timeout-minutes: 40" in wf
+      or "timeout-minutes: 35" in wf)
+check("pod install 不再 --repo-update", "--repo-update" not in wf)
+
 print("\n=== 6. 脚本里有没有 Windows 硬编码 ===")
 for f in ["scripts/build-www.mjs", "scripts/patch-ios.mjs", "scripts/patch_plist.py"]:
     t = (APP / f).read_text(encoding="utf-8")
