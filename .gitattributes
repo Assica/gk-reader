@@ -1,11 +1,10 @@
-# git 属性文件：注释用 #（不是 JS 的 //），写错会导致 LFS 规则整行失效。
+# git 属性文件：注释用 #（不是 JS 的 //），写错会让整行规则失效。
 #
-# library/ 约 241 MB（180 本页图 + 180 段音频），走 Git LFS 避免仓库膨胀。
-# CI（.github/workflows/ios.yml）checkout 时带 lfs: true，依赖这里的 filter 规则。
+# library/ 已移出仓库 —— 它是 tools/ 流水线生成的产物（约 247 MB），
+# 现在打包成 library.zip 挂在 Release（tag: library-data-v1），
+# 由 CI 通过 GitHub API 下载解压。所以这里不再需要 library 的 LFS 规则。
+# ⚠️ 不要把 library/ 再 git add 回来：247 MB 会同时吃掉 LFS 存储、LFS 带宽和 Actions 缓存额度。
+#
+# 仍然走 LFS 的只剩 app/resources/ 下的图标与启动图（很小，保持原样）。
 
-library/**/*.jpg filter=lfs diff=lfs merge=lfs -text
-library/**/*.png filter=lfs diff=lfs merge=lfs -text
-library/**/*.m4a filter=lfs diff=lfs merge=lfs -text
 app/resources/*.png filter=lfs diff=lfs merge=lfs -text
-
-# library/books/*.json 仍走普通 git（文本，便于看 diff）；不要给它加 LFS。

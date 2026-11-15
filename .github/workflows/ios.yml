@@ -8,8 +8,9 @@ name: build-ios
 #   · 模板 Info.plist 没有 UIStatusBarHidden / UIRequiresFullScreen，plutil -replace 会报错
 #   · 模板 AppDelegate 没有 super.application 锚点
 #   · 模板**不带 .xcscheme**，-scheme App 会失败 → 自己写一份共享 scheme
-#   · library 里 .json 不是 LFS 文件，拿它当探针会永远判"已还原" →
-#     构建成功但 IPA 里全是 130 字节指针（没图没声）→ 探针必须用 .jpg
+#   · library 有 247 MB，留在仓库里会同时吃 LFS 存储、LFS 带宽和 Actions 缓存 →
+#     现已移到 Release 附件（tag: library-data-v1），CI 用 API 下载解压
+#   · 探针必须用 .jpg：manifest.json 的字节不像 LFS 指针，用它当探针会永远判"已还原"
 #   · 私有仓库 macOS 按 10 倍计费，artifact 存储 0.5 GB
 
 on:
@@ -24,41 +25,47 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          # 先不拉 LFS：library 有 247 MB，每次 checkout 都拉会吃掉每月 1 GB
-          # 的 LFS 流量（约 4 次构建就没了）
+          # library 已移出仓库，只剩 app/resources 的小图还在 LFS（下一步单独拉）
           lfs: false
 
-      - name: 还原 library（缓存优先）
-        uses: actions/cache@v4
-        with:
-          path: library
-          key: library-${{ hashFiles('library/manifest.json', 'library/books/**/*.json') }}
-
-      - name: 还原 library 内容（必要时从 LFS 拉）
+      - name: 下载 library（Release 附件，不走 LFS）
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LIBRARY_TAG: library-data-v1
         run: |
           set -e
-          # 探针必须是 LFS 文件。manifest.json 是普通 git 文件，永远以 { 开头，
-          # 拿它当探针会永远判"已还原"，产出一个没图没声的 IPA。
+          # 私有仓库的 Release 附件必须走 API：先取 asset 的 url，再按 octet-stream 取二进制。
+          # 换资源包时：发一个新 tag（library-data-v2 …），改这里的 LIBRARY_TAG 即可。
+          ASSET_URL=$(curl -sSL \
+              -H "Authorization: Bearer ${GH_TOKEN}" \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/${{ github.repository }}/releases/tags/${LIBRARY_TAG}" \
+            | python3 -c "import json,sys; a=[x for x in json.load(sys.stdin)['assets'] if x['name']=='library.zip'][0]; print(a['url'])")
+          test -n "$ASSET_URL" || { echo "❌ 找不到附件 library.zip（tag ${LIBRARY_TAG}）"; exit 1; }
+          echo "asset = $ASSET_URL"
+          # 旧版的坑：这里千万别只 rm -rf 不重新解压，也别忘了 library 里还有
+          # manifest.json / books/*.json 这类非 LFS 文件——现在整个目录都来自附件。
+          rm -rf library && mkdir -p library
+          curl -sSL --retry 3 --retry-delay 5 \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/octet-stream" \
+            "$ASSET_URL" -o /tmp/library.zip
+          unzip -q /tmp/library.zip -d library
+          rm -f /tmp/library.zip
+
+      - name: 校验 library
+        run: |
+          set -e
           PROBE=library/covers/GK/001.jpg
-          if head -c 64 "$PROBE" | grep -q 'version https://git-lfs'; then
-            echo "→ 探针是 LFS 指针：从 LFS 拉取（约 247 MB 流量）"
-            # 千万不要 rm -rf library 再拉：
-            # manifest.json / books/*.json 是普通 git 文件，不在 LFS 里，
-            # 删掉之后 git lfs pull 不会把它们恢复，构建会报"缺少 manifest"。
-            git lfs pull --include="library/**"
-          fi
-          # 兜底：非 LFS 文件若因任何原因缺失，从 git 取回
-          for f in library/manifest.json $(git ls-files 'library/books/*/*.json' | head -1); do
-            test -f "$f" || git checkout -- "$f"
-          done
-          test -f library/manifest.json || { echo "❌ library/manifest.json 不存在"; exit 1; }
-          if head -c 64 "$PROBE" | grep -q 'version https://git-lfs'; then
-            echo "❌ library 仍是 LFS 指针，资源没拉到"; exit 1
-          fi
+          test -f library/manifest.json || { echo "❌ 缺少 library/manifest.json"; exit 1; }
+          test -f "$PROBE" || { echo "❌ 缺少 $PROBE"; exit 1; }
           LIB_MB=$(du -sm library | cut -f1)
           echo "library = ${LIB_MB} MB"
           [ "$LIB_MB" -ge 200 ] || { echo "❌ library 只有 ${LIB_MB} MB（应 ≥200）"; exit 1; }
-          file "$PROBE" | grep -qi 'JPEG' || { echo "❌ 探针不是有效 JPEG"; exit 1; }
+          file "$PROBE" | grep -qi 'JPEG' || { echo "❌ 探针不是有效 JPEG，附件内容可能不对"; exit 1; }
+          BOOKS=$(python3 -c "import json;print(len(json.load(open('library/manifest.json'))['books']))")
+          echo "书籍数 = $BOOKS"
+          [ "$BOOKS" -ge 180 ] || { echo "❌ 书籍数 $BOOKS < 180"; exit 1; }
 
       - name: 还原图标素材（很小，每次都拉）
         run: |
@@ -201,7 +208,7 @@ jobs:
           test -f "$APP/public/library/manifest.json" || { echo "❌ 包里没有 library"; exit 1; }
           PUB_MB=$(du -sm "$APP/public" | cut -f1)
           echo "public = ${PUB_MB} MB"
-          [ "$PUB_MB" -ge 240 ] || { echo "❌ public 只剩 ${PUB_MB} MB（应为真实资源，不是 LFS 指针）"; exit 1; }
+          [ "$PUB_MB" -ge 240 ] || { echo "❌ public 只剩 ${PUB_MB} MB（应为真实资源，检查 Release 附件是否下全）"; exit 1; }
           du -sh "$APP"
           rm -rf Payload && mkdir Payload
           cp -R "$APP" Payload/

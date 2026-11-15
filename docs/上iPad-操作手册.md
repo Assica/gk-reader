@@ -44,19 +44,25 @@ python tools/serve.py --port 8787 --dir "E:\apple app"
 
 1. 打开 **Actions** → 左侧 `build-ios` → **Run workflow**
    （或者打 tag 自动触发：`git tag v0.1.0 && git push --tags`）
-2. 等 10–15 分钟。跑在 GitHub 的 macOS 机器上（`macos-14`）
+2. 等 10–15 分钟。跑在 GitHub 的 macOS 机器上（`macos-15`）
 3. 在该次运行的页面底部 **Artifacts** 下载 `gk-reader-ipa`，解压得到 **`gk-reader-unsigned.ipa`**
 
 **这个 IPA 是未签名的**，双击装不了——下一步用 Sideloadly 签。
 
-> ⚠️ **构建额度**：`library/` 走 Git LFS，共 239 MB。免费额度是 1 GiB 存储 + **1 GiB/月带宽**，而 **Actions 拉 LFS 也算带宽**（[官方计费说明](https://docs.github.com/zh/billing/concepts/product-billing/git-lfs)）。所以**每月大约只能构建 4 次**，用超了 checkout 直接失败。
-> 想彻底解除限制：把 `library/` 压成 zip 传到 Release（Release 附件不计 LFS 带宽），workflow 里把 `lfs: true` 换成下载解压。**这一步还没做**。
+> **额度怎么算**（2026-11 更新）：`library/` 已经**移出仓库**，打包成 `library.zip`（239 MB）挂在 [Release](https://github.com/Assica/gk-reader/releases/tag/library-data-v1)，CI 用 GitHub API 下载解压。所以**不再消耗 Git LFS 带宽，也不占 Actions 缓存**。现在只剩两本账：
+>
+> | 额度 | 免费（私有仓库） | 单次消耗 | 折算 |
+> |---|---|---|---|
+> | Actions 分钟 | 2,000 分钟/月 | macOS 按 **10×** 计费 | 约 **8–13 次/月** |
+> | Actions 产物存储 | 500 MB | 一个 IPA ≈ 255 MB | 约 1–2 个产物（保留 7 天） |
+>
+> 真要彻底免费只有一条路：把仓库改成 public（standard runner 不计分钟）——但那会公开 180 本绘本素材，版权上不建议。
 
 构建失败先看这三处：
 
 | 报错 | 原因 |
 |---|---|
-| `缺少 library/` | LFS 没拉全（本地 `git lfs pull`，CI 看 checkout 的 `lfs: true`）或带宽超了 |
+| `找不到附件 library.zip` | Release tag 写错，或 token 没有 contents 读权限 |
 | `没找到 .app` | 看日志尾部 `xcodebuild.log`，多半是 pod 没装好 |
 | `包里没有 library/manifest.json` | `app/scripts/build-www.mjs` 没把 `library/` 拷进 `www/` |
 
@@ -229,7 +235,9 @@ git push && git push --tags
 
 然后重新下载 IPA → 用 Sideloadly 覆盖安装（**保留数据**）。
 
-> 提醒：每次构建都要从 LFS 拉 239 MB，免费额度每月 1 GiB。频繁改动时最好先在电脑上用浏览器验（0.1），验好了再打 tag 出包。
+> 提醒：每次构建会从 Release 下载 239 MB 附件（不占 LFS 额度，但占构建时间），产物另有 255 MB 存储。频繁改动时先在电脑上用浏览器验（0.1），验好了再出包。
+>
+> **资源包怎么更新**：改了 `library/` 之后，重新打一个 zip 发到 Release 的**新 tag**（`library-data-v2` …），再把 `.github/workflows/ios.yml` 里的 `LIBRARY_TAG` 改成新 tag。仓库里不再有 `library/`。
 
 ---
 
@@ -238,11 +246,11 @@ git push && git push --tags
 | 项 | 状态 |
 |---|---|
 | Web 内核（书架 / 阅读器 / 点读 / 连播 / 语速） | ✅ 用例已扩到 T1–T20，判定看输出里 `RESULT pass=N fail=0` |
-| `library/` 资源 | ✅ **180 本 / 1443 页 / 180 段音频**，239 MB（GK 70 + G1 110） |
-| Git 仓库 | ✅ [Assica/gk-reader](https://github.com/Assica/gk-reader)（private），`library/` 走 Git LFS |
+| `library/` 资源 | ✅ **180 本 / 1443 页 / 180 段音频**，247 MB（GK 70 + G1 110），打包为 Release 附件 [library-data-v1](https://github.com/Assica/gk-reader/releases/tag/library-data-v1) |
+| Git 仓库 | ✅ [Assica/gk-reader](https://github.com/Assica/gk-reader)（private）；`library/` **不进仓库**，走 Release 附件 |
 | Capacitor 工程骨架 + 构建脚本 | ✅ 已就位（`app/`，bundle id `com.gkreader.app`） |
 | 原生补丁（横屏 / 状态栏 / 音频会话） | ✅ `app/scripts/patch-ios.mjs`，构建时自动打 |
 | GitHub Actions 出未签名 IPA | ⚠️ 已写好（`.github/workflows/ios.yml`），**尚未实跑过** |
-| 构建额度 | ⚠️ 239 MB/次，免费 1 GiB/月 ≈ **每月 4 次**；建议把 `library/` 移出 LFS |
+| 构建额度 | ✅ LFS 已解除；剩 Actions 分钟（≈8–13 次/月）+ 产物存储（500 MB） |
 | **实际在 iPad 上装一次** | ❌ 待做（iPadOS 18.7.8，走路线 A） |
 | 跟读录音 / 生词本 / 闯关 | ❌ 功能未做 |
