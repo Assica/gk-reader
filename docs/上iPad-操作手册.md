@@ -77,10 +77,16 @@ Sideloadly 是**装在电脑上的**桌面程序，在电脑上完成签名，�
 
 1. **iTunes 官网版**：<https://www.apple.com/itunes/download/win64>
    ⚠️ **必须是非 Microsoft Store 版**。Store 版是沙盒化的，拿不到设备通信库，Sideloadly 官方明确说会失败。装过 Store 版的先卸载再重启。
-2. **iCloud 官网版**：<https://updates.cdn-apple.com/2020/windows/001-39935-20200911-1A70AA56-F448-11EA-8CC0-99D41950005E/iCloudSetup.exe>
-3. **Sideloadly**：<https://sideloadly.io>（当前 v0.71.0，要求 Windows 7+）
+   它装的是 **Apple Mobile Device Support**（USB 驱动 + `AppleMobileDeviceService`），Sideloadly 靠这个才能通过数据线跟 iPad 通信。
+2. **Sideloadly**：<https://sideloadly.io>（当前 v0.71.0，要求 Windows 7+）
+3. **iCloud 官网版（按需）**：<https://updates.cdn-apple.com/2020/windows/001-39935-20200911-1A70AA56-F448-11EA-8CC0-99D41950005E/iCloudSetup.exe>
+   **不是严格必需**。它提供 Apple Application Support 运行库；Sideloadly 文档把它列进要求，但只在个别环境下才真的用得上。
+   判断标准：装完 iTunes 后打开 Sideloadly，**左上角能看到 iPad 名字和型号就不用装**；看不到设备、或 Apple ID 登录报认证错误时再装。
 
 装完重启一次。用无线安装还要 Apple **Bonjour**（iTunes 会带）。
+
+> 注意：iTunes 和 iCloud **都不能用 Microsoft Store 版**（沙盒，不装驱动到系统目录）。
+> AltServer/SideStore 那条路则**必须**有官网版 iCloud，否则直接报 `iCloud Not Found`。
 
 ### 2.2 登录 Apple ID 的几个坑（国内最容易卡在这）
 
