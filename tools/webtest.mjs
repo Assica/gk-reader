@@ -865,9 +865,9 @@ const CASES = [
       await openBook('GK-001', 0);
       await until('window.__GK.state.audioStatus === "ok"', '原生路径音频就绪', 15000);
       eq('T21.1', '原生路径下 audioStatus 为 ok', await js('window.__GK.state.audioStatus'), 'ok');
-      const src = await js('window.__GK.audio.getAttribute("src")');
-      truthy('T21.2', '音频 src 是直连地址（不是 blob:）',
-        /\/library\/audio\//.test(src || '') && !/^blob:/.test(src || ''), `src=${src}`);
+      const kind = await js('window.__GK.state.audioSrcKind');
+      truthy('T21.2', '音频源是 blob 或直连（机制不限制，能用就行）',
+        kind === 'blob' || kind === 'direct', `kind=${kind}`);
       truthy('T21.3', '元数据已解析（duration > 0）',
         (await js('window.__GK.audio.duration')) > 0.1,
         `duration=${await js('window.__GK.audio.duration')}`);
@@ -884,6 +884,92 @@ const CASES = [
     } finally {
       await send('Page.removeScriptToEvaluateOnNewDocument', { identifier: hook.identifier });
     }
+  }],
+
+  // 原生模式下把"基本功能"整条走一遍：整句播放 → 自动翻页 → 语速 → 进度。
+  // 这条路径在真机上与 http 环境唯一的差别就是音频怎么加载，所以要在原生模式下覆盖。
+  ['T22', '原生外壳：整句播放 + 自动翻页 + 语速 + 进度', async () => {
+    const hook = await send('Page.addScriptToEvaluateOnNewDocument', {
+      source: 'window.__GK_FORCE_NATIVE = true;',
+    });
+    try {
+      await openBook('GK-001', 0);
+      await until('window.__GK.state.audioStatus === "ok"', '原生音频就绪', 15000);
+
+      // 1) 整句播放
+      await js('document.getElementById("btnReplay").click()');
+      await until('window.__GK.audio.paused === false', '整句开始播', 5000);
+      eq('T22.1', '原生模式下整句能播', await js('window.__GK.audio.paused'), false);
+
+      // 2) 自动翻页（连播）
+      await js('document.getElementById("btnPlay").click()');
+      await until('window.__GK.state.autoRun === true', '进入连播', 5000);
+      await until('window.__GK.state.page === 1', '自动翻到第 2 页', 30000);
+      eq('T22.2', '原生模式下能自动翻页', await js('window.__GK.state.page'), 1);
+      await js('document.getElementById("btnPlay").click()');   // 停掉连播
+      await sleep(300);
+
+      // 3) 语速
+      const before = await js('window.__GK.state.rate');
+      await js('document.getElementById("btnRate").click()');
+      await sleep(150);
+      const after = await js('window.__GK.state.rate');
+      truthy('T22.3', '原生模式下能切语速', after !== before, `${before} → ${after}`);
+      eq('T22.4', '播放速率跟随', await js('window.__GK.audio.playbackRate'), after);
+
+      // 4) 进度持久化
+      const saved = await js('JSON.parse(localStorage.getItem("gk-progress")||"{}")["GK-001"]');
+      eq('T22.5', '进度写进了 localStorage', saved, 1);
+    } finally {
+      await send('Page.removeScriptToEvaluateOnNewDocument', { identifier: hook.identifier });
+    }
+  }],
+
+  ['T24', '原生外壳：blob 拿不到时自动回退直连 src', async () => {
+    const hook = await send('Page.addScriptToEvaluateOnNewDocument', {
+      source: `
+        window.__GK_FORCE_NATIVE = true;
+        // 让音频的 fetch 直接失败（模拟 Capacitor 那边取不到 body 的情况）
+        (() => {
+          const orig = window.fetch;
+          window.fetch = async (u, o) => {
+            if (String(u).includes('/library/audio/')) throw new TypeError('failed to fetch');
+            return orig(u, o);
+          };
+        })();
+      `,
+    });
+    try {
+      await openBook('GK-001', 0);
+      await until('window.__GK.state.audioStatus === "ok"', '回退后音频就绪', 15000);
+      eq('T24.1', '回退后 audioStatus 仍是 ok', await js('window.__GK.state.audioStatus'), 'ok');
+      eq('T24.2', '确实是直连模式', await js('window.__GK.state.audioSrcKind'), 'direct');
+      truthy('T24.3', '直连地址指向 library 音频',
+        /\/library\/audio\//.test(await js('window.__GK.audio.getAttribute("src")') || ''), '');
+      truthy('T24.4', '元数据能解析（duration > 0）',
+        (await js('window.__GK.audio.duration')) > 0.1,
+        `duration=${await js('window.__GK.audio.duration')}`);
+    } finally {
+      await send('Page.removeScriptToEvaluateOnNewDocument', { identifier: hook.identifier });
+    }
+  }],
+
+  ['T23', '媒体错误不再静默：有提示且状态复位', async () => {
+    await openBook('GK-001', 0);
+    await until('window.__GK.state.audioStatus === "ok"', '音频就绪', 15000);
+    // 人为触发一次媒体错误（模拟真机上文件缺失/解码失败）
+    await js(`(() => {
+      const a = window.__GK.audio;
+      Object.defineProperty(a, 'error', { configurable: true, get: () => ({ code: 4 }) });
+      a.dispatchEvent(new Event('error'));
+    })()`);
+    await sleep(200);
+    eq('T23.1', '媒体错误后 audioStatus 变 failed', await js('window.__GK.state.audioStatus'), 'failed');
+    eq('T23.2', 'stopAt 被清空', await js('window.__GK.state.stopAt'), null);
+    truthy('T23.3', '给出了可读提示',
+      /音频/.test(await js('(document.getElementById("toast")||{}).textContent||""')),
+      await js('(document.getElementById("toast")||{}).textContent||""'));
+    eq('T23.4', '高亮已清除', await js('document.querySelectorAll("#sentence .w.on").length'), 0);
   }],
 
   // 需要看页面异常，放最后

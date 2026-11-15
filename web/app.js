@@ -154,30 +154,49 @@ async function openBook(id) {
   // 原生加载路径——这条分支一旦坏掉，真机上每本书都会提示"音频不可用"，
   // 而纯 http 环境永远测不出来。
   const native = location.protocol === 'capacitor:' || window.__GK_FORCE_NATIVE === true;
+
+  const useBlob = async () => {
+    const res = await fetch(`${LIB}${book.audio}`);
+    // 媒体文件在原生侧没有 HTTP 状态码，所以判据用 blob 大小而不是 res.ok
+    const blob = await res.blob();
+    if (!blob || blob.size < 1024) throw new Error(`音频响应异常 status=${res.status} size=${blob && blob.size}`);
+    if (!state.book || state.book.id !== myBookId) return;
+    if (audioUrl) URL.revokeObjectURL(audioUrl);
+    audioUrl = URL.createObjectURL(blob);
+    state.audioFile = book.audio;
+    state.audioSrcKind = 'blob';
+    audio.src = audioUrl;
+    audio.load();
+    applyRate();
+    state.audioStatus = 'ok';
+  };
+
+  const useDirect = async () => {
+    if (!state.book || state.book.id !== myBookId) return;
+    if (audioUrl) { URL.revokeObjectURL(audioUrl); audioUrl = null; }
+    state.audioFile = book.audio;
+    state.audioSrcKind = 'direct';
+    audio.src = `${LIB}${book.audio}`;
+    audio.load();
+    applyRate();
+    state.audioStatus = 'ok';
+  };
+
   audioReady = (async () => {
     try {
       if (native) {
-        if (!state.book || state.book.id !== myBookId) return;
-        if (audioUrl) { URL.revokeObjectURL(audioUrl); audioUrl = null; }
-        state.audioFile = book.audio;
-        audio.src = `${LIB}${book.audio}`;
-        audio.load();
-        applyRate();
-        state.audioStatus = 'ok';
+        // 原生侧优先 Blob：Capacitor 对媒体返回的是普通 URLResponse（无状态码），
+        // 但 body 通常是完整的，所以按 size 判断即可。
+        // 万一拿不到 body，再退回直连 src（scheme handler 对媒体有 206 Range 支持）。
+        try {
+          await useBlob();
+        } catch (e1) {
+          console.warn('[GK] 原生 Blob 路径失败，改直连', e1 && e1.message);
+          await useDirect();
+        }
         return;
       }
-      const res = await fetch(`${LIB}${book.audio}`);
-      // 媒体文件在原生侧没有 HTTP 状态码，所以判据用 blob 大小而不是 res.ok
-      const blob = await res.blob();
-      if (blob.size < 1024) throw new Error(`音频响应异常 status=${res.status} size=${blob.size}`);
-      if (!state.book || state.book.id !== myBookId) return;   // 已切书/已关书，丢弃
-      if (audioUrl) URL.revokeObjectURL(audioUrl);
-      audioUrl = URL.createObjectURL(blob);
-      state.audioFile = book.audio;
-      audio.src = audioUrl;
-      audio.load();
-      applyRate();
-      state.audioStatus = 'ok';
+      await useBlob();
     } catch (e) {
       state.audioStatus = 'failed';
       console.warn('[GK] 音频加载失败', book.audio, e && e.message);
@@ -423,6 +442,30 @@ function finishRange() {
 audio.addEventListener('timeupdate', () => {
   if (state.stopAt === null) return;
   if (audio.currentTime >= state.stopAt || audio.ended) finishRange();
+});
+
+// 媒体层失败（文件缺失、解码失败、scheme 不支持）以前是**完全静默**的：
+// 点词不响、高亮挂着、也没有任何提示。这里统一收口并给出可读原因。
+const MEDIA_ERR = {
+  1: '加载被中止',
+  2: '网络错误',
+  3: '解码失败',
+  4: '格式不支持或文件缺失',
+};
+audio.addEventListener('error', () => {
+  const code = audio.error && audio.error.code;
+  const why = MEDIA_ERR[code] || `未知错误(${code})`;
+  console.warn('[GK] 媒体错误', why, audio.currentSrc || audio.src);
+  state.audioStatus = 'failed';
+  state.stopAt = null;
+  state.rangeB = null;
+  state.rangeDone = null;
+  cancelAnimationFrame(state.raf);
+  state.raf = 0;
+  clearPendingMeta();
+  clearHighlights();
+  setPlayIcon(false);
+  toast(`音频${why}`);
 });
 
 function stopPlayback() {
