@@ -1,9 +1,15 @@
 name: build-ios
 
-# 在 GitHub 的 macOS 机器上出一个**未签名**的 IPA，再由 SideStore 在 iPad 上用
+# 在 GitHub 的 macOS 机器上出一个**未签名** IPA，再由 SideStore 在 iPad 上用
 # 你自己的 Apple ID 重签安装。没有 Mac 也能走通这条路。
 #
-# 触发：手动（Actions → build-ios → Run workflow），或打 tag v* 自动跑。
+# 关键约束（都在本地用真实的 Capacitor 模板验证过）：
+#   · Capacitor 7 的 `cap add ios` 默认生成 SPM 工程（App.xcodeproj + CapApp-SPM），
+#     **没有 Podfile / App.xcworkspace**，所以不能无条件 pod install / -workspace
+#   · 模板的 Info.plist 里没有 UIStatusBarHidden / UIRequiresFullScreen，
+#     `plutil -replace` 会报错 —— 补丁脚本改用 python plistlib
+#   · 模板的 AppDelegate 是 `@UIApplicationMain` + `return true`，
+#     没有 `super.application(...)` 这个锚点
 
 on:
   workflow_dispatch:
@@ -12,12 +18,12 @@ on:
 
 jobs:
   build:
-    runs-on: macos-14
-    timeout-minutes: 40
+    runs-on: macos-14          # Xcode 15.x，满足模板要求 swift-tools-version 5.9
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
-          lfs: true            # library/ 走 Git LFS；不用 LFS 见文末备选方案
+          lfs: true
 
       - uses: actions/setup-node@v4
         with:
@@ -25,42 +31,59 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
 
-      - name: 检查资源是否齐全
+      - name: 检查素材
         run: |
-          test -f library/manifest.json || (echo "❌ 缺少 library/，先本地跑 tools/build_library.py 并提交" && exit 1)
-          ls library/books | head -3
+          set -e
+          test -f library/manifest.json || { echo "❌ 缺少 library/manifest.json"; exit 1; }
+          test -f app/package-lock.json || { echo "❌ 缺少 package-lock.json"; exit 1; }
+          echo "书籍数: $(python3 -c "import json;print(len(json.load(open('library/manifest.json'))['books']))")"
           du -sh library
 
       - name: 安装依赖
         working-directory: app
-        run: npm ci || npm install
+        run: npm ci --no-audit --no-fund
 
       - name: 组装 www
         working-directory: app
-        run: npm run www
+        run: |
+          node scripts/build-www.mjs
+          test -f www/index.html || { echo "❌ www/index.html 不存在"; exit 1; }
+          test -f www/library/manifest.json || { echo "❌ www 里没有 library"; exit 1; }
+          du -sh www
 
-      - name: 生成 iOS 工程
+      - name: 生成 / 同步 iOS 工程
         working-directory: app
         run: |
+          set -e
           if [ ! -d ios ]; then
             npx cap add ios
           fi
           npx cap sync ios
+          test -d ios/App/App || { echo "❌ ios/App/App 不存在"; exit 1; }
 
       - name: 打原生补丁（横屏 / 状态栏 / 音频会话）
         working-directory: app
         run: node scripts/patch-ios.mjs
 
-      - name: CocoaPods
+      - name: 解析依赖（SPM 或 CocoaPods，按工程实际形态）
         working-directory: app/ios/App
-        run: pod install --repo-update
+        run: |
+          set -e
+          if [ -f Podfile ]; then
+            echo "形态: CocoaPods"
+            pod install --repo-update
+            echo "XCODE_TARGET=-workspace App.xcworkspace" >> "$GITHUB_ENV"
+          else
+            echo "形态: SPM"
+            xcodebuild -resolvePackageDependencies -project App.xcodeproj -scheme App
+            echo "XCODE_TARGET=-project App.xcodeproj" >> "$GITHUB_ENV"
+          fi
 
       - name: 未签名构建
         working-directory: app/ios/App
         run: |
           set -o pipefail
-          xcodebuild \
-            -workspace App.xcworkspace \
+          xcodebuild $XCODE_TARGET \
             -scheme App \
             -configuration Release \
             -sdk iphoneos \
@@ -71,19 +94,19 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             ARCHS=arm64 \
             ONLY_ACTIVE_ARCH=NO \
-            build | tee xcodebuild.log | tail -40
+            build 2>&1 | tee xcodebuild.log | tail -60
 
       - name: 打包 IPA
         working-directory: app/ios/App
         run: |
+          set -e
           APP=$(find build/Build/Products/Release-iphoneos -maxdepth 1 -name '*.app' | head -1)
           echo "app: $APP"
-          test -n "$APP" || (echo "❌ 没找到 .app" && exit 1)
-          # Capacitor 把 webDir 的内容放到 App.app/public/ 下
-          echo "--- 包内 web 资源 ---"
-          du -sh "$APP/public" || (echo "❌ 包里没有 public/，webDir 配错了" && exit 1)
-          test -f "$APP/public/library/manifest.json" || (echo "❌ 包里没有 library/manifest.json" && exit 1)
-          test -f "$APP/public/app.js" || (echo "❌ 包里没有 app.js" && exit 1)
+          test -n "$APP" || { echo "❌ 没找到 .app"; tail -100 xcodebuild.log; exit 1; }
+          # Capacitor 把 webDir 拷到 App.app/public/
+          test -d "$APP/public" || { echo "❌ 包里没有 public/"; exit 1; }
+          test -f "$APP/public/library/manifest.json" || { echo "❌ 包里没有 library"; exit 1; }
+          du -sh "$APP" "$APP/public"
           rm -rf Payload && mkdir Payload
           cp -R "$APP" Payload/
           zip -qry ../gk-reader-unsigned.ipa Payload
@@ -97,9 +120,13 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-# ── 备选：不用 Git LFS ──────────────────────────────────────────────
-# library/ 约 94 MB，超过 GitHub 单文件 100MB 限制的只有极少数大图，整体可行；
-# 但每次改资源都会让仓库膨胀。若不想用 LFS：
-#   1) 把 library.zip 传到 Releases（或自己的对象存储）
-#   2) 删掉 checkout 的 lfs 选项
-#   3) 加一步 curl -L <url> -o library.zip && unzip -q library.zip
+      - name: 失败时留下日志
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs
+          path: |
+            app/ios/App/xcodebuild.log
+            app/ios/App/build/Logs
+          if-no-files-found: ignore
+          retention-days: 7
