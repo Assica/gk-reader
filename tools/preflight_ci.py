@@ -90,24 +90,42 @@ check("timeout 不超过 45 分钟", "timeout-minutes: 45" in wf or "timeout-min
 check("pod install 不再 --repo-update", "--repo-update" not in wf)
 check("artifact 保留 7 天（0.5 GB 配额）", "retention-days: 7" in wf)
 
-print("\n=== 5c. LFS 流量与探针（每月 1 GB，约 4 次构建）===")
-check("checkout 不再 lfs: true", "lfs: true" not in wf, "否则每次构建都拉 247 MB")
-check("有 library 缓存", "actions/cache" in wf and "path: library" in wf)
-check("指针/缓存未命中时才拉 LFS", "git lfs pull" in wf and ("探针是 LFS 指针" in wf or "缓存未命中" in wf))
-# 最关键的一条：探针必须是 LFS 文件。manifest.json 是普通 git 文件，永远以 { 开头，
-# 拿它当探针会永远判"已还原"，最终产出没图没声的 IPA，而构建却是绿的。
-check("LFS 探针用 covers/*.jpg（不是 manifest.json）",
-      "PROBE=library/covers/GK/001.jpg" in wf)
+print("\n=== 5c. library 从哪来（两种模式，按 workflow 实际写法判断）===")
+uses_release = "releases/tags" in wf or "ASSET_URL" in wf
+uses_lfs = "git lfs pull" in wf
+check("library 取用方式明确（Release 附件 或 LFS）", uses_release or uses_lfs,
+      f"release={uses_release} lfs={uses_lfs}")
+check("checkout 不再 lfs: true（大文件不该每次拉）", "lfs: true" not in wf)
 check("有 library 体积下限断言", 'LIB_MB" -ge 200' in wf)
 check("有 public 体积下限断言", 'PUB_MB" -ge 240' in wf)
 check("有 www 体积下限断言", 'WWW_MB" -ge 240' in wf)
-# 这条踩过：rm -rf library 会删掉 manifest.json / books/*.json（它们是普通 git 文件，
-# 不在 LFS 里），随后 git lfs pull 只恢复 jpg/m4a，构建就报"缺少 manifest"。
-# 只看真正执行的命令行，注释里提到不算。
-bad_rm = [ln for ln in wf.splitlines() if re.match(r"\s*rm -rf\s+library\b", ln)]
-check("没有真的执行 rm -rf library", not bad_rm, str(bad_rm[:2]))
-check("有非 LFS 文件兜底 checkout", "test -f \"$f\" || git checkout" in wf
-      or "test -f library/manifest.json || git checkout" in wf)
+check("有 manifest.json 存在性断言", "test -f library/manifest.json" in wf)
+check("有书籍数断言", "-ge 180" in wf or ">= 180" in wf)
+check("探针用 covers/*.jpg（不是 manifest.json）", "PROBE=library/covers/GK/001.jpg" in wf)
+
+if uses_release:
+    # Release 模式：必须先从仓库里删干净再解压，否则新旧文件混在一起；
+    # 且私有仓库的附件只能走 API（浏览器直链要登录）。
+    check("Release 模式：先清空再解压", re.search(r"rm -rf\s+library\s*&&\s*mkdir", wf) is not None,
+          "否则旧文件会和新解压的混在一起")
+    check("Release 模式：走 GitHub API 取附件", "api.github.com" in wf)
+    check("Release 模式：tag 有变量", "LIBRARY_TAG" in wf)
+    check("Release 模式：缺附件时明确报错", "找不到附件" in wf or "exit 1" in wf)
+else:
+    # LFS 模式：绝不能 rm -rf（manifest 与 books json 是普通 git 文件，删了 lfs pull 不恢复）
+    bad_rm = [ln for ln in wf.splitlines() if re.match(r"\s*rm -rf\s+library\b", ln)]
+    check("LFS 模式：没有真的执行 rm -rf library", not bad_rm, str(bad_rm[:2]))
+    check("LFS 模式：有非 LFS 文件兜底 checkout",
+          "test -f \"$f\" || git checkout" in wf or "test -f library/manifest.json || git checkout" in wf)
+
+# 本地仓库状态要和模式一致：Release 模式下 library 不该再被 git 跟踪
+tracked_lib = subprocess.run(["git", "ls-files", "library"], cwd=str(ROOT),
+                             capture_output=True, text=True, errors="replace").stdout.strip()
+if uses_release:
+    check("Release 模式：library 已不在 git 里", not tracked_lib,
+          f"仍跟踪 {len(tracked_lib.splitlines())} 个文件")
+else:
+    check("LFS 模式：library 在 git 里", bool(tracked_lib))
 
 print("\n=== 5d. 依赖树跨平台安全 ===")
 pkg_s = (APP / "package.json").read_text(encoding="utf-8")
