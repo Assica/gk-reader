@@ -38,7 +38,9 @@ const MUTATIONS = [
   },
   {
     id: 'M3', name: '音频永不自动停止', expect: 'T5f / T6 应红',
-    apply: (s) => s.replace('if (audio.currentTime >= state.stopAt || audio.ended) {', 'if (false) {'),
+    // 现在有两条停止路径（rAF 轮询 + timeupdate 兜底），只废掉一条不会改变行为，
+    // 必须把公共出口 finishRange 打瘫才能模拟"永不停止"
+    apply: (s) => s.replace('function finishRange() {', 'function finishRange() { return;'),
   },
   {
     id: 'M5', name: '词中心坐标整体右移 ≈40px（坐标错位）', expect: 'T4 真实命应红',
@@ -51,8 +53,9 @@ const MUTATIONS = [
   },
   {
     id: 'M8', name: '翻页时不暂停旧音频', expect: 'T7 应红',
-    apply: (s) => s.replace('state.stopAt = null;\n  audio.pause();\n  clearHighlights();',
-                           'state.stopAt = null;\n  clearHighlights();'),
+    // 必须命中 stopPlayback 内部那一处；playSentence 里也有相同三行，
+    // 按字面替换会打到无关代码上（实测因此漏检）
+    apply: (s) => s.replace(/(function stopPlayback\(\) \{[\s\S]*?)audio\.pause\(\);/, '$1'),
   },
   {
     id: 'M9', name: '语速只改按钮文字、不改实际速率', expect: 'T8 应红',

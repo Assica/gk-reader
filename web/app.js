@@ -147,7 +147,7 @@ async function openBook(id) {
       const res = await fetch(`${LIB}${book.audio}`);
       if (!res.ok) throw new Error(res.status);
       const blob = await res.blob();
-      if (state.book && state.book.id !== myBookId) return;   // 已切书，丢弃
+      if (!state.book || state.book.id !== myBookId) return;   // 已切书/已关书，丢弃
       if (audioUrl) URL.revokeObjectURL(audioUrl);
       audioUrl = URL.createObjectURL(blob);
       state.audioFile = book.audio;
@@ -488,6 +488,7 @@ function playSentence() {
   const box = document.querySelector('.sent-box');
   if (box) box.classList.add('lit');
 
+  setPlayIcon(true);   // 连播自动翻页时 showPage 会先置回播放图标，这里补回来
   playRange(p.audio[0], p.audio[1], () => {
     clearHighlights();
     if (!state.autoRun) return;

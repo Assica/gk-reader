@@ -476,10 +476,11 @@ const CASES = [
 
   ['T7', '播放中翻页 → 旧音频必须停', async () => {
     await gotoPage(2);
-    const s = await snap();
-    const c = wordCenter(s, 1);
-    await clickAt(c.x, c.y);
-    await sleep(200);
+    // 用"再读一遍"播整句，而不是点单个词：新对齐后词段中位只有 180ms，
+    // 点词 200ms 后可能已经播完，断言"翻页前在播"会假失败（实测 50% 概率）。
+    await js('document.getElementById("btnReplay").click()');
+    await until('window.__GK.audio.paused === false', '整句已开始播放', 3000);
+    await sleep(250);
     truthy('T7.1', '翻页前在播', (await snap()).paused === false, '');
     await js('document.getElementById("btnNext").click()');
     await sleep(220);
