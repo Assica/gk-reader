@@ -775,6 +775,9 @@ const CASES = [
       await gotoPage(2);
       eq('T17.3', '音频失败仍能正常翻页', await js('window.__GK.state.page'), 2);
       truthy('T17.4', '页图仍然渲染', await js('document.getElementById("pageImg").naturalWidth > 0'), true);
+      // 不清 src 的话，下一本书点句子会播上一本的声音（监工实测过）
+      eq('T17.5', '音频失败时清掉了 src（不会播上一本）',
+        await js('window.__GK.audio.getAttribute("src")'), null);
     } finally {
       fetchRules.length = 0;
       await send('Fetch.disable');

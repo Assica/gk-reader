@@ -20,6 +20,8 @@ const state = {
   autoRun: false,
   raf: 0,
   stopAt: null,
+  rangeB: null,
+  rangeDone: null,
   rate: 1,
   audioFile: null,
 };
@@ -126,6 +128,7 @@ async function openBook(id) {
 
   if (book.hasAudio === false || !book.audio) {
     state.audioFile = null;
+    if (audioUrl) { URL.revokeObjectURL(audioUrl); audioUrl = null; }
     audio.removeAttribute('src');
     return;
   }
@@ -145,6 +148,11 @@ async function openBook(id) {
     } catch (e) {
       toast('音频加载失败');
       state.audioFile = null;
+      // 必须清掉上一本的 src / blob：否则这本会播上一本的声音（实测过：
+      // 在 G1-002 里点句子听到的是 GK-001 的音频）
+      if (audioUrl) { URL.revokeObjectURL(audioUrl); audioUrl = null; }
+      audio.removeAttribute('src');
+      audio.load();
     }
   })();
   await audioReady;
@@ -344,10 +352,45 @@ function nearestWord(px, py, w, h) {
 }
 
 /* ───────────────────── 播放 ───────────────────── */
+// 挂在 window 上的"当前区间"状态：timeupdate 只注册一次，永远读这里，
+// 避免每次 playRange 都 add 一个闭包（旧闭包会调用旧 done → 高亮残留/连播链断）。
+let pendingMeta = null;
+
+function clearPendingMeta() {
+  if (pendingMeta) {
+    audio.removeEventListener('loadedmetadata', pendingMeta);
+    pendingMeta = null;
+  }
+}
+
+function finishRange() {
+  const b = state.rangeB;
+  if (b === null || state.stopAt !== b) return;
+  cancelAnimationFrame(state.raf);
+  state.raf = 0;
+  state.stopAt = null;
+  state.rangeB = null;
+  audio.pause();
+  clearPendingMeta();
+  const done = state.rangeDone;
+  state.rangeDone = null;
+  if (done) done();
+}
+
+// rAF 在 iOS 切后台/锁屏时可能停摆，只靠它 stopAt 不会触发；
+// timeupdate 由媒体管线驱动，前台与部分后台场景都会来，作为兜底。
+audio.addEventListener('timeupdate', () => {
+  if (state.stopAt === null) return;
+  if (audio.currentTime >= state.stopAt || audio.ended) finishRange();
+});
+
 function stopPlayback() {
   cancelAnimationFrame(state.raf);
   state.raf = 0;
   state.stopAt = null;
+  state.rangeB = null;
+  state.rangeDone = null;
+  clearPendingMeta();
   audio.pause();
   clearHighlights();
   setPlayIcon(false);
@@ -368,39 +411,31 @@ function setPlayIcon(on) {
 /** 播放 [a,b]；结束（或被打断）时回调 done。 */
 function playRange(a, b, done) {
   cancelAnimationFrame(state.raf);
+  clearPendingMeta();
   state.stopAt = b;
+  state.rangeB = b;
+  state.rangeDone = done || null;
   audioReady.then(() => {
     if (state.stopAt !== b) return;                  // 期间又被别的点击打断
-    const finish = () => {
-      if (state.stopAt === null) return;
-      audio.pause();
-      state.stopAt = null;
-      state.raf = 0;
-      done && done();
-    };
     const start = () => {
+      // 元数据晚到时可能已经翻页/换词了，这里必须再确认一次，
+      // 否则会在翻页之后突然开始播，而且没有任何停止条件
+      if (state.stopAt !== b) return;
       applyRate();
       try { audio.currentTime = a; } catch { /* ignore */ }
       audio.play().catch(() => toast('再点一次试试'));
       state.raf = requestAnimationFrame(tick);
     };
     const tick = () => {
-      if (state.stopAt === null) return;
-      if (audio.currentTime >= state.stopAt || audio.ended) { finish(); return; }
+      if (state.stopAt !== b) return;
+      if (audio.currentTime >= b || audio.ended) { finishRange(); return; }
       state.raf = requestAnimationFrame(tick);
     };
-    // rAF 在 iOS 切后台/锁屏时会停摆，只靠它的话 stopAt 永远不触发，
-    // 音频会把整本书播完。timeupdate 由媒体管线驱动，后台仍会来。
-    audio.addEventListener('timeupdate', onTimeUpdate);
-    function onTimeUpdate() {
-      if (state.stopAt === null) { audio.removeEventListener('timeupdate', onTimeUpdate); return; }
-      if (audio.currentTime >= state.stopAt || audio.ended) {
-        audio.removeEventListener('timeupdate', onTimeUpdate);
-        finish();
-      }
-    }
     if (audio.readyState >= 1) start();
-    else audio.addEventListener('loadedmetadata', start, { once: true });
+    else {
+      pendingMeta = start;
+      audio.addEventListener('loadedmetadata', start, { once: true });
+    }
   });
 }
 

@@ -110,6 +110,19 @@ check("lock 里没有 sharp", '"node_modules/sharp"' not in lock_s)
 check("lock 里没有带 install 脚本的包", '"hasInstallScript": true' not in lock_s)
 check("verify_ipa.py 已就位", (ROOT / "tools" / "verify_ipa.py").exists())
 
+print("\n=== 5e. app/www 是否是 web/ 的最新产物 ===")
+# 本地跑过 cap sync 却没重建 www，会把旧 app.js 打进包（CI 会重建，本地不会）
+www_js = APP / "www" / "app.js"
+src_js = ROOT / "web" / "app.js"
+if www_js.exists():
+    import hashlib
+    h1 = hashlib.sha256(www_js.read_bytes()).hexdigest()
+    h2 = hashlib.sha256(src_js.read_bytes()).hexdigest()
+    check("www/app.js 与 web/app.js 一致", h1 == h2,
+          "不一致：本地打包会发旧代码，先跑 node scripts/build-www.mjs")
+else:
+    print("   （www 不存在，跳过）")
+
 print("\n=== 6. 脚本里有没有 Windows 硬编码 ===")
 for f in ["scripts/build-www.mjs", "scripts/patch-ios.mjs", "scripts/patch_plist.py"]:
     t = (APP / f).read_text(encoding="utf-8")
