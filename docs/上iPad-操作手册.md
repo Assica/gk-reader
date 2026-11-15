@@ -44,7 +44,7 @@ python tools/serve.py --port 8787 --dir "E:\apple app"
 
 1. 打开 **Actions** → 左侧 `build-ios` → **Run workflow**
    （或者打 tag 自动触发：`git tag v0.1.0 && git push --tags`）
-2. 等 10–15 分钟。跑在 GitHub 的 macOS 机器上（`macos-15`）
+2. 等 2–3 分钟（实测 **2 分 26 秒**）。跑在 GitHub 的 macOS 机器上（`macos-15`）
 3. 在该次运行的页面底部 **Artifacts** 下载 `gk-reader-ipa`，解压得到 **`gk-reader-unsigned.ipa`**
 
 **这个 IPA 是未签名的**，双击装不了——下一步用 Sideloadly 签。
@@ -250,7 +250,8 @@ git push && git push --tags
 | Git 仓库 | ✅ [Assica/gk-reader](https://github.com/Assica/gk-reader)（private）；`library/` **不进仓库**，走 Release 附件 |
 | Capacitor 工程骨架 + 构建脚本 | ✅ 已就位（`app/`，bundle id `com.gkreader.app`） |
 | 原生补丁（横屏 / 状态栏 / 音频会话） | ✅ `app/scripts/patch-ios.mjs`，构建时自动打 |
-| GitHub Actions 出未签名 IPA | ⚠️ 已写好（`.github/workflows/ios.yml`），**尚未实跑过** |
+| GitHub Actions 出未签名 IPA | ✅ **已实跑通过**（2026-11-15，2 分 26 秒；产物 240.17 MB） |
+| IPA 产物自检 | ✅ `com.gkreader.app`、仅横屏、状态栏隐藏、180 本、2174 个 library 文件 / 246.8 MB、无签名（符合预期） |
 | 构建额度 | ✅ LFS 已解除；剩 Actions 分钟（≈8–13 次/月）+ 产物存储（500 MB） |
 | **实际在 iPad 上装一次** | ❌ 待做（iPadOS 18.7.8，走路线 A） |
 | 跟读录音 / 生词本 / 闯关 | ❌ 功能未做 |
