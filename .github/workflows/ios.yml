@@ -140,16 +140,28 @@ jobs:
             || { echo "❌ scheme 没写出来"; exit 1; }
 
       - name: 图标与启动图（纯拷贝，不用 sharp）
+        working-directory: app
         run: |
           set -e
-          ICON=ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png
+          # 路径相对 app/（模板生成在 app/ios）。Capacitor 模板换代时名字可能变，
+          # 所以下面都做兜底：优先用已知路径，找不到就扫 *.appiconset / Splash.imageset。
+          ICON_DIR=ios/App/App/Assets.xcassets/AppIcon.appiconset
+          ICON_PNG=AppIcon-512@2x.png
           SPL=ios/App/App/Assets.xcassets/Splash.imageset
-          cp app/resources/icon.png "$ICON"
+          ASSETS=ios/App/App/Assets.xcassets
+          [ -d "$ICON_DIR" ] || ICON_DIR=$(find "$ASSETS" -maxdepth 1 -name '*.appiconset' | head -1)
+          [ -d "$SPL" ] || SPL=$(find "$ASSETS" -maxdepth 1 -name '*Splash*.imageset' | head -1)
+          test -n "$ICON_DIR" && test -d "$ICON_DIR" || {
+            echo "❌ 找不到 appiconset，实际结构："; find "$ASSETS" -maxdepth 2 -type d | head -30; exit 1; }
+          test -n "$SPL" && test -d "$SPL" || {
+            echo "❌ 找不到 Splash imageset，实际结构："; find "$ASSETS" -maxdepth 2 -type d | head -30; exit 1; }
+          [ -f "$ICON_DIR/$ICON_PNG" ] || ICON_PNG=$(cd "$ICON_DIR" && ls *.png | head -1)
+          cp resources/icon.png "$ICON_DIR/$ICON_PNG"
           for n in splash-2732x2732.png splash-2732x2732-1.png splash-2732x2732-2.png; do
-            cp app/resources/splash.png "$SPL/$n"
+            cp resources/splash.png "$SPL/$n"
           done
-          file "$ICON" | grep -qi 'PNG' || { echo "❌ 图标拷贝失败"; exit 1; }
-          ls -l "$ICON" "$SPL"
+          file "$ICON_DIR/$ICON_PNG" | grep -qi 'PNG' || { echo "❌ 图标拷贝失败"; exit 1; }
+          echo "icon = $ICON_DIR/$ICON_PNG"; ls -l "$ICON_DIR/$ICON_PNG"; ls -l "$SPL"
 
       - name: 解析依赖（CocoaPods / SPM 按实际形态）
         working-directory: app/ios/App
