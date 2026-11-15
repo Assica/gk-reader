@@ -49,12 +49,14 @@ python tools/serve.py --port 8787 --dir "E:\apple app"
 
 **这个 IPA 是未签名的**，双击装不了——下一步用 Sideloadly 签。
 
-> **额度怎么算**（2026-11 更新）：`library/` 已经**移出仓库**，打包成 `library.zip`（239 MB）挂在 [Release](https://github.com/Assica/gk-reader/releases/tag/library-data-v1)，CI 用 GitHub API 下载解压。所以**不再消耗 Git LFS 带宽，也不占 Actions 缓存**。现在只剩两本账：
+> **额度怎么算**（以实际 pipeline 为准）：`library/` 走 **Git LFS**（1806 个对象 / 247 MB），
+> 仓库里检出时用 `lfs: false` + `actions/cache` 缓存，**只有缓存未命中才拉 LFS**。
 >
 > | 额度 | 免费（私有仓库） | 单次消耗 | 折算 |
 > |---|---|---|---|
-> | Actions 分钟 | 2,000 分钟/月 | macOS 按 **10×** 计费 | 约 **8–13 次/月** |
-> | Actions 产物存储 | 500 MB | 一个 IPA ≈ 255 MB | 约 1–2 个产物（保留 7 天） |
+> | Actions 分钟 | 2,000 分钟/月 | macOS 按 **10×** 计费，一次约 15–25 分钟 | 约 **8–13 次/月** |
+> | Actions 产物存储 | 500 MB | 一个 IPA ≈ 240–260 MB，保留 7 天 | 约 1–2 个产物 |
+> | Git LFS 带宽 | 1 GB/月 | 缓存未命中时才拉 247 MB | 约 **4 次/月**（缓存命中则不消耗） |
 >
 > 真要彻底免费只有一条路：把仓库改成 public（standard runner 不计分钟）——但那会公开 180 本绘本素材，版权上不建议。
 
@@ -94,7 +96,7 @@ Sideloadly 是**装在电脑上的**桌面程序，在电脑上完成签名，�
 2. 打开 Sideloadly → 把 `gk-reader-unsigned.ipa` **拖进 IPA 框**
 3. `Apple account` 填你的 Apple ID（**免费账号就行，不需要开发者账号、不需要美区**）
 4. 安装方式保持默认的 **Apple ID sideload** → 点 **Start**
-   93.6 MB 的包，USB 推过去大约 1–3 分钟
+   **约 240–260 MB** 的包，USB 推过去大约 2–5 分钟
 
 ### 2.4 首次打开前必须做的两步
 
@@ -235,9 +237,9 @@ git push && git push --tags
 
 然后重新下载 IPA → 用 Sideloadly 覆盖安装（**保留数据**）。
 
-> 提醒：每次构建会从 Release 下载 239 MB 附件（不占 LFS 额度，但占构建时间），产物另有 255 MB 存储。频繁改动时先在电脑上用浏览器验（0.1），验好了再出包。
+> 提醒：LFS 缓存未命中时每次构建要拉 247 MB（1 GB/月只够 4 次），产物另有 250 MB 存储。频繁改动时先在电脑上用浏览器验（见 0.1），验好了再出包。
 >
-> **资源包怎么更新**：改了 `library/` 之后，重新打一个 zip 发到 Release 的**新 tag**（`library-data-v2` …），再把 `.github/workflows/ios.yml` 里的 `LIBRARY_TAG` 改成新 tag。仓库里不再有 `library/`。
+> **资源怎么更新**：改了 library/ 正常提交即可（走 LFS）；CI 缓存键跟着 manifest 与 books json 的哈希自动失效，下次构建会重拉一次。
 
 ---
 
@@ -246,7 +248,7 @@ git push && git push --tags
 | 项 | 状态 |
 |---|---|
 | Web 内核（书架 / 阅读器 / 点读 / 连播 / 语速） | ✅ 用例已扩到 T1–T20，判定看输出里 `RESULT pass=N fail=0` |
-| `library/` 资源 | ✅ **180 本 / 1443 页 / 180 段音频**，247 MB（GK 70 + G1 110），打包为 Release 附件 [library-data-v1](https://github.com/Assica/gk-reader/releases/tag/library-data-v1) |
+| `library/` 资源 | ✅ **180 本 / 1443 页 / 180 段音频**，247 MB（GK 70 + G1 110），**在仓库里走 Git LFS** |
 | Git 仓库 | ✅ [Assica/gk-reader](https://github.com/Assica/gk-reader)（private）；`library/` **不进仓库**，走 Release 附件 |
 | Capacitor 工程骨架 + 构建脚本 | ✅ 已就位（`app/`，bundle id `com.gkreader.app`） |
 | 原生补丁（横屏 / 状态栏 / 音频会话） | ✅ `app/scripts/patch-ios.mjs`，构建时自动打 |
