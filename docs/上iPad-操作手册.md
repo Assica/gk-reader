@@ -253,6 +253,6 @@ git push && git push --tags
 | 原生补丁（横屏 / 状态栏 / 音频会话） | ✅ `app/scripts/patch-ios.mjs`，构建时自动打 |
 | GitHub Actions 出未签名 IPA | ✅ **已实跑通过**（2026-11-15，2 分 26 秒；产物 240.17 MB） |
 | IPA 产物自检 | ✅ `com.gkreader.app`、仅横屏、状态栏隐藏、180 本、2174 个 library 文件 / 246.8 MB、无签名（符合预期） |
-| 构建额度 | ✅ LFS 已解除；剩 Actions 分钟（≈8–13 次/月）+ 产物存储（500 MB） |
+| 构建额度 | ✅ 仓库已 public，Actions 分钟不计费；LFS 已解除；只剩产物存储 500 MB（1 个 IPA 240 MB，保留 7 天） |
 | **实际在 iPad 上装一次** | ❌ 待做（iPadOS 18.7.8，走路线 A） |
 | 跟读录音 / 生词本 / 闯关 | ❌ 功能未做 |
