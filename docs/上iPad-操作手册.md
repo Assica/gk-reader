@@ -64,7 +64,7 @@ python tools/serve.py --port 8787 --dir "E:\apple app"
 
 | 报错 | 原因 |
 |---|---|
-| `找不到附件 library.zip` | Release tag 写错，或 token 没有 contents 读权限 |
+| `缺少 library/manifest.json` | 拉 LFS 时不要 `rm -rf library`——manifest 与 books json 是普通 git 文件，删了 `git lfs pull` 不会恢复 |
 | `没找到 .app` | 看日志尾部 `xcodebuild.log`，多半是 pod 没装好 |
 | `包里没有 library/manifest.json` | `app/scripts/build-www.mjs` 没把 `library/` 拷进 `www/` |
 
