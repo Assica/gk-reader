@@ -41,10 +41,17 @@ jobs:
           # 拿它当探针会永远判"已还原"，产出一个没图没声的 IPA。
           PROBE=library/covers/GK/001.jpg
           if head -c 64 "$PROBE" | grep -q 'version https://git-lfs'; then
-            echo "→ 探针是 LFS 指针：缓存未命中，从 LFS 拉取（约 247 MB 流量）"
-            rm -rf library
+            echo "→ 探针是 LFS 指针：从 LFS 拉取（约 247 MB 流量）"
+            # 千万不要 rm -rf library 再拉：
+            # manifest.json / books/*.json 是普通 git 文件，不在 LFS 里，
+            # 删掉之后 git lfs pull 不会把它们恢复，构建会报"缺少 manifest"。
             git lfs pull --include="library/**"
           fi
+          # 兜底：非 LFS 文件若因任何原因缺失，从 git 取回
+          for f in library/manifest.json $(git ls-files 'library/books/*/*.json' | head -1); do
+            test -f "$f" || git checkout -- "$f"
+          done
+          test -f library/manifest.json || { echo "❌ library/manifest.json 不存在"; exit 1; }
           if head -c 64 "$PROBE" | grep -q 'version https://git-lfs'; then
             echo "❌ library 仍是 LFS 指针，资源没拉到"; exit 1
           fi

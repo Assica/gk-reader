@@ -93,7 +93,7 @@ check("artifact 保留 7 天（0.5 GB 配额）", "retention-days: 7" in wf)
 print("\n=== 5c. LFS 流量与探针（每月 1 GB，约 4 次构建）===")
 check("checkout 不再 lfs: true", "lfs: true" not in wf, "否则每次构建都拉 247 MB")
 check("有 library 缓存", "actions/cache" in wf and "path: library" in wf)
-check("缓存未命中才拉 LFS", "git lfs pull" in wf and "缓存未命中" in wf)
+check("指针/缓存未命中时才拉 LFS", "git lfs pull" in wf and ("探针是 LFS 指针" in wf or "缓存未命中" in wf))
 # 最关键的一条：探针必须是 LFS 文件。manifest.json 是普通 git 文件，永远以 { 开头，
 # 拿它当探针会永远判"已还原"，最终产出没图没声的 IPA，而构建却是绿的。
 check("LFS 探针用 covers/*.jpg（不是 manifest.json）",
@@ -101,6 +101,13 @@ check("LFS 探针用 covers/*.jpg（不是 manifest.json）",
 check("有 library 体积下限断言", 'LIB_MB" -ge 200' in wf)
 check("有 public 体积下限断言", 'PUB_MB" -ge 240' in wf)
 check("有 www 体积下限断言", 'WWW_MB" -ge 240' in wf)
+# 这条踩过：rm -rf library 会删掉 manifest.json / books/*.json（它们是普通 git 文件，
+# 不在 LFS 里），随后 git lfs pull 只恢复 jpg/m4a，构建就报"缺少 manifest"。
+# 只看真正执行的命令行，注释里提到不算。
+bad_rm = [ln for ln in wf.splitlines() if re.match(r"\s*rm -rf\s+library\b", ln)]
+check("没有真的执行 rm -rf library", not bad_rm, str(bad_rm[:2]))
+check("有非 LFS 文件兜底 checkout", "test -f \"$f\" || git checkout" in wf
+      or "test -f library/manifest.json || git checkout" in wf)
 
 print("\n=== 5d. 依赖树跨平台安全 ===")
 pkg_s = (APP / "package.json").read_text(encoding="utf-8")
