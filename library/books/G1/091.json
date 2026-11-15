@@ -9,7 +9,7 @@
  "duration": 158.63,
  "pageCount": 8,
  "aligned": true,
- "alignMethod": "window",
+ "alignMethod": "book",
  "hasAudio": true,
  "segments": [
   [
@@ -107,8 +107,8 @@
    "textBox": null,
    "wordBoxes": null,
    "audio": [
-    32.88,
-    40.81
+    0.62,
+    26.16
    ]
   },
   {
@@ -120,8 +120,8 @@
    "textBox": null,
    "wordBoxes": null,
    "audio": [
-    42.09,
-    48.15
+    28.02,
+    52.7
    ]
   },
   {
@@ -133,8 +133,8 @@
    "textBox": null,
    "wordBoxes": null,
    "audio": [
-    49.72,
-    52.59
+    54.66,
+    72.5
    ]
   },
   {
@@ -146,8 +146,8 @@
    "textBox": null,
    "wordBoxes": null,
    "audio": [
-    54.73,
-    66.06
+    74.56,
+    85.84
    ]
   },
   {
@@ -159,8 +159,8 @@
    "textBox": null,
    "wordBoxes": null,
    "audio": [
-    67.22,
-    72.27
+    87.34,
+    100.82
    ]
   },
   {
@@ -172,8 +172,8 @@
    "textBox": null,
    "wordBoxes": null,
    "audio": [
-    74.73,
-    82.58
+    102.58,
+    133.94
    ]
   },
   {
@@ -185,8 +185,8 @@
    "textBox": null,
    "wordBoxes": null,
    "audio": [
-    83.77,
-    85.88
+    135.18,
+    153.08
    ]
   },
   {
@@ -250,8 +250,34 @@
     ]
    },
    "audio": [
-    87.49,
-    91.51
+    154.62,
+    157.6
+   ],
+   "wordTimes": [
+    [
+     0.18,
+     0.48
+    ],
+    [
+     0.58,
+     0.96
+    ],
+    [
+     1.24,
+     1.36
+    ],
+    [
+     1.44,
+     1.66
+    ],
+    [
+     1.72,
+     1.84
+    ],
+    [
+     2.24,
+     2.8
+    ]
    ]
   }
  ]

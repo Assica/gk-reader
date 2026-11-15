@@ -533,7 +533,7 @@ const CASES = [
     const pc = (await snap()).pageCount;
     const seen = [];
     for (let i = 1; i < pc; i++) {
-      await until(`window.__GK.state.page === ${i}`, `自动翻到第 ${i + 1} 页`, 9000);
+      await until(`window.__GK.state.page === ${i}`, `自动翻到第 ${i + 1} 页`, 25000);
       seen.push(i);
     }
     eq('T9.2', '页码逐页走完', seen, Array.from({ length: pc - 1 }, (_, i) => i + 1));

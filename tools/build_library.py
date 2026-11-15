@@ -78,6 +78,8 @@ _TRANS = str.maketrans(CHAR_MAP)
 
 # 印前批注行：只删这一类行，不要整页清空。
 # 事故：GK-045 p4/p5/p8 和 G1-080 p4 被整页清空，把真正文一起删了。
+# 版权水印（实测 22 页的 text 就是 "Heinem ann"，点句子栏念的是水印）
+WATERMARK = re.compile(r"heinem\s*ann|heinemann|©\s*\d{4}|copyright", re.I)
 BAD_LINE = re.compile(
     r"interior art|art\s*page|adjust|overall:|delete|\.indd|^\s*\d+\s*$|^\s*isbn", re.I)
 
@@ -88,7 +90,8 @@ def normalize_chars(s: str) -> str:
 
 
 def strip_annotation_lines(raw: str) -> str:
-    keep = [ln for ln in (raw or "").splitlines() if not BAD_LINE.search(ln)]
+    keep = [ln for ln in (raw or "").splitlines()
+            if not BAD_LINE.search(ln) and not WATERMARK.search(ln)]
     return "\n".join(keep)
 
 

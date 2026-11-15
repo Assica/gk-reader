@@ -24,6 +24,7 @@ const state = {
   rangeDone: null,
   rate: 1,
   audioFile: null,
+  audioStatus: 'none',        // none | loading | ok | failed
 };
 
 const audio = new Audio();
@@ -115,7 +116,11 @@ async function openBook(id) {
   if (!book) { toast('这本书打不开'); return; }
 
   state.book = book;
-  state.page = Math.min(Math.max(progress()[id] ?? 0, 0), book.pageCount - 1);
+  // 进度值可能被写坏（非数字/越界）→ 不校验会得到 NaN，showPage(NaN) 直接 return，
+  // 结果书架已隐藏、阅读器是空白的，翻页也没反应
+  const savedRaw = progress()[id];
+  const saved = Number.isInteger(savedRaw) ? savedRaw : 0;
+  state.page = Math.min(Math.max(saved, 0), book.pageCount - 1);
 
   $('rTitle').textContent = `${book.series} ${book.no} · ${book.title}`;
   $('dots').innerHTML = '<i></i>'.repeat(book.pageCount);
@@ -128,24 +133,30 @@ async function openBook(id) {
 
   if (book.hasAudio === false || !book.audio) {
     state.audioFile = null;
+    state.audioStatus = 'none';
     if (audioUrl) { URL.revokeObjectURL(audioUrl); audioUrl = null; }
     audio.removeAttribute('src');
     return;
   }
 
   // 音频取成 Blob：不依赖服务器 Range，WKWebView 里同样可以 seek
+  state.audioStatus = 'loading';
+  const myBookId = book.id;                 // 慢网络下用来丢弃过期响应
   audioReady = (async () => {
     try {
       const res = await fetch(`${LIB}${book.audio}`);
       if (!res.ok) throw new Error(res.status);
       const blob = await res.blob();
+      if (state.book && state.book.id !== myBookId) return;   // 已切书，丢弃
       if (audioUrl) URL.revokeObjectURL(audioUrl);
       audioUrl = URL.createObjectURL(blob);
       state.audioFile = book.audio;
       audio.src = audioUrl;
       audio.load();
       applyRate();
+      state.audioStatus = 'ok';
     } catch (e) {
+      state.audioStatus = 'failed';
       toast('音频加载失败');
       state.audioFile = null;
       // 必须清掉上一本的 src / blob：否则这本会播上一本的声音（实测过：
@@ -190,6 +201,12 @@ function showPage(i, autoplay = false) {
     layoutOverlay(p);
     requestAnimationFrame(() => layoutOverlay(p));
   });
+  // 首开时 .screen 有一个 220ms 的 scale 过渡，过渡期间读到的矩形还没到最终尺寸，
+  // 造成 overlay 与页图错位 8–17px（翻页后反而正常）。
+  // transitionend 可能因为元素初始就是可见而不触发，所以再加一个 300ms 兜底。
+  setTimeout(() => {
+    if (state.book) layoutOverlay(state.book.pages[state.page]);
+  }, 300);
   // 页图加载失败时 onload 永不触发，overlay 就永远不布局 —— 表现为"点图没反应"。
   // 明确提示，别让它变成无声的坏页。
   img.onerror = () => {
@@ -412,6 +429,19 @@ function setPlayIcon(on) {
 function playRange(a, b, done) {
   cancelAnimationFrame(state.raf);
   clearPendingMeta();
+  // 音频没加载成功时不要进入"等元数据"分支：那个事件永远不会来，
+  // 结果是高亮和播放键永久卡住（点词亮着但没声音，播放键显示成暂停）。
+  // 注意只能用 failed/none：loading 时必须继续排队等 audioReady，
+  // 否则弱网首屏点词会被误判成"音频不可用"而丢失。
+  if (state.audioStatus === 'failed' || state.audioStatus === 'none') {
+    state.stopAt = null;
+    state.rangeB = null;
+    state.rangeDone = null;
+    clearHighlights();
+    setPlayIcon(false);
+    toast('这本书的音频不可用');
+    return;
+  }
   state.stopAt = b;
   state.rangeB = b;
   state.rangeDone = done || null;
@@ -454,7 +484,6 @@ function playSentence() {
   state.stopAt = null;
   audio.pause();
   clearHighlights();
-
   document.querySelectorAll('.sentence .w').forEach((n) => n.classList.add('on'));
   const box = document.querySelector('.sent-box');
   if (box) box.classList.add('lit');
@@ -475,6 +504,10 @@ function playSentence() {
 
 function playWord(k) {
   if (!state.book) return;
+  // 手动点词=用户接管，必须退出连播模式；否则词播完后连播链还会自动翻页，
+  // 表现为"点了个词，图标还是暂停、然后自己翻页了"
+  state.autoRun = false;
+  setPlayIcon(false);
   const p = state.book.pages[state.page];
   const n = pageWords(p).length;
   // 词级时间戳必须与当前页的词一一对应，否则回落到整句
