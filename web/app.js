@@ -365,6 +365,13 @@ function playRange(a, b, done) {
   state.stopAt = b;
   audioReady.then(() => {
     if (state.stopAt !== b) return;                  // 期间又被别的点击打断
+    const finish = () => {
+      if (state.stopAt === null) return;
+      audio.pause();
+      state.stopAt = null;
+      state.raf = 0;
+      done && done();
+    };
     const start = () => {
       applyRate();
       try { audio.currentTime = a; } catch { /* ignore */ }
@@ -373,19 +380,30 @@ function playRange(a, b, done) {
     };
     const tick = () => {
       if (state.stopAt === null) return;
-      if (audio.currentTime >= state.stopAt || audio.ended) {
-        audio.pause();
-        state.stopAt = null;
-        state.raf = 0;
-        done && done();
-        return;
-      }
+      if (audio.currentTime >= state.stopAt || audio.ended) { finish(); return; }
       state.raf = requestAnimationFrame(tick);
     };
+    // rAF 在 iOS 切后台/锁屏时会停摆，只靠它的话 stopAt 永远不触发，
+    // 音频会把整本书播完。timeupdate 由媒体管线驱动，后台仍会来。
+    audio.addEventListener('timeupdate', onTimeUpdate);
+    function onTimeUpdate() {
+      if (state.stopAt === null) { audio.removeEventListener('timeupdate', onTimeUpdate); return; }
+      if (audio.currentTime >= state.stopAt || audio.ended) {
+        audio.removeEventListener('timeupdate', onTimeUpdate);
+        finish();
+      }
+    }
     if (audio.readyState >= 1) start();
     else audio.addEventListener('loadedmetadata', start, { once: true });
   });
 }
+
+// 切后台/锁屏时立刻停：既不打扰别人，也避免回来时状态错乱
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    stopAuto();
+  }
+});
 
 function playSentence() {
   if (!state.book) return;

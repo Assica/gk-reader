@@ -79,25 +79,36 @@ check("产物路径一致", "app/ios/gk-reader-unsigned.ipa" in wf and "../gk-re
 bad_paths = re.findall(r"[A-Za-z]:\\\\|E:\\\\apple", wf)
 check("workflow 里没有 Windows 绝对路径", not bad_paths, str(bad_paths[:3]))
 
-print("\n=== 5b. CI 平台与步骤（监工抓到的坑）===")
+print("\n=== 5b. CI 平台与步骤（监工/专家抓到的坑）===")
 check("runner 不是已退役的 macos-14", "runs-on: macos-14" not in wf,
       "macOS 14 镜像 2026-11-02 已退役，job 不会被接走")
 check("runner 是 macos-15 或更新", "runs-on: macos-15" in wf or "runs-on: macos-26" in wf)
-check("有 scheme 兜底步骤", "XCScheme.share_scheme" in wf or "recreate_user_schemes" in wf)
-check("有图标生成步骤", "npm run assets" in wf)
-check("assets 脚本用 = 形式传颜色",
-      "--iconBackgroundColor=#" in (APP / "package.json").read_text(encoding="utf-8"),
-      "带引号会被 Windows cmd 当成值的一部分")
-check("timeout 不超过 45 分钟", "timeout-minutes: 45" in wf or "timeout-minutes: 40" in wf
-      or "timeout-minutes: 35" in wf)
+check("有共享 scheme 生成步骤", "make_scheme.py" in wf)
+check("scheme 用 JSON 校验（不靠 grep \\s）", "-list -json" in wf)
+check("图标改纯拷贝（不依赖 sharp）", "AppIcon-512@2x.png" in wf)
+check("timeout 不超过 45 分钟", "timeout-minutes: 45" in wf or "timeout-minutes: 40" in wf)
 check("pod install 不再 --repo-update", "--repo-update" not in wf)
+check("artifact 保留 7 天（0.5 GB 配额）", "retention-days: 7" in wf)
 
-print("\n=== 5c. LFS 流量控制（每月 1 GB，约 4 次构建）===")
+print("\n=== 5c. LFS 流量与探针（每月 1 GB，约 4 次构建）===")
 check("checkout 不再 lfs: true", "lfs: true" not in wf, "否则每次构建都拉 247 MB")
 check("有 library 缓存", "actions/cache" in wf and "path: library" in wf)
 check("缓存未命中才拉 LFS", "git lfs pull" in wf and "缓存未命中" in wf)
-check("校验 manifest 不是 LFS 指针", "LFS 指针" in wf)
-check("校验图标是真 PNG", "file app/resources/icon.png" in wf)
+# 最关键的一条：探针必须是 LFS 文件。manifest.json 是普通 git 文件，永远以 { 开头，
+# 拿它当探针会永远判"已还原"，最终产出没图没声的 IPA，而构建却是绿的。
+check("LFS 探针用 covers/*.jpg（不是 manifest.json）",
+      "PROBE=library/covers/GK/001.jpg" in wf)
+check("有 library 体积下限断言", 'LIB_MB" -ge 200' in wf)
+check("有 public 体积下限断言", 'PUB_MB" -ge 240' in wf)
+check("有 www 体积下限断言", 'WWW_MB" -ge 240' in wf)
+
+print("\n=== 5d. 依赖树跨平台安全 ===")
+pkg_s = (APP / "package.json").read_text(encoding="utf-8")
+check("已移除 @capacitor/assets（它带 sharp）", "@capacitor/assets" not in pkg_s)
+lock_s = (APP / "package-lock.json").read_text(encoding="utf-8")
+check("lock 里没有 sharp", '"node_modules/sharp"' not in lock_s)
+check("lock 里没有带 install 脚本的包", '"hasInstallScript": true' not in lock_s)
+check("verify_ipa.py 已就位", (ROOT / "tools" / "verify_ipa.py").exists())
 
 print("\n=== 6. 脚本里有没有 Windows 硬编码 ===")
 for f in ["scripts/build-www.mjs", "scripts/patch-ios.mjs", "scripts/patch_plist.py"]:

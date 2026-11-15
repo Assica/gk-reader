@@ -3,14 +3,14 @@ name: build-ios
 # 在 GitHub 的 macOS 机器上出一个**未签名** IPA，再由 SideStore 在 iPad 上用
 # 你自己的 Apple ID 重签安装。没有 Mac 也能走通这条路。
 #
-# 事实核对（用 `npx cap add ios` 的真实产物验过，不是猜）：
-#   · Capacitor 7 的 `cap add ios` 默认生成 **CocoaPods** 工程
-#     （有 Podfile + App.xcworkspace；SPM 模板只有手动指定才用）
-#   · 模板的 Info.plist **没有** UIStatusBarHidden / UIRequiresFullScreen，
-#     `plutil -replace` 会报错 —— 补丁改用 python plistlib
-#   · 模板的 AppDelegate 是 `@UIApplicationMain` + `return true`，
-#     **没有** `super.application(...)` 锚点
-#   · 模板不带 .xcscheme，`-scheme App` 可能找不到 —— 见"准备 scheme"步骤
+# 每条设计都对应一个踩过的坑（都在本地用真实 Capacitor 模板验证过）：
+#   · cap add ios 默认生成 CocoaPods 工程（有 Podfile + App.xcworkspace）
+#   · 模板 Info.plist 没有 UIStatusBarHidden / UIRequiresFullScreen，plutil -replace 会报错
+#   · 模板 AppDelegate 没有 super.application 锚点
+#   · 模板**不带 .xcscheme**，-scheme App 会失败 → 自己写一份共享 scheme
+#   · library 里 .json 不是 LFS 文件，拿它当探针会永远判"已还原" →
+#     构建成功但 IPA 里全是 130 字节指针（没图没声）→ 探针必须用 .jpg
+#   · 私有仓库 macOS 按 10 倍计费，artifact 存储 0.5 GB
 
 on:
   workflow_dispatch:
@@ -19,46 +19,48 @@ on:
 
 jobs:
   build:
-    # macOS 14 镜像已于 2026-11-02 退役，必须用 15 及以上
-    runs-on: macos-15
+    runs-on: macos-15          # macOS 14 镜像已于 2026-11-02 退役
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
-          # 先不拉 LFS：library 有 247 MB，每次 checkout 都拉会吃掉每月 1 GB 的
-          # LFS 流量（约 4 次构建就没了）。改成"缓存命中就不拉"。
+          # 先不拉 LFS：library 有 247 MB，每次 checkout 都拉会吃掉每月 1 GB
+          # 的 LFS 流量（约 4 次构建就没了）
           lfs: false
 
       - name: 还原 library（缓存优先）
         uses: actions/cache@v4
         with:
           path: library
-          # 缓存键跟着 manifest + 所有 book.json 的 LFS 指针走：
-          # 内容不变就一直命中；资源一变就自动失效。
           key: library-${{ hashFiles('library/manifest.json', 'library/books/**/*.json') }}
 
-      - name: 必要时从 LFS 拉取 library（会消耗流量）
+      - name: 还原 library 内容（必要时从 LFS 拉）
         run: |
           set -e
-          # LFS 指针文件以 "version https://git-lfs" 开头；真 JSON 以 { 开头
-          if head -c 64 library/manifest.json | grep -q '^{'; then
-            echo "✓ 缓存命中，library 已是真实文件"
-          else
-            echo "→ 缓存未命中，从 LFS 拉取 library/（本次会消耗约 247 MB 流量）"
+          # 探针必须是 LFS 文件。manifest.json 是普通 git 文件，永远以 { 开头，
+          # 拿它当探针会永远判"已还原"，产出一个没图没声的 IPA。
+          PROBE=library/covers/GK/001.jpg
+          if head -c 64 "$PROBE" | grep -q 'version https://git-lfs'; then
+            echo "→ 探针是 LFS 指针：缓存未命中，从 LFS 拉取（约 247 MB 流量）"
             rm -rf library
             git lfs pull --include="library/**"
           fi
-          head -c 64 library/manifest.json | grep -q '^{' \
-            || { echo "❌ library/manifest.json 仍是 LFS 指针，资源没拉到"; exit 1; }
-          du -sh library
+          if head -c 64 "$PROBE" | grep -q 'version https://git-lfs'; then
+            echo "❌ library 仍是 LFS 指针，资源没拉到"; exit 1
+          fi
+          LIB_MB=$(du -sm library | cut -f1)
+          echo "library = ${LIB_MB} MB"
+          [ "$LIB_MB" -ge 200 ] || { echo "❌ library 只有 ${LIB_MB} MB（应 ≥200）"; exit 1; }
+          file "$PROBE" | grep -qi 'JPEG' || { echo "❌ 探针不是有效 JPEG"; exit 1; }
 
-      - name: 拉取图标素材（很小，每次都拉）
+      - name: 还原图标素材（很小，每次都拉）
         run: |
+          set -e
           if head -c 64 app/resources/icon.png | grep -q 'version https://git-lfs'; then
             git lfs pull --include="app/resources/**"
           fi
-          file app/resources/icon.png | grep -qi 'PNG' \
-            || { echo "❌ 图标素材不是有效 PNG"; exit 1; }
+          file app/resources/icon.png | grep -qi 'PNG' || { echo "❌ 图标不是 PNG"; exit 1; }
+          file app/resources/splash.png | grep -qi 'PNG' || { echo "❌ 启动图不是 PNG"; exit 1; }
 
       - uses: actions/setup-node@v4
         with:
@@ -71,6 +73,7 @@ jobs:
           xcodebuild -version
           pod --version || true
           node -v && npm -v
+          git lfs version || true
           sw_vers
 
       - name: 检查素材
@@ -78,21 +81,25 @@ jobs:
           set -e
           test -f library/manifest.json || { echo "❌ 缺少 library/manifest.json"; exit 1; }
           test -f app/package-lock.json || { echo "❌ 缺少 package-lock.json"; exit 1; }
-          test -f app/resources/icon.png || { echo "❌ 缺少 app/resources/icon.png"; exit 1; }
-          echo "书籍数: $(python3 -c "import json;print(len(json.load(open('library/manifest.json'))['books']))")"
-          du -sh library
+          BOOKS=$(python3 -c "import json;print(len(json.load(open('library/manifest.json'))['books']))")
+          echo "书籍数: $BOOKS"
+          [ "$BOOKS" -ge 180 ] || { echo "❌ 书籍数 $BOOKS < 180"; exit 1; }
 
       - name: 安装依赖
         working-directory: app
+        # 依赖树里已经没有带 install 脚本的包（sharp 已移除），跨平台安全
         run: npm ci --no-audit --no-fund
 
       - name: 组装 www
         working-directory: app
         run: |
+          set -e
           node scripts/build-www.mjs
           test -f www/index.html || { echo "❌ www/index.html 不存在"; exit 1; }
           test -f www/library/manifest.json || { echo "❌ www 里没有 library"; exit 1; }
-          du -sh www
+          WWW_MB=$(du -sm www | cut -f1)
+          echo "www = ${WWW_MB} MB"
+          [ "$WWW_MB" -ge 240 ] || { echo "❌ www 只有 ${WWW_MB} MB（应 ≥240）"; exit 1; }
 
       - name: 生成 / 同步 iOS 工程
         working-directory: app
@@ -103,17 +110,34 @@ jobs:
           fi
           npx cap sync ios
           test -d ios/App/App || { echo "❌ ios/App/App 不存在"; exit 1; }
-          ls -la ios/App | head -20
+          test -f ios/App/App/public/library/manifest.json || { echo "❌ public 里没有 library"; exit 1; }
+          du -sh ios/App/App/public
 
       - name: 打原生补丁（横屏 / 状态栏 / 音频会话）
         working-directory: app
         run: node scripts/patch-ios.mjs
 
-      - name: 生成图标与启动图
+      - name: 生成共享 scheme（模板不带）
         working-directory: app
-        run: npm run assets || echo "⚠ 图标生成失败，继续用模板默认图标"
+        run: |
+          set -e
+          python3 scripts/make_scheme.py ios/App
+          test -f ios/App/App.xcodeproj/xcshareddata/xcschemes/App.xcscheme \
+            || { echo "❌ scheme 没写出来"; exit 1; }
 
-      - name: 解析依赖（SPM 或 CocoaPods，按工程实际形态）
+      - name: 图标与启动图（纯拷贝，不用 sharp）
+        run: |
+          set -e
+          ICON=ios/App/App/Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png
+          SPL=ios/App/App/Assets.xcassets/Splash.imageset
+          cp app/resources/icon.png "$ICON"
+          for n in splash-2732x2732.png splash-2732x2732-1.png splash-2732x2732-2.png; do
+            cp app/resources/splash.png "$SPL/$n"
+          done
+          file "$ICON" | grep -qi 'PNG' || { echo "❌ 图标拷贝失败"; exit 1; }
+          ls -l "$ICON" "$SPL"
+
+      - name: 解析依赖（CocoaPods / SPM 按实际形态）
         working-directory: app/ios/App
         run: |
           set -e
@@ -127,25 +151,20 @@ jobs:
             echo "XCODE_TARGET=-project App.xcodeproj" >> "$GITHUB_ENV"
           fi
 
-      - name: 准备 scheme（模板不自带，尽量补）
+      - name: 确认 scheme 可用（不信人读格式，直接解析 JSON）
         working-directory: app/ios/App
         run: |
-          echo "--- 现有 scheme ---"
-          xcodebuild -list $XCODE_TARGET 2>&1 | tee /tmp/list.txt || true
-          sed -n '/Schemes:/,/^$/p' /tmp/list.txt || true
-          if grep -qE '^\s+App\s*$' /tmp/list.txt; then
-            echo "✓ 已有 App scheme"
-          else
-            echo "→ 未列出 App scheme，尝试生成共享 scheme"
-            ruby -e '
-              require "xcodeproj"
-              p = Xcodeproj::Project.open("App.xcodeproj")
-              p.recreate_user_schemes
-              p.save
-              Xcodeproj::XCScheme.share_scheme(".", "App")
-            ' || echo "⚠ ruby 生成失败（不中断，交给 xcodebuild 自动推断）"
-            xcodebuild -list $XCODE_TARGET 2>&1 | sed -n '/Schemes:/,/^$/p' || true
-          fi
+          set -o pipefail
+          xcodebuild -list -json $XCODE_TARGET > /tmp/list.json
+          python3 - <<'PY'
+          import json
+          d = json.load(open('/tmp/list.json'))
+          info = d.get('project') or d.get('workspace') or {}
+          schemes = info.get('schemes', [])
+          print('schemes =', schemes)
+          assert 'App' in schemes, "缺少 App scheme"
+          print('✓ scheme 检查通过')
+          PY
 
       - name: 未签名构建
         working-directory: app/ios/App
@@ -171,14 +190,23 @@ jobs:
           APP=$(find build/Build/Products/Release-iphoneos -maxdepth 1 -name '*.app' | head -1)
           echo "app: $APP"
           test -n "$APP" || { echo "❌ 没找到 .app"; tail -100 xcodebuild.log; exit 1; }
-          # Capacitor 把 webDir 拷到 App.app/public/
           test -d "$APP/public" || { echo "❌ 包里没有 public/"; exit 1; }
           test -f "$APP/public/library/manifest.json" || { echo "❌ 包里没有 library"; exit 1; }
-          du -sh "$APP" "$APP/public"
+          PUB_MB=$(du -sm "$APP/public" | cut -f1)
+          echo "public = ${PUB_MB} MB"
+          [ "$PUB_MB" -ge 240 ] || { echo "❌ public 只剩 ${PUB_MB} MB（应为真实资源，不是 LFS 指针）"; exit 1; }
+          du -sh "$APP"
           rm -rf Payload && mkdir Payload
           cp -R "$APP" Payload/
-          zip -qry ../gk-reader-unsigned.ipa Payload
+          zip -qryX ../gk-reader-unsigned.ipa Payload
           ls -lh ../gk-reader-unsigned.ipa
+
+      - name: 校验 IPA 结构（失败不拦构建，只出诊断）
+        working-directory: app/ios
+        run: |
+          python3 ../../tools/verify_ipa.py gk-reader-unsigned.ipa \
+            --expect-bundle-id com.gkreader.app --expect-books 180 \
+            --min-library-mb 240 --min-files 1900 || echo "⚠ 自检未全部通过，请看上面输出"
 
       - name: 上传产物
         uses: actions/upload-artifact@v4
@@ -186,7 +214,7 @@ jobs:
           name: gk-reader-ipa
           path: app/ios/gk-reader-unsigned.ipa
           if-no-files-found: error
-          retention-days: 30
+          retention-days: 7        # 私有仓库只有 0.5 GB 存储，255 MB 的包留 30 天必爆
 
       - name: 失败时留下日志
         if: failure()
