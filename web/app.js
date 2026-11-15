@@ -139,14 +139,37 @@ async function openBook(id) {
     return;
   }
 
-  // 音频取成 Blob：不依赖服务器 Range，WKWebView 里同样可以 seek
+  // 音频加载。两条路，按运行环境选：
+  //
+  //  · 浏览器（http/https）：fetch → Blob → objectURL。不依赖服务器 Range，
+  //    seek 最稳，也是本地测试走的路。
+  //  · Capacitor（capacitor://）：**不能走 Blob**。Capacitor 的 WebViewAssetHandler
+  //    对媒体扩展名（m4a/mp3/mp4…）返回的是普通 URLResponse 而不是 HTTPURLResponse，
+  //    于是 fetch 拿到 status=0、ok=false，`if (!res.ok) throw` 会把每一本书都判成
+  //    "音频不可用"（真机上就是这个症状）。
+  //    原生侧对媒体文件是支持 Range 的（206 + Content-Range），所以直接给 src 播即可。
   state.audioStatus = 'loading';
   const myBookId = book.id;                 // 慢网络下用来丢弃过期响应
+  // 原生外壳判定。`__GK_FORCE_NATIVE` 是给测试用的开关：浏览器里也能走一遍
+  // 原生加载路径——这条分支一旦坏掉，真机上每本书都会提示"音频不可用"，
+  // 而纯 http 环境永远测不出来。
+  const native = location.protocol === 'capacitor:' || window.__GK_FORCE_NATIVE === true;
   audioReady = (async () => {
     try {
+      if (native) {
+        if (!state.book || state.book.id !== myBookId) return;
+        if (audioUrl) { URL.revokeObjectURL(audioUrl); audioUrl = null; }
+        state.audioFile = book.audio;
+        audio.src = `${LIB}${book.audio}`;
+        audio.load();
+        applyRate();
+        state.audioStatus = 'ok';
+        return;
+      }
       const res = await fetch(`${LIB}${book.audio}`);
-      if (!res.ok) throw new Error(res.status);
+      // 媒体文件在原生侧没有 HTTP 状态码，所以判据用 blob 大小而不是 res.ok
       const blob = await res.blob();
+      if (blob.size < 1024) throw new Error(`音频响应异常 status=${res.status} size=${blob.size}`);
       if (!state.book || state.book.id !== myBookId) return;   // 已切书/已关书，丢弃
       if (audioUrl) URL.revokeObjectURL(audioUrl);
       audioUrl = URL.createObjectURL(blob);
@@ -157,6 +180,7 @@ async function openBook(id) {
       state.audioStatus = 'ok';
     } catch (e) {
       state.audioStatus = 'failed';
+      console.warn('[GK] 音频加载失败', book.audio, e && e.message);
       toast('音频加载失败');
       state.audioFile = null;
       // 必须清掉上一本的 src / blob：否则这本会播上一本的声音（实测过：

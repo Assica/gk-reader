@@ -837,6 +837,56 @@ const CASES = [
   }],
 
   // 需要看页面异常，放最后
+  // ── 原生外壳加载路径 ────────────────────────────────────
+  // 事故复盘：Capacitor 的 WebViewAssetHandler 对媒体扩展名（m4a/mp3/mp4…）
+  // 返回的是**普通 URLResponse 而不是 HTTPURLResponse**，所以 fetch 拿到
+  // status=0 / ok=false。旧代码 `if (!res.ok) throw` 于是把每本书都判成
+  // "音频不可用"——真机全废，而 110 项断言（全部跑在 http 上）一条都没红。
+  // 这里强制走一遍原生分支，把这条路径纳入回归。
+  ['T21', '原生外壳：音频走直连 src，且不依赖 HTTP 状态码', async () => {
+    const hook = await send('Page.addScriptToEvaluateOnNewDocument', {
+      source: `
+        window.__GK_FORCE_NATIVE = true;
+        // 同时模拟 Capacitor 的媒体响应语义：对 m4a 返回**没有 HTTP 状态码**的响应
+        // （status=0 / ok=false）。这正是真机上触发"音频不可用"的那个条件。
+        (() => {
+          const orig = window.fetch;
+          window.fetch = async (u, o) => {
+            const r = await orig(u, o);
+            if (String(u).includes('/library/audio/')) {
+              return { ok: false, status: 0, blob: () => r.blob() };
+            }
+            return r;
+          };
+        })();
+      `,
+    });
+    try {
+      await openBook('GK-001', 0);
+      await until('window.__GK.state.audioStatus === "ok"', '原生路径音频就绪', 15000);
+      eq('T21.1', '原生路径下 audioStatus 为 ok', await js('window.__GK.state.audioStatus'), 'ok');
+      const src = await js('window.__GK.audio.getAttribute("src")');
+      truthy('T21.2', '音频 src 是直连地址（不是 blob:）',
+        /\/library\/audio\//.test(src || '') && !/^blob:/.test(src || ''), `src=${src}`);
+      truthy('T21.3', '元数据已解析（duration > 0）',
+        (await js('window.__GK.audio.duration')) > 0.1,
+        `duration=${await js('window.__GK.audio.duration')}`);
+      // 关键回归：点词要能真的播（旧代码在这里直接弹"音频不可用"）
+      const s = await snap();
+      const c = wordCenter(s, 0);
+      await clickAt(c.x, c.y);
+      await sleep(120);
+      const mid = await snap();
+      truthy('T21.4', '点词能开始播放', mid.paused === false || mid.t > 0,
+        `paused=${mid.paused} t=${mid.t}`);
+      eq('T21.5', '没有出现"音频不可用"提示',
+        (await js('(document.getElementById("toast")||{}).textContent||""')).includes('音频不可用'), false);
+    } finally {
+      await send('Page.removeScriptToEvaluateOnNewDocument', { identifier: hook.identifier });
+    }
+  }],
+
+  // 需要看页面异常，放最后
   ['T11', '全程无未捕获异常', async () => {
     eq('T11.1', '没有页面异常', pageErrors.slice(0, 5), []);
   }],

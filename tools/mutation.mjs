@@ -58,6 +58,13 @@ const MUTATIONS = [
     apply: (s) => s.replace(/(function stopPlayback\(\) \{[\s\S]*?)audio\.pause\(\);/, '$1'),
   },
   {
+    id: 'M15', name: '原生路径退回 fetch+res.ok（真机音频不可用的那个 bug）',
+    expect: 'T21 应红',
+    apply: (s) => s.replace(
+      "const native = location.protocol === 'capacitor:' || window.__GK_FORCE_NATIVE === true;",
+      'const native = false;'),
+  },
+  {
     id: 'M9', name: '语速只改按钮文字、不改实际速率', expect: 'T8 应红',
     apply: (s) => s.replace('audio.playbackRate = state.rate;', '/* rate not applied */'),
   },
