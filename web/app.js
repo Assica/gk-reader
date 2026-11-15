@@ -182,6 +182,12 @@ function showPage(i, autoplay = false) {
     layoutOverlay(p);
     requestAnimationFrame(() => layoutOverlay(p));
   });
+  // 页图加载失败时 onload 永不触发，overlay 就永远不布局 —— 表现为"点图没反应"。
+  // 明确提示，别让它变成无声的坏页。
+  img.onerror = () => {
+    toast(`第 ${i + 1} 页图片加载失败`);
+    console.warn('[GK] 页图加载失败', p.image);
+  };
   img.src = `${LIB}${p.image}`;
   if (img.complete && img.naturalWidth) {
     requestAnimationFrame(() => {
